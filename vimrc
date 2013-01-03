@@ -16,9 +16,14 @@ set number
 autocmd FileType make setlocal noexpandtab
 
 " Colorscheme
+if $TERM == 'linux'
+    set t_Co=16
+    let g:solarized_termtrans=1
+    let g:solarized_termcolors=16
+endif
 set background=dark
 colorscheme solarized
-
+    
 " Statusline
 set statusline =%#identifier#
 set statusline+=[%t]    "tail of the filename
