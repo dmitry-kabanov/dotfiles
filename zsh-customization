@@ -1,0 +1,12 @@
+# Aliases
+#alias -g l="| less"
+alias zshconfig="vim ~/.zsh-customization"
+alias zshrestart="source ~/.zshrc"
+
+if [ -d ~/Dev ]; then
+    export DEV=~/Dev
+else
+    export DEV=~/dev
+fi
+export UWHPSC=$DEV/uwhpsc
+export MYHPSC=$DEV/myhpsc
