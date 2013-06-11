@@ -12,6 +12,7 @@ set autoindent
 
 syntax enable
 set number
+set encoding=utf-8
 
 autocmd FileType make setlocal noexpandtab
 
