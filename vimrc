@@ -48,3 +48,8 @@ set statusline+=%=      "left/right separator
 set statusline+=[col\ %c]     "cursor column
 set statusline+=\ [line\ %l/%L]   "cursor line/total lines
 set laststatus=2
+
+" Shortcut for rapidly toggle 'set list'
+nmap <leader>l :set list!<CR>
+" Custom symbols for invisible symbols such as tab and EOL
+set listchars=tab:»\ ,eol:¬
