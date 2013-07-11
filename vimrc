@@ -12,7 +12,6 @@ set tabstop=4
 set softtabstop=4
 set autoindent
 
-syntax enable
 set number
 set encoding=utf-8
 
