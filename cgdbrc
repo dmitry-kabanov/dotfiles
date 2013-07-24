@@ -1,0 +1,3 @@
+set arrowstyle=long
+
+highlight SelectedLineNr ctermfg=White ctermbg=Black
