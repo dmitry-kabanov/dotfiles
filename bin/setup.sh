@@ -38,3 +38,7 @@ git clone git://github.com/tpope/vim-fugitive.git
 # Install vim-solarized
 cd ~/.vim/bundle
 git clone git://github.com/altercation/vim-colors-solarized.git
+
+# Install vim-capslock
+cd ~/.vim/bundle
+git clone git://github.com/tpope/vim-capslock.git
