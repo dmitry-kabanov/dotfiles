@@ -6,6 +6,7 @@ function e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
 e_header "Setting up git config"
 git config --global user.name "Dmitry Kabanov"
 git config --global user.email kabanovdmitry@gmail.com
+git config --global color.ui auto
 e_success "git config is successfull"
 
 e_header "Linking files into home directory"
