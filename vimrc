@@ -50,6 +50,8 @@ if $TERM == 'screen-256color'
 endif
 set background=dark
 colorscheme solarized
+
+set cursorline
     
 " Statusline
 set statusline =%#identifier#
