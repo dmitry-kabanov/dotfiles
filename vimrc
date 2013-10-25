@@ -52,6 +52,9 @@ set background=dark
 colorscheme solarized
 
 set cursorline
+if v:version >= 703
+    set colorcolumn=80
+endif
     
 " Statusline
 set statusline =%#identifier#
