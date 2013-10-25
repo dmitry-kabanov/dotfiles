@@ -37,6 +37,11 @@ if $TERM == 'linux'
     let g:solarized_termtrans=1
     let g:solarized_termcolors=16
 endif
+if $TERM == 'xterm'
+    set t_Co=16
+    let g:solarized_termtrans=1
+    let g:solarized_termcolors=16
+endif
 if $COLORTERM == 'gnome-terminal'
     let g:solarized_termtrans=1
 endif
