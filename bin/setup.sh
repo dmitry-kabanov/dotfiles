@@ -23,3 +23,18 @@ for dotfile in $dotfiles; do
         e_success "Linked successfully: $dotfile"
     fi
 done
+
+mkdir -p ~/.vim/tmp
+
+# Instal vim-pathogen
+mkdir -p ~/.vim/autoload ~/.vim/bundle;
+curl -Sso ~/.vim/autoload/pathogen.vim \
+    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+
+# Install vim-fugitive
+cd ~/.vim/bundle
+git clone git://github.com/tpope/vim-fugitive.git
+
+# Install vim-solarized
+cd ~/.vim/bundle
+git clone git://github.com/altercation/vim-colors-solarized.git
