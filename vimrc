@@ -45,6 +45,11 @@ if $TERM == 'screen-256color'
 endif
 set background=dark
 colorscheme solarized
+
+" Font
+if has("gui_macvim")
+    set guifont=Menlo:h18
+endif
     
 " Statusline
 set statusline =%#identifier#
