@@ -102,3 +102,8 @@ if !exists(":DiffOrig")
 endif
 
 set wildignore+=*.o     " ignore .o   files for filename completion
+
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
