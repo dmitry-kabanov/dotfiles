@@ -60,7 +60,7 @@ if has("gui_macvim")
 endif
 
 if has("gui_gtk2")
-    set guifont=Cousine:h18
+    set guifont=Cousine\ 14
 endif
 
 set cursorline
