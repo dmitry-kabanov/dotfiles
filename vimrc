@@ -59,6 +59,10 @@ if has("gui_macvim")
     set guifont=Menlo:h18
 endif
 
+if has("gui_gtk2")
+    set guifont=Cousine:h18
+endif
+
 set cursorline
 if v:version >= 703
     set colorcolumn=80
