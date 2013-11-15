@@ -20,6 +20,9 @@ autocmd FileType make setlocal noexpandtab
 set backupdir=~/.vim/tmp
 set dir=~/.vim/tmp
 
+" Allow to switch between buffers.
+set hidden
+
 " Turn on syntax highlighting
 if &t_Co > 2 || has("gui_running")
     syntax on
