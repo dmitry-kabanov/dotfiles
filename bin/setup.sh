@@ -26,6 +26,7 @@ for dotfile in $dotfiles; do
     fi
 done
 
+# Create tmp directory for Vim backup files.
 mkdir -p ~/.vim/tmp
 
 # Instal vim-pathogen
