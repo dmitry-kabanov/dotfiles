@@ -44,3 +44,7 @@ git clone git://github.com/altercation/vim-colors-solarized.git
 # Install vim-capslock
 cd ~/.vim/bundle
 git clone git://github.com/tpope/vim-capslock.git
+
+# Install syntastic
+cd ~/.vim/bundle
+git clone https://github.com/scrooloose/syntastic.git
