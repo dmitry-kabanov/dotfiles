@@ -2,6 +2,11 @@
 set nocompatible
 
 call pathogen#infect()
+
+" Turn on syntax highlighting.
+syntax on
+
+" Enable file type detection and do language-dependent indenting.
 filetype plugin indent on
 " For all text files set 'textwidth' to 78 characters.
 autocmd FileType text setlocal textwidth=78
@@ -24,11 +29,6 @@ set dir=~/.vim/tmp
 
 " Allow to switch between buffers even if the current buffer is modified.
 set hidden
-
-" Turn on syntax highlighting
-if &t_Co > 2 || has("gui_running")
-    syntax on
-endif
 
 " Search options
 if &t_Co > 2 || has("gui_running")
