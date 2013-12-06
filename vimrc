@@ -1,3 +1,4 @@
+" Use Vim settings, rather than Vi settings.
 set nocompatible
 
 call pathogen#infect()
@@ -15,12 +16,13 @@ set autoindent
 set number
 set encoding=utf-8
 
+" Disable tab character expansion for makefiles.
 autocmd FileType make setlocal noexpandtab
 
 set backupdir=~/.vim/tmp
 set dir=~/.vim/tmp
 
-" Allow to switch between buffers.
+" Allow to switch between buffers even if the current buffer is modified.
 set hidden
 
 " Turn on syntax highlighting
@@ -32,7 +34,9 @@ endif
 if &t_Co > 2 || has("gui_running")
     set hlsearch
 endif
-set incsearch " incremental search
+
+" Turn on incremental search.
+set incsearch
 
 " Colorscheme
 if $TERM == 'linux'
