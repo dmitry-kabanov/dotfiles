@@ -8,8 +8,9 @@ syntax on
 
 " Enable file type detection and do language-dependent indenting.
 filetype plugin indent on
+
 " For all text files set 'textwidth' to 78 characters.
-autocmd FileType text setlocal textwidth=78
+autocmd FileType text setlocal textwidth=80
 
 " Indentation
 set expandtab
