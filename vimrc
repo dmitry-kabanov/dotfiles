@@ -129,3 +129,5 @@ let g:airline_powerline_fonts = 1
 " Set timeouts for key codes and mapped key sequences.
 set timeout timeoutlen=3000 ttimeoutlen=50
 
+" Turn off showing current mode in commdand line.
+set noshowmode
