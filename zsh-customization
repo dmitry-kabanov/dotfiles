@@ -1,5 +1,7 @@
 # Aliases
-#alias -g l="| less"
+alias -g L="| less"
+alias -g LL="2>&1 | less"
+alias -g C="| wc -l"
 alias zshconfig="vim ~/.zsh-customization"
 alias zshrestart="source ~/.zshrc"
 
