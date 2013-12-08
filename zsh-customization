@@ -5,6 +5,7 @@ alias -g C="| wc -l"
 alias zshconfig="vim ~/.zsh-customization"
 alias zshrestart="source ~/.zshrc"
 
+# ZSH options.
 setopt extendedglob
 
 man() {
