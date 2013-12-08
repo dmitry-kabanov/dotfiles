@@ -5,6 +5,9 @@ alias -g C="| wc -l"
 alias zshconfig="vim ~/.zsh-customization"
 alias zshrestart="source ~/.zshrc"
 
+# Set environment variables.
+export dev=~/dev
+
 # ZSH options.
 setopt extendedglob
 
