@@ -8,6 +8,8 @@ alias zshrestart="source ~/.zshrc"
 export UWHPSC=$DEV/uwhpsc
 export MYHPSC=$DEV/myhpsc
 
+setopt extendedglob
+
 man() {
     env LESS_TERMCAP_mb=$(printf "\e[1;31m") \
     LESS_TERMCAP_md=$(printf "\e[1;31m") \
