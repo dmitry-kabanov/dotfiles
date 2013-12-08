@@ -5,9 +5,6 @@ alias -g C="| wc -l"
 alias zshconfig="vim ~/.zsh-customization"
 alias zshrestart="source ~/.zshrc"
 
-export UWHPSC=$DEV/uwhpsc
-export MYHPSC=$DEV/myhpsc
-
 setopt extendedglob
 
 man() {
