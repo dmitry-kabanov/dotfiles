@@ -8,6 +8,7 @@ alias zshrestart="source ~/.zshrc"
 
 # Set environment variables.
 export dev=~/dev
+export EDITOR=vim
 
 # ZSH options.
 setopt extendedglob
