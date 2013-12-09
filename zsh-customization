@@ -7,7 +7,7 @@ alias zshconfig="vim ~/.zsh-customization"
 alias zshrestart="source ~/.zshrc"
 
 # Set environment variables.
-export dev=~/dev
+export DEV=~/dev
 export EDITOR=vim
 
 # ZSH options.
