@@ -3,11 +3,11 @@ set nocompatible
 
 call pathogen#infect()
 
-" Turn on syntax highlighting.
-syntax on
-
 " Enable file type detection and do language-dependent indenting.
 filetype plugin indent on
+
+" Turn on syntax highlighting.
+syntax on
 
 " For all text files set 'textwidth' to 78 characters.
 autocmd FileType text setlocal textwidth=80
