@@ -12,6 +12,9 @@ syntax on
 " For all text files set 'textwidth' to 78 characters.
 autocmd FileType text setlocal textwidth=80
 
+" Set backspace key to function as expected.
+set backspace=indent,eol,start
+
 " Indentation
 set expandtab
 set shiftwidth=4
