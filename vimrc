@@ -126,6 +126,9 @@ nnoremap <silent> ]B :blast<CR>
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+set wildmenu
+set wildmode=full
+
 let g:syntastic_python_checkers=['pyflakes']
 
 " Setup vim-airline plugin.
