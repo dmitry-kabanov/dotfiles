@@ -104,7 +104,7 @@ endif
 set laststatus=2
 
 " Shortcut for rapidly toggle 'set list'
-nmap <leader>l :set list!<CR>
+nmap <Leader>l :set list!<CR>
 " Custom symbols for invisible symbols such as tab and EOL
 set listchars=tab:»\ ,eol:¬
 
