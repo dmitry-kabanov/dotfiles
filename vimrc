@@ -9,7 +9,7 @@ filetype plugin indent on
 " Turn on syntax highlighting.
 syntax on
 
-" For all text files set 'textwidth' to 78 characters.
+" For all text files set 'textwidth' to 80 characters.
 autocmd FileType text setlocal textwidth=80
 
 " Set backspace key to function as expected.
