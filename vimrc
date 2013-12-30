@@ -26,8 +26,6 @@ set smartindent
 set number
 set encoding=utf-8
 
-" Disable tab character expansion for makefiles.
-autocmd FileType make setlocal noexpandtab
 
 set backupdir=~/.vim/tmp
 set dir=~/.vim/tmp
