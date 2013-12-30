@@ -139,3 +139,12 @@ set timeout timeoutlen=3000 ttimeoutlen=50
 
 " Turn off showing current mode in commdand line.
 set noshowmode
+
+" Options for supertab plugin.
+let g:SuperTabDefaultCompletionType = "context"
+
+" Options for vim-snipmate plugin.
+" Actually, next two settings set C-Space to trigger snippet expansion.
+imap <C-@> <Plug>snipMateNextOrTrigger
+smap <C-@> <Plug>snipMateNextOrTrigger
+
