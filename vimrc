@@ -26,6 +26,8 @@ set smartindent
 set number
 set encoding=utf-8
 
+" Set minimal number of screen lines to keep above and below the cursor.
+set scrolloff=1
 
 set backupdir=~/.vim/tmp
 set dir=~/.vim/tmp
