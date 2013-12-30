@@ -116,7 +116,8 @@ if !exists(":DiffOrig")
           \ | wincmd p | diffthis
 endif
 
-set wildignore+=*.o     " ignore .o   files for filename completion
+" Ignore .o files for filename completion
+set wildignore+=*.o
 
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
