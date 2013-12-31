@@ -132,7 +132,15 @@ set wildmode=full
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
 
-let g:syntastic_python_checkers=['pyflakes']
+" Options for syntastic plugin.
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_aggregate_error = 1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '✗'
+let g:syntastic_stl_format = 'Syntastic: %F (%t)'
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_tex_checkers = ['lacheck']
 
 " Setup vim-airline plugin.
 let g:airline_powerline_fonts = 1
