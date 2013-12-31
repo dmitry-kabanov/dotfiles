@@ -144,6 +144,12 @@ let g:syntastic_tex_checkers = ['lacheck']
 
 " Setup vim-airline plugin.
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_section_z = '%3p%% %4l%#__restore__#:%3c'
 
 " Set timeouts for key codes and mapped key sequences.
 set timeout timeoutlen=3000 ttimeoutlen=50
