@@ -157,3 +157,11 @@ set timeout timeoutlen=3000 ttimeoutlen=50
 " Turn off showing current mode in commdand line.
 set noshowmode
 
+" Options for Latex-Box plugin.
+let g:LatexBox_latexmk_async = 0
+let g:LatexBox_latexmk_preview_continuously = 1
+" Quickfix window is opened automatically if not empty
+" but cursor stays in current window.
+let g:LatexBox_quickfix = 2
+let g:LatexBox_output_type = "pdf"
+let g:LatexBox_viewer = "open -a Skim"
