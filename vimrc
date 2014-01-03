@@ -141,7 +141,7 @@ let g:airline_section_z = '%3p%% %4l%#__restore__#:%3c'
 let g:UltiSnipsExpandTrigger="<C-@>"
 let g:UltiSnipsJumpForwardTrigger = "<C-@>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-S-@>"
-inoremap <C-J> <C-R>=UltiSnips_ListSnippets()<CR>
+noremap <Leader>lus :<C-R>=UltiSnips_ListSnippets()<CR>
 
 " Set timeouts for key codes and mapped key sequences.
 set timeout timeoutlen=3000 ttimeoutlen=50
