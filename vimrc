@@ -106,8 +106,17 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 set wildmenu
 set wildmode=full
 
-cnoremap <C-P> <Up>
+
+" Emacs-style editing on the command line.
+cnoremap <C-A> <Home>
+cnoremap <C-B> <Left>
+cnoremap <C-D> <Del>
+cnoremap <C-E> <End>
+cnoremap <C-F> <Right>
 cnoremap <C-N> <Down>
+cnoremap <C-P> <Up>
+cnoremap <Esc><C-B> <S-Left>
+cnoremap <Esc><C-F> <S-Right>
 
 " Options for syntastic plugin.
 let g:syntastic_always_populate_loc_list = 0
