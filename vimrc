@@ -106,7 +106,6 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 set wildmenu
 set wildmode=full
 
-
 " Emacs-style editing on the command line.
 cnoremap <C-A> <Home>
 cnoremap <C-B> <Left>
@@ -130,7 +129,7 @@ let g:syntastic_tex_checkers = ['lacheck']
 
 " Setup vim-airline plugin.
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
