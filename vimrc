@@ -97,6 +97,9 @@ if !exists(":DiffOrig")
           \ | wincmd p | diffthis
 endif
 
+" Show partial command in the last line of the screen.
+set showcmd
+
 " Ignore .o files for filename completion
 set wildignore+=*.o
 
