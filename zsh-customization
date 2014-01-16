@@ -5,6 +5,7 @@ alias -g C="| wc -l"
 alias l='ls -lAhF'
 alias zshconfig="vim ~/.zsh-customization"
 alias zshrestart="source ~/.zshrc"
+alias tmux="tmux -2"
 
 # Set environment variables.
 export DEV=~/dev
