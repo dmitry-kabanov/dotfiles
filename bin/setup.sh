@@ -26,5 +26,10 @@ for dotfile in $dotfiles; do
     fi
 done
 
+if [ -d "~/.vim" ];
+then
+    mv ~/.vim ~/.vim.bak
+fi
 
+ln -s $DIR3/vim $HOME/.vim
 
