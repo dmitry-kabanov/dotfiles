@@ -28,6 +28,12 @@
 [submodule "vim/bundle/ultisnips"]
 	path = vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
-[submodule "vim/bundle/vim-bufferline"]
-	path = vim/bundle/vim-bufferline
-	url = https://github.com/bling/vim-bufferline.git
+[submodule "vim/bundle/vim-capslock"]
+	path = vim/bundle/vim-capslock
+	url = git://github.com/tpope/vim-capslock.git
+[submodule "vim/bundle/vim-python-pep8-indent"]
+	path = vim/bundle/vim-python-pep8-indent
+	url = https://github.com/hynek/vim-python-pep8-indent.git
+[submodule "vim/bundle/delimitMate"]
+	path = vim/bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git

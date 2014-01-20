@@ -113,7 +113,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 set wildmenu
 set wildmode=full
 
-nnoremap <Enter> :nohlsearch<CR>
+nnoremap <Leader>z :nohlsearch<CR>
 
 " Emacs-style editing on the command line.
 cnoremap <C-A> <Home>
@@ -172,3 +172,15 @@ let g:LatexBox_latexmk_preview_continuously = 1
 let g:LatexBox_quickfix = 2
 let g:LatexBox_output_type = "pdf"
 let g:LatexBox_viewer = "open -a Skim"
+
+" Options for tmuxline.vim.
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'b'    : '',
+      \'c'    : '',
+      \'win'  : '#I #W',
+      \'cwin' : '#I #W',
+      \'x'    : '',
+      \'y'    : '#(whoami)',
+      \'z'    : '#H'}
+let g:tmuxline_powerline_separators = 0
