@@ -113,7 +113,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 set wildmenu
 set wildmode=full
 
-nnoremap <Enter> :nohlsearch<CR>
+nnoremap <Leader>z :nohlsearch<CR>
 
 " Emacs-style editing on the command line.
 cnoremap <C-A> <Home>
