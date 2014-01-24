@@ -103,6 +103,11 @@ set showcmd
 " Ignore .o files for filename completion
 set wildignore+=*.o
 
+set keymap=russian-jcukengost
+set iminsert=0
+set imsearch=0
+highlight lCursor guifg=NONE guibg=yellow
+
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
