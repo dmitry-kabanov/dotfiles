@@ -145,6 +145,9 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_tex_checkers = ['lacheck']
 
 " Setup vim-airline plugin.
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
@@ -155,7 +158,13 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-let g:airline_section_z = '%3p%% %4l%#__restore__#:%3c'
+let g:airline_symbols.branch = '⎇'
+function! AirlineInit()
+    let g:airline_section_z = "%3p%% %#__accent_bold#%4l%#__restore__#:%3c"
+    " Add reminder %k when keymap is turned on.
+    let g:airline_section_warning = airline#section#create(['syntastic', 'whitespace', '%k'])
+endfunction
+autocmd VimEnter * call AirlineInit()
 
 " Options for ultisnips plugin.
 let g:UltiSnipsExpandTrigger="<C-@>"
