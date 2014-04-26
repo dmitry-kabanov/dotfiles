@@ -133,6 +133,9 @@ cnoremap <Esc><C-F> <S-Right>
 nnoremap j gj
 nnoremap k gk
 
+" Options for CtrlP plugin.
+let g:ctrlp_cmd = 'CtrlPMixed'
+
 " Options for syntastic plugin.
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_check_on_open = 1
