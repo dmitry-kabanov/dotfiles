@@ -100,6 +100,7 @@ set showcmd
 
 " Ignore .o files for filename completion
 set wildignore+=*.o
+set wildignore+=*.pyc
 
 set keymap=russian-jcukengost
 set iminsert=0
