@@ -180,7 +180,7 @@ noremap <Leader>lus :<C-R>=UltiSnips_ListSnippets()<CR>
 " Set timeouts for key codes and mapped key sequences.
 set timeout timeoutlen=3000 ttimeoutlen=50
 
-" Turn off showing current mode in commdand line.
+" Turn off showing current mode in command line.
 set noshowmode
 
 " Options for Latex-Box plugin.
