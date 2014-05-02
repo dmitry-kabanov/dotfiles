@@ -107,6 +107,9 @@ set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=yellow
 
+set spell
+set spelllang=en_us,ru
+
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
@@ -200,3 +203,6 @@ let g:tmuxline_preset = {
       \'y'    : '#(whoami)',
       \'z'    : '#H'}
 let g:tmuxline_powerline_separators = 0
+
+" Options for YouCompleteMe.
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
