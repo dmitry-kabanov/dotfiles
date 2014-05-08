@@ -180,7 +180,7 @@ noremap <Leader>lus :<C-R>=UltiSnips_ListSnippets()<CR>
 " Set timeouts for key codes and mapped key sequences.
 set timeout timeoutlen=3000 ttimeoutlen=50
 
-" Turn off showing current mode in commdand line.
+" Turn off showing current mode in command line.
 set noshowmode
 
 " Options for Latex-Box plugin.
@@ -205,4 +205,9 @@ let g:tmuxline_preset = {
 let g:tmuxline_powerline_separators = 0
 
 " Options for YouCompleteMe.
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+if has("unix")
+    let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
+endif
+if has("mac")
+    let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+endif
