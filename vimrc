@@ -102,6 +102,9 @@ set showcmd
 set wildignore+=*.o
 set wildignore+=*.pyc
 
+" Stop showing annoying preview window during autocompletion.
+set completeopt-=preview
+
 set keymap=russian-jcukengost
 set iminsert=0
 set imsearch=0
