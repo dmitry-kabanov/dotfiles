@@ -137,7 +137,7 @@ nnoremap j gj
 nnoremap k gk
 
 " Options for CtrlP plugin.
-let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_cmd = 'CtrlP'
 
 " Options for syntastic plugin.
 let g:syntastic_always_populate_loc_list = 0
