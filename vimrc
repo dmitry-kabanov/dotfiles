@@ -205,9 +205,3 @@ let g:tmuxline_preset = {
 let g:tmuxline_powerline_separators = 0
 
 " Options for YouCompleteMe.
-if has("unix")
-    let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
-endif
-if has("mac")
-    let g:ycm_path_to_python_interpreter = '/usr/bin/python'
-endif
