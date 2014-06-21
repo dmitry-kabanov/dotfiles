@@ -43,7 +43,7 @@ set incsearch
 
 " Use smart detection of case-sensitive or case-insensitive search.
 set ignorecase
-set smartcase
+set smartcase 
 
 " Colorscheme
 if $TERM == 'linux'
