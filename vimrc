@@ -146,8 +146,6 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_error = 1
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '✗'
 let g:syntastic_stl_format = 'Syntastic: %F (%t)'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_tex_checkers = ['lacheck']
@@ -162,11 +160,6 @@ let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = '⎇'
 function! AirlineInit()
     let g:airline_section_z = "%3p%% %#__accent_bold#%4l%#__restore__#:%3c"
     " Add reminder %k when keymap is turned on.
@@ -205,7 +198,7 @@ let g:tmuxline_preset = {
       \'x'    : '',
       \'y'    : '#(whoami)',
       \'z'    : '#H'}
-let g:tmuxline_powerline_separators = 0
+let g:tmuxline_powerline_separators = 1
 
 " Options for YouCompleteMe.
 let g:ycm_autoclose_preview_window_after_insertion = 1
