@@ -22,6 +22,7 @@
 [submodule "vim/bundle/YouCompleteMe"]
 	path = vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+	ignore = dirty
 [submodule "vim/bundle/latex-box"]
 	path = vim/bundle/latex-box
 	url = https://github.com/LaTeX-Box-Team/LaTeX-Box.git
