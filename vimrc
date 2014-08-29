@@ -179,38 +179,6 @@ let g:syntastic_stl_format = 'Syntastic: %F (%t)'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_tex_checkers = ['lacheck']
 
-" Setup vim-airline plugin.
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline#extensions#tabline#enabled = 0
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = ''
-let g:airline_mode_map = {
-            \ '__' : '-',
-            \ 'n'  : 'N',
-            \ 'i'  : 'I',
-            \ 'R'  : 'R',
-            \ 'c'  : 'C',
-            \ 'v'  : 'V',
-            \ 'V'  : 'V',
-            \ '' : 'V',
-            \ 's'  : 'S',
-            \ 'S'  : 'S',
-            \ '' : 'S',
-            \ }
-function! AirlineInit()
-    let g:airline_section_z = "%3p%% %#__accent_bold#%4l%#__restore__#:%3c"
-    " Add reminder %k when keymap is turned on.
-    let g:airline_section_warning = airline#section#create(['syntastic', 'whitespace', '%k'])
-endfunction
-autocmd VimEnter * call AirlineInit()
-
 " Options for ultisnips plugin.
 let g:UltiSnipsExpandTrigger="<C-@>"
 let g:UltiSnipsJumpForwardTrigger = "<C-@>"
@@ -231,18 +199,6 @@ let g:LatexBox_latexmk_preview_continuously = 1
 let g:LatexBox_quickfix = 2
 let g:LatexBox_output_type = "pdf"
 let g:LatexBox_viewer = "open -a Skim"
-
-" Options for tmuxline.vim.
-let g:tmuxline_preset = {
-      \'a'    : '#S',
-      \'b'    : '',
-      \'c'    : '',
-      \'win'  : '#I #W',
-      \'cwin' : '#I #W',
-      \'x'    : '',
-      \'y'    : '#(whoami)',
-      \'z'    : '#H'}
-let g:tmuxline_powerline_separators = 0
 
 " Options for YouCompleteMe.
 let g:ycm_autoclose_preview_window_after_insertion = 1
