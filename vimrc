@@ -22,6 +22,7 @@ Plugin 'tpope/vim-capslock'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'itchyny/lightline.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -105,9 +106,6 @@ if v:version >= 703
     set colorcolumn=80
 endif
 
-" Always show status line.
-set laststatus=2
-
 " Map <Leader> key to <Space> key
 let mapleader = "\<Space>"
 
@@ -188,9 +186,6 @@ noremap <Leader>lus :<C-R>=UltiSnips_ListSnippets()<CR>
 " Set timeouts for key codes and mapped key sequences.
 set timeout timeoutlen=3000 ttimeoutlen=50
 
-" Turn off showing current mode in command line.
-set noshowmode
-
 " Options for Latex-Box plugin.
 let g:LatexBox_latexmk_async = 0
 let g:LatexBox_latexmk_preview_continuously = 1
@@ -202,3 +197,60 @@ let g:LatexBox_viewer = "open -a Skim"
 
 " Options for YouCompleteMe.
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" Options for lightline
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [['mode', 'paste'],
+      \            ['fugitive', 'filename']],
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'MyFugitive',
+      \   'readonly': 'MyReadonly',
+      \   'modified': 'MyModified',
+      \   'filename': 'MyFilename',
+      \ }
+      \ }
+
+function! MyModified()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! MyReadonly()
+  if &filetype == "help"
+    return ""
+  elseif &readonly
+    return "⭤"
+  else
+    return ""
+  endif
+endfunction
+
+function! MyFugitive()
+  if exists("*fugitive#head")
+    let _ = fugitive#head()
+    return strlen(_) ? '⭠ '._ : ''
+  endif
+  return ''
+endfunction
+
+function! MyFilename()
+  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+       \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+" Always show status line.
+set laststatus=2
+
+" Turn off showing current mode in command line.
+set noshowmode
