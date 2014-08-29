@@ -1,7 +1,30 @@
 " Use Vim settings, rather than Vi settings.
 set nocompatible
+filetype off                  " required
 
-call pathogen#infect()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'morhetz/gruvbox'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'SirVer/ultisnips'
+Plugin 'tpope/vim-capslock'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-fugitive'
+Plugin 'hynek/vim-python-pep8-indent'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
 
 " Enable file type detection and do language-dependent indenting.
 filetype plugin indent on
@@ -32,6 +55,9 @@ set dir=~/.vim/tmp
 
 " Allow to switch between buffers even if the current buffer is modified.
 set hidden
+
+" Enable visual bell instead of beepeing
+set visualbell
 
 " Search options
 if &t_Co > 2 || has("gui_running")
@@ -81,6 +107,9 @@ endif
 
 " Always show status line.
 set laststatus=2
+
+" Map <Leader> key to <Space> key
+let mapleader = "\<Space>"
 
 " Shortcut for rapidly toggle 'set list'
 nmap <Leader>l :set list!<CR>
@@ -155,11 +184,26 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline_mode_map = {
+            \ '__' : '-',
+            \ 'n'  : 'N',
+            \ 'i'  : 'I',
+            \ 'R'  : 'R',
+            \ 'c'  : 'C',
+            \ 'v'  : 'V',
+            \ 'V'  : 'V',
+            \ '' : 'V',
+            \ 's'  : 'S',
+            \ 'S'  : 'S',
+            \ '' : 'S',
+            \ }
 function! AirlineInit()
     let g:airline_section_z = "%3p%% %#__accent_bold#%4l%#__restore__#:%3c"
     " Add reminder %k when keymap is turned on.
@@ -198,7 +242,7 @@ let g:tmuxline_preset = {
       \'x'    : '',
       \'y'    : '#(whoami)',
       \'z'    : '#H'}
-let g:tmuxline_powerline_separators = 1
+let g:tmuxline_powerline_separators = 0
 
 " Options for YouCompleteMe.
 let g:ycm_autoclose_preview_window_after_insertion = 1
