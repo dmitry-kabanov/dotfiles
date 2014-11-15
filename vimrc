@@ -110,6 +110,8 @@ endif
 " Map <Leader> key to <Space> key
 let mapleader = "\<Space>"
 
+nmap <Leader>s :update<CR>
+
 " Shortcut for rapidly toggle 'set list'
 nmap <Leader>l :set list!<CR>
 " Custom symbols for invisible symbols such as tab and EOL
