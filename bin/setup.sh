@@ -16,7 +16,7 @@ cd $DIR
 DIR2=$(pwd)
 DIR3=$(dirname $DIR2)
 
-dotfiles="vimrc tmux.conf zsh-customization cgdbrc"
+dotfiles="vimrc tmux.conf zsh-customization cgdbrc aspell.en.pws aspell.en.prepl"
 for dotfile in $dotfiles; do
     if [ -f $HOME/.$dotfile ]; then
         e_error "$dotfile exists in the home directory already."
