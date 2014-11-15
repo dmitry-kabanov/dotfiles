@@ -52,8 +52,8 @@ set encoding=utf-8
 " Set minimal number of screen lines to keep above and below the cursor.
 set scrolloff=1
 
-set backupdir=~/.vim/tmp
-set dir=~/.vim/tmp
+set backupdir=~/.vim/tmp//
+set directory=~/.vim/tmp//
 
 " Allow to switch between buffers even if the current buffer is modified.
 set hidden
