@@ -166,8 +166,6 @@ cnoremap <C-P> <Up>
 cnoremap <Esc><C-B> <S-Left>
 cnoremap <Esc><C-F> <S-Right>
 
-nnoremap j gj
-nnoremap k gk
 
 " Options for CtrlP plugin.
 let g:ctrlp_cmd = 'CtrlP'
