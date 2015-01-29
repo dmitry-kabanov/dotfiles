@@ -166,6 +166,11 @@ cnoremap <C-P> <Up>
 cnoremap <Esc><C-B> <S-Left>
 cnoremap <Esc><C-F> <S-Right>
 
+" Always show status line.
+set laststatus=2
+
+" Turn off showing current mode in command line.
+set noshowmode
 
 " Options for CtrlP plugin.
 let g:ctrlp_cmd = 'CtrlP'
