@@ -1,7 +1,32 @@
 " Use Vim settings, rather than Vi settings.
 set nocompatible
+filetype off                  " required
 
-call pathogen#infect()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'morhetz/gruvbox'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'tpope/vim-capslock'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-fugitive'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'bling/vim-airline'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
 
 " Enable file type detection and do language-dependent indenting.
 filetype plugin indent on
@@ -27,11 +52,14 @@ set encoding=utf-8
 " Set minimal number of screen lines to keep above and below the cursor.
 set scrolloff=1
 
-set backupdir=~/.vim/tmp
-set dir=~/.vim/tmp
+set backupdir=~/.vim/tmp//
+set directory=~/.vim/tmp//
 
 " Allow to switch between buffers even if the current buffer is modified.
 set hidden
+
+" Enable visual bell instead of beepeing
+set visualbell
 
 " Search options
 if &t_Co > 2 || has("gui_running")
@@ -43,7 +71,7 @@ set incsearch
 
 " Use smart detection of case-sensitive or case-insensitive search.
 set ignorecase
-set smartcase 
+set smartcase
 
 " Colorscheme
 if $TERM == 'linux'
@@ -79,8 +107,10 @@ if v:version >= 703
     set colorcolumn=80
 endif
 
-" Always show status line.
-set laststatus=2
+" Map <Leader> key to <Space> key
+let mapleader = "\<Space>"
+
+nmap <Leader>s :update<CR>
 
 " Shortcut for rapidly toggle 'set list'
 nmap <Leader>l :set list!<CR>
@@ -136,8 +166,11 @@ cnoremap <C-P> <Up>
 cnoremap <Esc><C-B> <S-Left>
 cnoremap <Esc><C-F> <S-Right>
 
-nnoremap j gj
-nnoremap k gk
+" Always show status line.
+set laststatus=2
+
+" Turn off showing current mode in command line.
+set noshowmode
 
 " Options for CtrlP plugin.
 let g:ctrlp_cmd = 'CtrlP'
@@ -150,23 +183,6 @@ let g:syntastic_stl_format = 'Syntastic: %F (%t)'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_tex_checkers = ['lacheck']
 
-" Setup vim-airline plugin.
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = ''
-function! AirlineInit()
-    let g:airline_section_z = "%3p%% %#__accent_bold#%4l%#__restore__#:%3c"
-    " Add reminder %k when keymap is turned on.
-    let g:airline_section_warning = airline#section#create(['syntastic', 'whitespace', '%k'])
-endfunction
-autocmd VimEnter * call AirlineInit()
-
 " Options for ultisnips plugin.
 let g:UltiSnipsExpandTrigger="<C-@>"
 let g:UltiSnipsJumpForwardTrigger = "<C-@>"
@@ -175,9 +191,6 @@ noremap <Leader>lus :<C-R>=UltiSnips_ListSnippets()<CR>
 
 " Set timeouts for key codes and mapped key sequences.
 set timeout timeoutlen=3000 ttimeoutlen=50
-
-" Turn off showing current mode in command line.
-set noshowmode
 
 " Options for Latex-Box plugin.
 let g:LatexBox_latexmk_async = 0
@@ -188,17 +201,23 @@ let g:LatexBox_quickfix = 2
 let g:LatexBox_output_type = "pdf"
 let g:LatexBox_viewer = "open -a Skim"
 
-" Options for tmuxline.vim.
-let g:tmuxline_preset = {
-      \'a'    : '#S',
-      \'b'    : '',
-      \'c'    : '',
-      \'win'  : '#I #W',
-      \'cwin' : '#I #W',
-      \'x'    : '',
-      \'y'    : '#(whoami)',
-      \'z'    : '#H'}
-let g:tmuxline_powerline_separators = 1
-
 " Options for YouCompleteMe.
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" Options for vim-airline
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_powerline_fonts=0
+let g:airline_mode_map = {
+  \ '__' : '-',
+  \ 'n'  : 'N',
+  \ 'i'  : 'I',
+  \ 'R'  : 'R',
+  \ 'c'  : 'C',
+  \ 'v'  : 'V',
+  \ 'V'  : 'SV',
+  \ '' : '^V',
+  \ 's'  : 'S',
+  \ 'S'  : 'SS',
+  \ '' : '^S',
+  \ }
