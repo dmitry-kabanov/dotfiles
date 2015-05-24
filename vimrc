@@ -103,7 +103,7 @@ if has("gui_gtk2")
 endif
 
 set cursorline
-if v:version >= 703
+if exists("+colorcolumn")
     set colorcolumn=80
 endif
 
