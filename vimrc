@@ -203,6 +203,7 @@ let g:LatexBox_viewer = "open -a Skim"
 
 " Options for YouCompleteMe.
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_path_to_python_interpreter = "/usr/bin/python"
 
 " Options for vim-airline
 let g:airline_left_sep=''
