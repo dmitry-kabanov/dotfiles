@@ -8,9 +8,11 @@ alias zshrestart="source ~/.zshrc"
 alias tmux="tmux -2"
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+alias timepython='/usr/bin/time -p python'
 
 # Set environment variables.
 export dev=~/dev
+export notes=~/Dropbox/Documents/Notes
 export EDITOR=vim
 
 # ZSH options.
