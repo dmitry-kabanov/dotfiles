@@ -37,7 +37,7 @@ syntax on
 " For all text files set 'textwidth' to 80 characters.
 autocmd FileType text setlocal textwidth=80
 
-" Set backspace key to function as expected.
+" Backspace over autoindent, line breaks, start of insert.
 set backspace=indent,eol,start
 
 " Indentation
