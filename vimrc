@@ -14,7 +14,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'morhetz/gruvbox'
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'lervag/vimtex'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'SirVer/ultisnips'
@@ -222,3 +222,6 @@ let g:airline_mode_map = {
   \ 'S'  : 'SS',
   \ '' : '^S',
   \ }
+
+" Options for vimtex.
+let g:vimtex_fold_enabled = 0
