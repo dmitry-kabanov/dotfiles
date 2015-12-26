@@ -1,7 +1,13 @@
+"
+" vim:fdm=marker
+
+" Preamble - nocompatible {{{
 " Use Vim settings, rather than Vi settings.
 set nocompatible
 filetype off                  " required
+" }}}
 
+" Vundle and plugins {{{
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -24,10 +30,15 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'bling/vim-airline'
+Plugin 'drmingdrmer/vim-syntax-markdown'
+Plugin 'chriskempson/base16-vim'
+Plugin 'tmux-plugins/vim-tmux'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+" }}}
 
+" Options for editor itself {{{
 " Enable file type detection and do language-dependent indenting.
 filetype plugin indent on
 
@@ -74,8 +85,10 @@ set ignorecase
 set smartcase
 
 " Colorscheme
-set background=dark
-colorscheme solarized
+if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
+endif
 
 " Font
 if has("gui_macvim")
@@ -156,27 +169,31 @@ set laststatus=2
 " Turn off showing current mode in command line.
 set noshowmode
 
-" Options for CtrlP plugin.
-let g:ctrlp_cmd = 'CtrlP'
+" Set timeouts for key codes and mapped key sequences.
+set timeout timeoutlen=3000 ttimeoutlen=50
+" }}}
 
-" Options for syntastic plugin.
+" CtrlP plugin {{{
+let g:ctrlp_cmd = 'CtrlP'
+" }}}
+
+" Options for syntastic plugin {{{
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_error = 1
 let g:syntastic_stl_format = 'Syntastic: %F (%t)'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_tex_checkers = ['lacheck']
+" }}}
 
-" Options for ultisnips plugin.
-let g:UltiSnipsExpandTrigger="<C-@>"
+" Options for ultisnips plugin {{{
+let g:UltiSnipsExpandTrigger="<C-Space>"
 let g:UltiSnipsJumpForwardTrigger = "<C-@>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-S-@>"
 noremap <Leader>lus :<C-R>=UltiSnips_ListSnippets()<CR>
+" }}}
 
-" Set timeouts for key codes and mapped key sequences.
-set timeout timeoutlen=3000 ttimeoutlen=50
-
-" Options for Latex-Box plugin.
+" Options for Latex-Box plugin {{{
 let g:LatexBox_latexmk_async = 0
 let g:LatexBox_latexmk_preview_continuously = 1
 " Quickfix window is opened automatically if not empty
@@ -184,12 +201,14 @@ let g:LatexBox_latexmk_preview_continuously = 1
 let g:LatexBox_quickfix = 2
 let g:LatexBox_output_type = "pdf"
 let g:LatexBox_viewer = "open -a Skim"
+" }}}
 
-" Options for YouCompleteMe.
+" Options for YouCompleteMe {{{
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_path_to_python_interpreter = "/usr/bin/python"
+" }}}
 
-" Options for vim-airline
+" Options for vim-airline {{{
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_powerline_fonts=0
@@ -206,3 +225,4 @@ let g:airline_mode_map = {
   \ 'S'  : 'SS',
   \ '' : '^S',
   \ }
+" }}}
