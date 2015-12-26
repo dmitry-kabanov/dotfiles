@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+case "$1" in
+    d)
+        tmux source-file ~/.tmux.statusline.dark
+        ;;
+    l)
+        tmux source-file ~/.tmux.statusline.light
+        ;;
+esac 
