@@ -3,3 +3,5 @@ vim/.netrwhist
 vim/tmp/*
 vim/spell/*.spl
 vim/bundle/*
+
+tmux/*
