@@ -5,10 +5,10 @@ alias -g C="| wc -l"
 alias l='ls -lAhF'
 alias zshconfig="vim ~/.zsh-customization"
 alias zshrestart="source ~/.zshrc"
-alias tmux="tmux -2"
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias timepython='/usr/bin/time -p python'
+alias posixtime='/usr/bin/time -p'
 
 # Set environment variables.
 export dev=~/dev
