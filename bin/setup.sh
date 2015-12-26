@@ -71,3 +71,7 @@ if [[ `tmux -V` == *1.9* || `tmux -V` == *2.0* ]]; then
 else
     echo tmux version is outdated. Cannot install tmux plugin manager.
 fi
+
+# Installing zsh-autoenv
+echo Installing zsh-autoenv
+git clone https://github.com/Tarrasch/zsh-autoenv ~/.config/zsh-autoenv
