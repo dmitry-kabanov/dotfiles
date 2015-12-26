@@ -1,0 +1,11 @@
+! Configuration for xterm is based on Archlinux Wiki page.
+xterm*termName: xterm-256color
+
+! xterm should interpret all incoming data as UTF-8 encoded.
+XTerm*locale: true
+
+! Fix the 'Alt' key
+XTerm*metaSendsEscape: true
+
+! Font settings
+xterm*faceName: Hack:size=11:antialias=true
