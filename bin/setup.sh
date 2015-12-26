@@ -19,7 +19,7 @@ e_header "Linking files into home directory"
 
 declare -a dotfiles=(vimrc tmux.conf tmux.background.chooser
     tmux.statusline.dark tmux.statusline.light
-    zsh-customization cgdbrc aspell.en.pws aspell.en.prepl)
+    zsh-customization cgdbrc aspell.en.pws aspell.en.prepl Xresources)
 
 for dotfile in ${dotfiles[@]}; do
     if [ -L $HOME/.$dotfile ]; then
