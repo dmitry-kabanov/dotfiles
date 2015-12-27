@@ -20,7 +20,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'morhetz/gruvbox'
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'lervag/vimtex'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'SirVer/ultisnips'
@@ -33,6 +33,7 @@ Plugin 'bling/vim-airline'
 Plugin 'drmingdrmer/vim-syntax-markdown'
 Plugin 'chriskempson/base16-vim'
 Plugin 'tmux-plugins/vim-tmux'
+Plugin 'junegunn/vim-easy-align'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -226,3 +227,6 @@ let g:airline_mode_map = {
   \ '' : '^S',
   \ }
 " }}}
+
+" Options for vimtex.
+let g:vimtex_fold_enabled = 0
