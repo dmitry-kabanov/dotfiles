@@ -2,7 +2,11 @@
 alias -g L="| less"
 alias -g LL="2>&1 | less"
 alias -g C="| wc -l"
-alias l='ls -lAhF'
+# ls arguments:
+# -A: --almost-all do not list . and ..
+# -h: --human-readable with -l, print sizes in human-readable format
+# -F: --classify append indicator to entries to emphasize their type
+alias ll='ls -lAhF'
 alias zshconfig="vim ~/.zsh-customization"
 alias zshrestart="source ~/.zshrc"
 alias ....='cd ../../..'
