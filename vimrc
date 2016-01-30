@@ -93,9 +93,12 @@ set ignorecase
 set smartcase
 
 " Colorscheme
-if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
-    source ~/.vimrc_background
+if has('mac')
+    set background=dark
+    colorscheme gruvbox
+else
+    set background=light
+    colorscheme solarized
 endif
 
 " Font
