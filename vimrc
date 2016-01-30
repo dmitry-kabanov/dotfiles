@@ -46,7 +46,7 @@ Plug 'tmux-plugins/vim-tmux' " syntax highlighting for `.tmux.conf`
 call plug#end()
 " }}}
 
-" Options for editor itself {{{
+" Options for the editor itself {{{
 " Enable file type detection and do language-dependent indenting.
 filetype plugin indent on
 
@@ -181,11 +181,11 @@ set noshowmode
 set timeout timeoutlen=3000 ttimeoutlen=50
 " }}}
 
-" CtrlP plugin {{{
+" Options for CtrlP {{{
 let g:ctrlp_cmd = 'CtrlP'
 " }}}
 
-" Options for syntastic plugin {{{
+" Options for syntastic {{{
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_error = 1
@@ -194,7 +194,7 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_tex_checkers = ['lacheck']
 " }}}
 
-" Options for ultisnips plugin {{{
+" Options for ultisnips {{{
 let g:UltiSnipsExpandTrigger="<C-Space>"
 let g:UltiSnipsJumpForwardTrigger = "<C-@>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-S-@>"
@@ -235,5 +235,6 @@ let g:airline_mode_map = {
   \ }
 " }}}
 
-" Options for vimtex.
+" Options for vimtex {{{
 let g:vimtex_fold_enabled = 0
+" }}}
