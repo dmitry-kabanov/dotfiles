@@ -7,36 +7,43 @@ set nocompatible
 filetype off                  " required
 " }}}
 
-" Vundle and plugins {{{
+" Plugins (managed by vim plug) {{{
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'morhetz/gruvbox'
-Plugin 'lervag/vimtex'
-Plugin 'scrooloose/syntastic'
-Plugin 'majutsushi/tagbar'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'tpope/vim-capslock'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-fugitive'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'bling/vim-airline'
-Plugin 'drmingdrmer/vim-syntax-markdown'
-Plugin 'chriskempson/base16-vim'
-Plugin 'tmux-plugins/vim-tmux'
-Plugin 'junegunn/vim-easy-align'
+Plug 'Valloric/YouCompleteMe'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'junegunn/vim-easy-align'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+Plug 'bling/vim-airline'
+
+" Snippets.
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" Turn on CAPS LOCK.
+Plug 'tpope/vim-capslock'
+
+" Color schemes.
+Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
+
+" Git integration.
+Plug 'tpope/vim-fugitive'
+
+" Fix python indentation.
+Plug 'hynek/vim-python-pep8-indent'
+
+" Plugins that improve support of different file types.
+Plug 'drmingdrmer/vim-syntax-markdown'  " markdown support
+Plug 'lervag/vimtex'  " latex support
+Plug 'tmux-plugins/vim-tmux' " syntax highlighting for `.tmux.conf`
+
+" Add plugins to &runtimepath.
+call plug#end()
 " }}}
 
 " Options for editor itself {{{
