@@ -17,7 +17,7 @@ e_success "git config is successfull"
 
 e_header "Linking files into home directory"
 
-declare -a dotfiles=(vimrc tmux.conf tmux.background.chooser
+declare -a dotfiles=(tmux.conf tmux.background.chooser
     tmux.statusline.dark tmux.statusline.light
     zsh-customization cgdbrc aspell.en.pws aspell.en.prepl Xresources)
 
@@ -55,11 +55,9 @@ fi
 ln -s $DIR3/tmux $HOME/.tmux
 
 # Install vim plugin manager.
-if [ -d ~/.vim/bundle/Vundle.vim ]; then
-    echo Installing vim plugin manager...
-    rm -rf ~/.vim/bundle/Vundle.vim
-fi
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+echo Installing vim plugin manager...
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Install tmux plugin manager.
 if [[ `tmux -V` == *1.9* || `tmux -V` == *2.0* ]]; then
