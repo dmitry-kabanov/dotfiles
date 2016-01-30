@@ -118,6 +118,10 @@ endif
 " Map <Leader> key to <Space> key
 let mapleader = "\<Space>"
 
+" Make `Y` to work from the cursor to the end of line, which is more logical
+" (compare: C, D) but not Vi-compatible.
+map Y y$
+
 nmap <Leader>s :update<CR>
 
 " Shortcut for rapidly toggle 'set list'
