@@ -204,16 +204,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-S-@>"
 noremap <Leader>lus :<C-R>=UltiSnips_ListSnippets()<CR>
 " }}}
 
-" Options for Latex-Box plugin {{{
-let g:LatexBox_latexmk_async = 0
-let g:LatexBox_latexmk_preview_continuously = 1
-" Quickfix window is opened automatically if not empty
-" but cursor stays in current window.
-let g:LatexBox_quickfix = 2
-let g:LatexBox_output_type = "pdf"
-let g:LatexBox_viewer = "open -a Skim"
-" }}}
-
 " Options for YouCompleteMe {{{
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_path_to_python_interpreter = "/usr/bin/python"
