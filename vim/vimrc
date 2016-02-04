@@ -52,40 +52,115 @@ call plug#end()
 " Enable file type detection and do language-dependent indenting.
 filetype plugin indent on
 
-" Turn on syntax highlighting.
-syntax on
+" Enable syntax highlighting.
+syntax enable
 
-" For all text files set 'textwidth' to 80 characters.
-autocmd FileType text setlocal textwidth=80
+" Autoindent when starting new line, or using `o` or `O`.
+set autoindent
 
 " Backspace over autoindent, line breaks, start of insert.
 set backspace=indent,eol,start
 
-" Indentation
+" Don't scan included files. The .tags file is more performant.
+set complete-=i
+
+" Use 'shiftwidth' when using `<Tab>` in front of a line.
+" By default it's used only for shift commands (`<`, `>`).
+set smarttab
+
+" Default indentation settings.
 set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
-set number
+" Set `UTF-8` encoding.
 set encoding=utf-8
 
-" Set minimal number of screen lines to keep above and below the cursor.
-set scrolloff=1
+" Allow for mappings including `Esc`, while preserving
+" zero timeout after pressing it manually.
+set ttimeout
+set ttimeoutlen=100
 
+" Hide backup and swap files by putting them in the `tmp` directory.
 set backupdir=~/.vim/tmp//
 set directory=~/.vim/tmp//
 
 " Allow to switch between buffers even if the current buffer is modified.
 set hidden
 
-" Enable visual bell instead of beepeing
-set visualbell
+" Autocomplete commands using nice menu in place of window status line.
+" Enable `Ctrl-N` and `Ctrl-P` to scroll through matches.
+set wildmenu
 
-" Search options
-if &t_Co > 2 || has("gui_running")
-    set hlsearch
+" Autocomplete by choosing next full match.
+set wildmode=full
+
+" Ignore patterns for filename completion.
+" Archive patterns.
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.tar.xz,*.rar
+" Python patterns.
+set wildignore+=*.pyc,*/__pycache__/*,*.so
+
+" Stop showing annoying preview window during autocompletion.
+set completeopt-=preview
+
+set keymap=russian-jcukengost
+set iminsert=0
+set imsearch=0
+
+" Check spelling.
+set spell
+set spelllang=en_us,ru
+
+" Delete comment character when joining commented lines.
+if v:version > 703 || v:version == 703 && has("patch541")
+  set formatoptions+=j
 endif
+
+" Search upwards for `tags` file instead only locally.
+if has('path_extra')
+	setglobal tags-=./tags tags^=./tags;
+endif
+
+" Reload unchanged files automatically.
+set autoread
+
+" Map <Leader> key to <Space> key.
+let mapleader = "\<Space>"
+
+" Map <LocalLeader> key to backslash key.
+let maplocalleader = "\\"
+
+" Make `Y` to work from the cursor to the end of line, which is more logical
+" (compare: C, D) but not Vi-compatible.
+map Y y$
+
+" Mapping for saving current buffer to file.
+nmap <Leader>s :update<CR>
+
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
+" Emacs-style editing on the command line.
+cnoremap <C-A> <Home>
+cnoremap <C-B> <Left>
+cnoremap <C-D> <Del>
+cnoremap <C-E> <End>
+cnoremap <C-F> <Right>
+cnoremap <C-N> <Down>
+cnoremap <C-P> <Up>
+cnoremap <Esc><C-B> <S-Left>
+cnoremap <Esc><C-F> <S-Right>
+" }}}
+
+" Search options {{{
+set hlsearch
+
+" Use `Ctrl-L` to clear the highlighting of `:set hlsearch`.
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 " Turn on incremental search.
 set incsearch
@@ -94,7 +169,11 @@ set incsearch
 set ignorecase
 set smartcase
 
-" Colorscheme
+" Set minimal number of screen lines to keep above and below the cursor.
+set scrolloff=1
+" }}}
+
+" Visual appearance options {{{
 if has('mac')
     set background=dark
     colorscheme gruvbox
@@ -112,82 +191,32 @@ if has("gui_gtk2")
     set guifont=Cousine\ 14
 endif
 
+" Highlight line under cursor.
 set cursorline
+
 if exists("+colorcolumn")
     set colorcolumn=80
 endif
 
-" Map <Leader> key to <Space> key
-let mapleader = "\<Space>"
+" Show line numbers.
+set number
 
-" Make `Y` to work from the cursor to the end of line, which is more logical
-" (compare: C, D) but not Vi-compatible.
-map Y y$
+" Always show window status line, even if there's only one window.
+set laststatus=2
 
-nmap <Leader>s :update<CR>
+" Turn off showing current mode in command line.
+set noshowmode
+
+" Enable visual bell instead of beeping.
+set visualbell
 
 " Shortcut for rapidly toggle 'set list'
 nmap <Leader>l :set list!<CR>
 " Custom symbols for invisible symbols such as tab and EOL
 set listchars=tab:»\ ,eol:¬
 
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-          \ | wincmd p | diffthis
-endif
-
 " Show partial command in the last line of the screen.
 set showcmd
-
-" Ignore .o files for filename completion
-set wildignore+=*.o
-set wildignore+=*.pyc
-
-" Stop showing annoying preview window during autocompletion.
-set completeopt-=preview
-
-set keymap=russian-jcukengost
-set iminsert=0
-set imsearch=0
-highlight lCursor guifg=NONE guibg=yellow
-
-set spell
-set spelllang=en_us,ru
-
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> ]b :bnext<CR>
-nnoremap <silent> [B :bfirst<CR>
-nnoremap <silent> ]B :blast<CR>
-
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
-set wildmenu
-set wildmode=full
-
-nnoremap <Leader>z :nohlsearch<CR>
-
-" Emacs-style editing on the command line.
-cnoremap <C-A> <Home>
-cnoremap <C-B> <Left>
-cnoremap <C-D> <Del>
-cnoremap <C-E> <End>
-cnoremap <C-F> <Right>
-cnoremap <C-N> <Down>
-cnoremap <C-P> <Up>
-cnoremap <Esc><C-B> <S-Left>
-cnoremap <Esc><C-F> <S-Right>
-
-" Always show status line.
-set laststatus=2
-
-" Turn off showing current mode in command line.
-set noshowmode
-
-" Set timeouts for key codes and mapped key sequences.
-set timeout timeoutlen=3000 ttimeoutlen=50
 " }}}
 
 " Options for CtrlP {{{
