@@ -205,7 +205,11 @@ let g:syntastic_tex_checkers = ['lacheck']
 let g:UltiSnipsExpandTrigger="<C-Space>"
 let g:UltiSnipsJumpForwardTrigger = "<C-@>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-S-@>"
-noremap <Leader>lus :<C-R>=UltiSnips_ListSnippets()<CR>
+
+" Options for python.
+let g:ultisnips_python_quoting_style="single"
+let g:ultisnips_python_triple_quoting_style="double"
+let g:ultisnips_python_style="numpy"
 " }}}
 
 " Options for YouCompleteMe {{{
