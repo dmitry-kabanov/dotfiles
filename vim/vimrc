@@ -215,6 +215,9 @@ let g:ultisnips_python_style="numpy"
 " Options for YouCompleteMe {{{
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_path_to_python_interpreter = "/usr/bin/python"
+let g:ycm_python_binary_path = 'python'
+let g:ycm_server_use_vim_stdout = 0
+let g:ycm_server_keep_logfiles = 1
 " }}}
 
 " Options for vim-airline {{{
