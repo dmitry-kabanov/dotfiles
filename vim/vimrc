@@ -159,8 +159,8 @@ cnoremap <Esc><C-F> <S-Right>
 " Search options {{{
 set hlsearch
 
-" Use `Ctrl-L` to clear the highlighting of `:set hlsearch`.
-nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+" Use mapping to clear the highlighting of `:set hlsearch`.
+nnoremap <silent> <Leader>z :nohlsearch<CR>
 
 " Turn on incremental search.
 set incsearch
@@ -211,7 +211,7 @@ set noshowmode
 set visualbell
 
 " Shortcut for rapidly toggle 'set list'
-nmap <Leader>l :set list!<CR>
+nmap <Leader>lws :set list!<CR>
 " Custom symbols for invisible symbols such as tab and EOL
 set listchars=tab:»\ ,eol:¬
 
