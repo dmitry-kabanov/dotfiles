@@ -60,7 +60,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Install tmux plugin manager.
-if [[ `tmux -V` == *1.9* || `tmux -V` == *2.0* ]]; then
+if [[ `tmux -V` == *1.9* || `tmux -V` == *2.* ]]; then
     echo tmux version is fresh enough. Installing tmux plugin manager...
     if [ -d ~/.tmux/plugins/tpm ]; then
         rm -rf ~/.tmux/plugins/tpm
