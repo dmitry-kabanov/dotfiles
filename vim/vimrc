@@ -4,11 +4,9 @@
 " Preamble - nocompatible {{{
 " Use Vim settings, rather than Vi settings.
 set nocompatible
-filetype off                  " required
 " }}}
 
 " Plugins (managed by vim plug) {{{
-" set the runtime path to include Vundle and initialize
 call plug#begin('~/.vim/plugged')
 
 Plug 'Valloric/YouCompleteMe'
