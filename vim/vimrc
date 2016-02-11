@@ -15,6 +15,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/vim-easy-align'
+Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 
