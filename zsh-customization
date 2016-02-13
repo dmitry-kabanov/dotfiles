@@ -18,6 +18,7 @@ alias posixtime='/usr/bin/time -p'
 export dev=~/dev
 export notes=~/Dropbox/Documents/Notes
 export EDITOR=vim
+export BROWSER=google-chrome
 
 # ZSH options.
 setopt extendedglob
