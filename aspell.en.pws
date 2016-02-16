@@ -1,4 +1,4 @@
-personal_ws-1.1 en 71 
+personal_ws-1.1 en 76 
 Runge
 TVD
 polytropic
@@ -21,6 +21,7 @@ Aslan
 WENO
 rescaled
 CJ
+Mathematica
 ODEs
 linearize
 postprocessed
@@ -56,18 +57,21 @@ Friedrichs
 nonoscillatory
 Majda
 Fickett's
+boundedness
+MATLAB's
 Jacobian
 Strogatz
 doublings
 nonlocal
 CFL
+fminsearch
 Liapunov
 Kamyshin
 maxima
 subsubsection
 Jouguet
+MATLAB
 linearization
 pointwise
 preexponential
 plugin
-boundedness
