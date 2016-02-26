@@ -237,9 +237,9 @@ let g:syntastic_tex_checkers = ['lacheck']
 " }}}
 
 " Options for ultisnips {{{
-let g:UltiSnipsExpandTrigger="<C-Space>"
-let g:UltiSnipsJumpForwardTrigger = "<C-@>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-S-@>"
+let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsJumpForwardTrigger = "<C-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-S-j>"
 
 " Options for python.
 let g:ultisnips_python_quoting_style="single"

@@ -3,9 +3,9 @@ alias -g L="| less"
 alias -g LL="2>&1 | less"
 alias -g C="| wc -l"
 # ls arguments:
-# -A: --almost-all do not list . and ..
-# -h: --human-readable with -l, print sizes in human-readable format
-# -F: --classify append indicator to entries to emphasize their type
+# -A --almost-all      do not list . and ..
+# -h --human-readable  with -l, print sizes in human-readable format
+# -F --classify        append indicator to entries to emphasize their type
 alias ll='ls -lAhF'
 alias zshconfig="vim ~/.zsh-customization"
 alias zshrestart="source ~/.zshrc"
@@ -18,18 +18,29 @@ alias posixtime='/usr/bin/time -p'
 export dev=~/dev
 export notes=~/Dropbox/Documents/Notes
 export EDITOR=vim
+export BROWSER=google-chrome
 
 # ZSH options.
 setopt extendedglob
 
 man() {
-    env LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-    LESS_TERMCAP_md=$(printf "\e[1;31m") \
-    LESS_TERMCAP_me=$(printf "\e[0m") \
-    LESS_TERMCAP_se=$(printf "\e[0m") \
-    LESS_TERMCAP_so=$(printf "\e[1;37m") \
-    LESS_TERMCAP_ue=$(printf "\e[0m") \
-    LESS_TERMCAP_us=$(printf "\e[4;32m") \
-    man "$@"
+    # Attributes are set using escape sequences starting with `\e[`.
+    # Attributes codes can be found here:
+    # http://www.termsys.demon.co.uk/vtansi.htm
+    local mb=$(printf "\e[1;31m")   # Begin blinking.
+    local md=$(printf "\e[1;31m")   # Begin bold.
+    local me=$(printf "\e[0m")      # End mode.
+    local so=$(printf "\e[7m")      # Begin standout mode.
+    local se=$(printf "\e[0m")      # End standout mode.
+    local us=$(printf "\e[4;32m")   # Begin underline.
+    local ue=$(printf "\e[0m")      # End underline.
+    env LESS_TERMCAP_mb=$mb \
+        LESS_TERMCAP_md=$md \
+        LESS_TERMCAP_me=$me \
+        LESS_TERMCAP_so=$so \
+        LESS_TERMCAP_se=$se \
+        LESS_TERMCAP_us=$us \
+        LESS_TERMCAP_ue=$ue \
+        MANWIDTH=80 \
+        man "$@"
 }
-export MANWIDTH=80
