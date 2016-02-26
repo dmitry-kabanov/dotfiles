@@ -16,6 +16,7 @@ Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/vim-easy-align'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'vim-utils/vim-husk'  " Mappings for command mode in Emacs style.
 
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 
@@ -45,6 +46,7 @@ Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 
 " Add plugins to &runtimepath.
 call plug#end()
+runtime macros/matchit.vim
 " }}}
 
 " Options for the editor itself {{{
@@ -119,7 +121,7 @@ endif
 
 " Search upwards for `tags` file instead only locally.
 if has('path_extra')
-	setglobal tags-=./tags tags^=./tags;
+    setglobal tags-=./tags tags^=./tags;
 endif
 
 " Reload unchanged files automatically.
@@ -142,17 +144,6 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
-
-" Emacs-style editing on the command line.
-cnoremap <C-A> <Home>
-cnoremap <C-B> <Left>
-cnoremap <C-D> <Del>
-cnoremap <C-E> <End>
-cnoremap <C-F> <Right>
-cnoremap <C-N> <Down>
-cnoremap <C-P> <Up>
-cnoremap <Esc><C-B> <S-Left>
-cnoremap <Esc><C-F> <S-Right>
 " }}}
 
 " Search options {{{
