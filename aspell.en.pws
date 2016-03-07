@@ -1,4 +1,4 @@
-personal_ws-1.1 en 76 
+personal_ws-1.1 en 77 
 Runge
 TVD
 polytropic
@@ -65,6 +65,7 @@ doublings
 nonlocal
 CFL
 fminsearch
+quasilinear
 Liapunov
 Kamyshin
 maxima
@@ -75,3 +76,10 @@ linearization
 pointwise
 preexponential
 plugin
+diluent
+wavenumbers
+eigenfunction
+eigenfunctions
+Erpenbeck's
+matplotlib
+fsolve
