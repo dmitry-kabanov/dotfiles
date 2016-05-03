@@ -138,7 +138,8 @@ let maplocalleader = "\\"
 map Y y$
 
 " Mapping for saving current buffer to file.
-nmap <Leader>s :update<CR>
+" Shortcut `fs` stands for "file, save".
+nmap <Leader>fs :update<CR>
 
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
