@@ -277,6 +277,7 @@ let g:airline_mode_map = {
 
 " Options for vimtex {{{
 let g:vimtex_fold_enabled = 0
+let g:vimtex_view_method='mupdf'
 " }}}
 
 " Options for `plasticboy/vim-markdown` {{{
