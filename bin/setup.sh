@@ -17,9 +17,7 @@ e_success "git config is successfull"
 
 e_header "Linking files into home directory"
 
-declare -a dotfiles=(tmux.conf tmux.background.chooser
-    tmux.statusline.dark tmux.statusline.light
-    zsh-customization cgdbrc aspell.en.pws aspell.en.prepl Xresources)
+declare -a dotfiles=(tmux.conf cgdbrc aspell.en.pws aspell.en.prepl Xresources)
 
 for dotfile in ${dotfiles[@]}; do
     if [ -L $HOME/.$dotfile ]; then
@@ -41,7 +39,17 @@ then
     echo Moving ~/.vim to ~/.vim.bak
     mv ~/.vim ~/.vim.bak
 fi
-ln -s $DIR3/vim $HOME/.vim
+
+mkdir $HOME/.vim
+ln -s $DIR3/vim/after $HOME/.vim/after
+ln -s $DIR3/vim/autoload $HOME/.vim/autoload
+ln -s $DIR3/vim/vimrc $HOME/.vim/init.vim
+ln -s $DIR3/vim/keymap $HOME/.vim/keymap
+mkdir $HOME/.vim/plugged
+mkdir $HOME/.vim/spell
+mkdir $HOME/.vim/tmp
+ln -s $DIR3/vim/UltiSnips $HOME/.vim/UltiSnips
+ln -s $DIR3/vim/vimrc $HOME/.vim/vimrc
 
 # Linking ~/.tmux directory.
 if [ -L ~/.tmux ]; then
@@ -69,7 +77,3 @@ if [[ `tmux -V` == *1.9* || `tmux -V` == *2.* ]]; then
 else
     echo tmux version is outdated. Cannot install tmux plugin manager.
 fi
-
-# Installing zsh-autoenv
-echo Installing zsh-autoenv
-git clone https://github.com/Tarrasch/zsh-autoenv ~/.config/zsh-autoenv
