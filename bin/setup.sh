@@ -43,13 +43,13 @@ fi
 mkdir $HOME/.vim
 ln -s $DIR3/vim/after $HOME/.vim/after
 ln -s $DIR3/vim/autoload $HOME/.vim/autoload
-ln -s $DIR3/vim/vimrc $HOME/.vim/init.vim
+ln -s $DIR3/vim/init.vim $HOME/.vim/init.vim
 ln -s $DIR3/vim/keymap $HOME/.vim/keymap
 mkdir $HOME/.vim/plugged
 mkdir $HOME/.vim/spell
 mkdir $HOME/.vim/tmp
 ln -s $DIR3/vim/UltiSnips $HOME/.vim/UltiSnips
-ln -s $DIR3/vim/vimrc $HOME/.vim/vimrc
+#ln -s $DIR3/vim/vimrc $HOME/.vim/vimrc
 
 # Linking ~/.tmux directory.
 if [ -L ~/.tmux ]; then
