@@ -8,7 +8,7 @@ XTerm*locale: true
 XTerm*metaSendsEscape: true
 
 ! Font settings
-xterm*faceName: Hack:size=11:antialias=true
+xterm*faceName: Fantasque Sans Mono:size=16:antialias=true
 
 ! Solarized Light.
 #define S_base03        #002b36
