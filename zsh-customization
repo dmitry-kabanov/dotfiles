@@ -15,10 +15,12 @@ alias timepython='/usr/bin/time -p python'
 alias posixtime='/usr/bin/time -p'
 
 # Set environment variables.
-export dev=~/dev
-export notes=~/Dropbox/Documents/Notes
+export dev=~/Dropbox/dev
+export notes=~/Documents/Notes
 export EDITOR=vim
 export BROWSER=google-chrome
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # ZSH options.
 setopt extendedglob
