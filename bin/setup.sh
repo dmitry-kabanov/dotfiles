@@ -17,7 +17,7 @@ e_success "git config is successfull"
 
 e_header "Linking files into home directory"
 
-declare -a dotfiles=(tmux.conf cgdbrc aspell.en.pws aspell.en.prepl Xresources)
+declare -a dotfiles=(tmux.conf zshrc cgdbrc aspell.en.pws aspell.en.prepl Xresources)
 
 for dotfile in ${dotfiles[@]}; do
     if [ -L $HOME/.$dotfile ]; then
