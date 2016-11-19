@@ -27,6 +27,10 @@ zplug "lib/directories", from:oh-my-zsh
 # Keybindings options.
 zplug "lib/key-bindings", from:oh-my-zsh
 
+# Enable highlighing of commands whilst they are typed at a zsh prompt
+# into an interactive terminal.
+zplug "zsh-users/zsh-syntax-highlighting", nice:10
+
 zplug load
 # }}}
 
