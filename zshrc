@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # vim:fdm=marker
 
 # Load Lmod environment modules tool.
@@ -7,7 +6,11 @@ source $HOME/apps/lmod/lmod/init/profile
 # Load plugins with zplug {{{
 source $HOME/.zplug/init.zsh
 
+# Add useful aliases and functions to work with git.
 zplug "plugins/git", from:oh-my-zsh
+
+# Theme `blinks` works if $SOLARIZED_THEME is either `dark` or `light`.
+export SOLARIZED_THEME=light
 zplug "themes/blinks", from:oh-my-zsh
 
 # Autoload of the environment settings.
