@@ -1,9 +1,10 @@
+# vim:fdm=marker
+
 # Load Lmod environment modules tool.
 source $HOME/apps/lmod/lmod/init/profile
 
 
-# ###########################
-# Loading plugins with zplug.
+# Load plugins with zplug {{{
 source $HOME/.zplug/init.zsh
 
 zplug "plugins/git", from:oh-my-zsh
@@ -27,6 +28,7 @@ zplug "lib/directories", from:oh-my-zsh
 zplug "lib/key-bindings", from:oh-my-zsh
 
 zplug load
+# }}}
 
 
 # ###################
@@ -42,7 +44,7 @@ export BROWSER=google-chrome
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# Aliases
+# Aliases {{{
 alias -g L="| less"
 alias -g LL="2>&1 | less"
 alias -g C="| wc -l"
@@ -66,9 +68,11 @@ alias tmns='tmux new-session -s'
 alias tmls='tmux list-sessions'
 alias tmks='tmux kill-session -t'
 
-# ZSH options.
+# ZSH options {{{
 setopt extendedglob
+# }}}
 
+# man customization {{{
 man() {
     # Attributes are set using escape sequences starting with `\e[`.
     # Attributes codes can be found here:
@@ -90,3 +94,12 @@ man() {
         MANWIDTH=80 \
         man "$@"
 }
+# }}}
+
+# EasyBuild options {{{
+export EASYBUILD_BUILDPATH=/tmp/$USER/easybuild/buildpath
+export EASYBUILD_INSTALLPATH=$HOME/apps/easybuild
+export EASYBUILD_MODULES_TOOL=Lmod
+export EASYBUILD_SUBDIR_MODULES=modulefiles
+export EASYBUILD_SUBDIR_SOFTWARE=software
+# }}}
