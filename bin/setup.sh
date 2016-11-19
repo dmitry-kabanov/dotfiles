@@ -55,7 +55,7 @@ fi
 mkdir $HOME/.vim
 ln -s $dotfiles_path/vim/after $HOME/.vim/after
 ln -s $dotfiles_path/vim/autoload $HOME/.vim/autoload
-ln -s $dotfiles_path/vim/init.vim $HOME/.vim/init.vim
+ln -s $dotfiles_path/vim/vimrc $HOME/.vim/vimrc
 ln -s $dotfiles_path/vim/keymap $HOME/.vim/keymap
 mkdir $HOME/.vim/plugged
 mkdir $HOME/.vim/spell

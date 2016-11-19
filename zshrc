@@ -1,8 +1,8 @@
+<<<<<<< HEAD
 # vim:fdm=marker
 
 # Load Lmod environment modules tool.
 source $HOME/apps/lmod/lmod/init/profile
-
 
 # Load plugins with zplug {{{
 source $HOME/.zplug/init.zsh
@@ -57,6 +57,7 @@ alias -g C="| wc -l"
 # -h --human-readable  with -l, print sizes in human-readable format
 # -F --classify        append indicator to entries to emphasize their type
 alias ll='ls -lAhF'
+<<<<<<< HEAD
 alias zshconfig="$EDITOR ~/.zshrc"
 alias zshrestart="source ~/.zshrc"
 alias ..='cd ..'
@@ -83,6 +84,25 @@ setopt extendedglob
 # }}}
 
 # man customization {{{
+=======
+alias zshconfig="vim ~/.zsh-customization"
+alias zshrestart="source ~/.zshrc"
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias timepython='/usr/bin/time -p python'
+alias posixtime='/usr/bin/time -p'
+
+# Set environment variables.
+export dev=~/Dropbox/dev
+export notes=~/Documents/Notes
+export EDITOR=vim
+export BROWSER=google-chrome
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# ZSH options.
+setopt extendedglob
+
 man() {
     # Attributes are set using escape sequences starting with `\e[`.
     # Attributes codes can be found here:
