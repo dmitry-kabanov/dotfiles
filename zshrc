@@ -64,6 +64,9 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias posixtime='/usr/bin/time -p'
+alias echopath='echo $PATH | tr : "\n"'
+alias echomanpath='echo $MANPATH | tr : "\n"'
+alias echoldlibrarypath='echo $LD_LIBRARY_PATH | tr : "\n"'
 
 # Tmux aliases.
 alias tmat='tmux attach -t'
@@ -71,8 +74,11 @@ alias tmad='tmux attach -d -t'
 alias tmns='tmux new-session -s'
 alias tmls='tmux list-sessions'
 alias tmks='tmux kill-session -t'
+# }}}
 
 # ZSH options {{{
+# AUTOCD option lets you type the name of a directory to change into into it.
+setopt autocd
 setopt extendedglob
 # }}}
 
