@@ -60,7 +60,6 @@ alias -g C="| wc -l"
 # -h --human-readable  with -l, print sizes in human-readable format
 # -F --classify        append indicator to entries to emphasize their type
 alias ll='ls -lAhF'
-<<<<<<< HEAD
 alias zshconfig="$EDITOR ~/.zshrc"
 alias zshrestart="source ~/.zshrc"
 alias ..='cd ..'
@@ -87,7 +86,6 @@ setopt extendedglob
 # }}}
 
 # man customization {{{
-=======
 alias zshconfig="vim ~/.zsh-customization"
 alias zshrestart="source ~/.zshrc"
 alias ....='cd ../../..'
