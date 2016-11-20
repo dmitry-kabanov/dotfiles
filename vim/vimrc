@@ -174,7 +174,7 @@ else
         set t_Co=16
     endif
 
-    set background=dark
+    set background=light
     colorscheme solarized
 endif
 
