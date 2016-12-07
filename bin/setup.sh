@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # Shamelessly stole from https://github.com/cowboy/dotfiles.
 function e_header()   { echo -e "\n\033[1m$@\033[0m"; }
@@ -26,7 +26,7 @@ e_success "git config is successfull"
 # --- Linking misc files ---
 e_header "Linking files into HOME directory"
 
-declare -a dotfiles=(cgdbrc aspell.en.pws aspell.en.prepl Xresources)
+declare -a dotfiles=(cgdbrc aspell.en.pws aspell.en.prepl Xresources zshrc)
 
 for dotfile in ${dotfiles[@]}; do
     if [ -L $HOME/.$dotfile ]; then
@@ -53,14 +53,33 @@ then
 fi
 
 mkdir $HOME/.vim
+if [ -L $HOME/.vim/after ]; then
+    rm $HOME/.vim/after
+fi
 ln -s $dotfiles_path/vim/after $HOME/.vim/after
+
+if [ -L $HOME/.vim/autoload ]; then
+    rm $HOME/.vim/autoload
+fi
 ln -s $dotfiles_path/vim/autoload $HOME/.vim/autoload
+
+if [ -L $HOME/.vim/vimrc ]; then
+    rm $HOME/.vim/vimrc
+fi
 ln -s $dotfiles_path/vim/vimrc $HOME/.vim/vimrc
+
+if [ -L $HOME/.vim/keymap ]; then
+    rm $HOME/.vim/keymap
+fi
 ln -s $dotfiles_path/vim/keymap $HOME/.vim/keymap
+
+if [ -L $HOME/.vim/UltiSnips ]; then
+    rm $HOME/.vim/UltiSnips
+fi
+ln -s $dotfiles_path/vim/UltiSnips $HOME/.vim/UltiSnips
 mkdir $HOME/.vim/plugged
 mkdir $HOME/.vim/spell
 mkdir $HOME/.vim/tmp
-ln -s $dotfiles_path/vim/UltiSnips $HOME/.vim/UltiSnips
 
 # Install vim plugin manager.
 echo Installing vim plugin manager...
@@ -80,6 +99,10 @@ then
     mv ~/.tmux ~/.tmux.bak
 fi
 ln -s $dotfiles_path/tmux $HOME/.tmux
+
+if [ -L $HOME/.tmux.conf ]; then
+    rm $HOME/.tmux.conf
+fi
 ln -s $dotfiles_path/tmux.conf $HOME/.tmux.conf
 
 # Install tmux plugin manager.
