@@ -1,7 +1,14 @@
 # vim:fdm=marker
 
 # Load Lmod environment modules tool.
-source $HOME/apps/lmod/lmod/init/profile
+if [ -f $HOME/apps/lmod/lmod/init/profile ]; then
+   source $HOME/apps/lmod/lmod/init/profile
+fi
+
+# Load Lmod environment modules tool.
+if [ -f /opt/apps/lmod/lmod/init/profile ]; then
+   source /opt/apps/lmod/lmod/init/profile
+fi
 
 # Load plugins with zplug {{{
 source $HOME/.zplug/init.zsh
@@ -41,7 +48,7 @@ zplug load
 # ###################
 # My custom settings.
 
-eval `dircolors $HOME/.dir_colors/dircolors`
+# eval `dircolors $HOME/.dir_colors/dircolors`
 
 # Set environment variables.
 export dev=~/Dropbox/dev
@@ -134,3 +141,7 @@ export EASYBUILD_MODULES_TOOL=Lmod
 export EASYBUILD_SUBDIR_MODULES=modulefiles
 export EASYBUILD_SUBDIR_SOFTWARE=software
 # }}}
+
+if [ -e ${HOME}/.zshrc-local ]; then
+    . ${HOME}/.zshrc-local
+fi
