@@ -197,6 +197,9 @@ endif
 " Show line numbers.
 set number
 
+" Show relative line numbers.
+set relativenumber
+
 " Always show window status line, even if there's only one window.
 set laststatus=2
 
