@@ -17,8 +17,12 @@ source $HOME/.zplug/init.zsh
 zplug "plugins/git", from:oh-my-zsh
 
 # Theme `blinks` works if $SOLARIZED_THEME is either `dark` or `light`.
-export SOLARIZED_THEME=light
-zplug "themes/blinks", from:oh-my-zsh
+if [ $(hostname) = 'dima-macbook-air.local' ]; then
+    export SOLARIZED_THEME=dark
+else
+    export SOLARIZED_THEME=light
+fi
+zplug "themes/blinks", from:oh-my-zsh, as:theme
 
 # Autoload of the environment settings.
 AUTOENV_FILE_ENTER=autoenv-enter.zsh
@@ -52,31 +56,28 @@ zplug load
 
 # Set environment variables.
 export dev=~/Dropbox/dev
-export notes=~/Documents/Notes
 export EDITOR=vim
 export BROWSER=google-chrome
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Aliases {{{
+
+alias -g C="| wc -l"
 alias -g L="| less"
 alias -g LL="2>&1 | less"
-alias -g C="| wc -l"
-# ls arguments:
-# -A --almost-all      do not list . and ..
-# -h --human-readable  with -l, print sizes in human-readable format
-# -F --classify        append indicator to entries to emphasize their type
-alias ll='ls -lAhF'
+alias .....='cd ../../../..'
+alias ....='cd ../../..'
+alias ...='cd ../..'
+alias ..='cd ..'
+alias echoldlibrarypath='echo $LD_LIBRARY_PATH | tr : "\n"'
+alias echomanpath='echo $MANPATH | tr : "\n"'
+alias echopath='echo $PATH | tr : "\n"'
+alias l='ls -l --almost-all --human-readable --classify'
+alias notes='cd $HOME/Documents/Notes && vim'
+alias posixtime='/usr/bin/time -p'
 alias zshconfig="$EDITOR ~/.zshrc"
 alias zshrestart="source ~/.zshrc"
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias posixtime='/usr/bin/time -p'
-alias echopath='echo $PATH | tr : "\n"'
-alias echomanpath='echo $MANPATH | tr : "\n"'
-alias echoldlibrarypath='echo $LD_LIBRARY_PATH | tr : "\n"'
 
 # Tmux aliases.
 alias tmat='tmux attach -t'
