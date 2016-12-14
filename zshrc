@@ -43,7 +43,7 @@ zplug "lib/key-bindings", from:oh-my-zsh
 
 # Enable highlighing of commands whilst they are typed at a zsh prompt
 # into an interactive terminal.
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
 
 zplug load
 # }}}
