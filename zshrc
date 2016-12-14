@@ -78,6 +78,7 @@ alias notes='cd $HOME/Documents/Notes && vim'
 alias posixtime='/usr/bin/time -p'
 alias zshconfig="$EDITOR ~/.zshrc"
 alias zshrestart="source ~/.zshrc"
+alias .f='cd $dev/github/_dotfiles'
 
 # Tmux aliases.
 alias tmat='tmux attach -t'
