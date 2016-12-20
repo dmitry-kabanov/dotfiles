@@ -5,11 +5,6 @@ if [ -f $HOME/apps/lmod/lmod/init/profile ]; then
    source $HOME/apps/lmod/lmod/init/profile
 fi
 
-# Load Lmod environment modules tool.
-if [ -f /opt/apps/lmod/lmod/init/profile ]; then
-   source /opt/apps/lmod/lmod/init/profile
-fi
-
 # Load plugins with zplug {{{
 source $HOME/.zplug/init.zsh
 
