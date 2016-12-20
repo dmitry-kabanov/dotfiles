@@ -23,60 +23,10 @@ git config --global push.default simple
 
 e_success "git config is successfull"
 
-# --- Linking misc files ---
-e_header "Linking files into HOME directory"
-
-declare -a dotfiles=(cgdbrc aspell.en.pws aspell.en.prepl Xresources zshrc)
-
-for dotfile in ${dotfiles[@]}; do
-    if [ -L $HOME/.$dotfile ]; then
-        rm $HOME/.$dotfile
-    fi
-    if [ -f $HOME/.$dotfile ]; then
-        e_error "Moving $HOME/.$dotfile to $HOME/.$dotfile.bak."
-    fi
-    ln -s $dotfiles_path/$dotfile $HOME/.$dotfile
-    e_success "Linked successfully: $dotfile"
-done
-
 # --- Vim setup ---
 e_header "Running vim setup"
 
-# Linking ~/.vim directory.
-if [ -L ~/.vim ]; then
-    rm ~/.vim
-fi
-if [ -d "~/.vim" ];
-then
-    echo Moving ~/.vim to ~/.vim.bak
-    mv ~/.vim ~/.vim.bak
-fi
-
-mkdir $HOME/.vim
-if [ -L $HOME/.vim/after ]; then
-    rm $HOME/.vim/after
-fi
-ln -s $dotfiles_path/vim/after $HOME/.vim/after
-
-if [ -L $HOME/.vim/autoload ]; then
-    rm $HOME/.vim/autoload
-fi
-ln -s $dotfiles_path/vim/autoload $HOME/.vim/autoload
-
-if [ -L $HOME/.vim/vimrc ]; then
-    rm $HOME/.vim/vimrc
-fi
-ln -s $dotfiles_path/vim/vimrc $HOME/.vim/vimrc
-
-if [ -L $HOME/.vim/keymap ]; then
-    rm $HOME/.vim/keymap
-fi
-ln -s $dotfiles_path/vim/keymap $HOME/.vim/keymap
-
-if [ -L $HOME/.vim/UltiSnips ]; then
-    rm $HOME/.vim/UltiSnips
-fi
-ln -s $dotfiles_path/vim/UltiSnips $HOME/.vim/UltiSnips
+mkdir $HOME/.vim/autoload
 mkdir $HOME/.vim/plugged
 mkdir $HOME/.vim/spell
 mkdir $HOME/.vim/tmp
@@ -88,22 +38,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 # --- Tmux setup ---
 e_header "Running tmux setup"
-
-# Linking ~/.tmux directory.
-if [ -L ~/.tmux ]; then
-    rm ~/.tmux
-fi
-if [ -d "~/.tmux" ];
-then
-    echo Moving ~/.tmux to ~/.tmux.bak
-    mv ~/.tmux ~/.tmux.bak
-fi
-ln -s $dotfiles_path/tmux $HOME/.tmux
-
-if [ -L $HOME/.tmux.conf ]; then
-    rm $HOME/.tmux.conf
-fi
-ln -s $dotfiles_path/tmux.conf $HOME/.tmux.conf
 
 # Install tmux plugin manager.
 if [[ `tmux -V` == *1.9* || `tmux -V` == *2.* ]]; then
