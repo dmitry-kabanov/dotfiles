@@ -12,7 +12,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
+Plug 'https://github.com/neomake/neomake.git'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/vim-easy-align'
 Plug 'christoomey/vim-tmux-navigator'
@@ -245,6 +246,10 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_tex_checkers = ['lacheck']
 " }}}
 
+" Options for neomake {{{
+autocmd BufWritePost,BufEnter * Neomake
+" }}}
+
 " Options for ultisnips {{{
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger = "<C-j>"
@@ -258,7 +263,6 @@ let g:ultisnips_python_style="numpy"
 
 " Options for YouCompleteMe {{{
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_path_to_python_interpreter = "/usr/bin/python"
 let g:ycm_python_binary_path = 'python'
 let g:ycm_server_use_vim_stdout = 0
 let g:ycm_server_keep_logfiles = 1
