@@ -58,7 +58,6 @@ export LANG=en_US.UTF-8
 
 # Aliases {{{
 
-alias -g C="| wc -l"
 alias -g L="| less"
 alias -g LL="2>&1 | less"
 alias .....='cd ../../../..'
@@ -73,7 +72,10 @@ alias notes='cd $HOME/Documents/Notes && vim'
 alias posixtime='/usr/bin/time -p'
 alias zshconfig="$EDITOR ~/.zshrc"
 alias zshrestart="source ~/.zshrc"
-alias .f='cd $dev/github/_dotfiles'
+if type nvim > /dev/null 2>&1; then
+    alias vim='nvim'
+    alias v='nvim'
+fi
 
 # Tmux aliases.
 alias tmat='tmux attach -t'
