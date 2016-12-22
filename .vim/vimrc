@@ -9,7 +9,7 @@ set nocompatible
 " Plugins (managed by vim plug) {{{
 call plug#begin('~/.vim/plugged')
 
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 " Plug 'scrooloose/syntastic'
