@@ -1,8 +1,1 @@
-vim/.netrwhist
-!vim/tmp/do-not-delete.txt
-vim/tmp/*
-vim/spell/*.spl
-vim/plugged/*
-vim/autoload/plug.vim
-
-tmux/*
+*
