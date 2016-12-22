@@ -179,7 +179,11 @@ else
         set t_Co=16
     endif
 
-    set background=light
+    if $SSH_CONNECTION
+        set background=dark
+    else
+        set background=light
+    endif
     colorscheme solarized
 endif
 
