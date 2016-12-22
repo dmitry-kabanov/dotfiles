@@ -49,12 +49,17 @@ zplug load
 
 # eval `dircolors $HOME/.dir_colors/dircolors`
 
-# Set environment variables.
-export dev=~/Dropbox/dev
-export EDITOR=vim
+# Environment variables {{{
+if type nvim > /dev/null 2>&1; then
+    export EDITOR=nvim
+else
+    export EDITOR=vim
+fi
 export BROWSER=google-chrome
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export dev=~/Dropbox/dev
+# }}}
 
 # Aliases {{{
 
@@ -99,13 +104,6 @@ alias .....='cd ../../../..'
 alias timepython='/usr/bin/time -p python'
 alias posixtime='/usr/bin/time -p'
 
-# Set environment variables.
-export dev=~/Dropbox/dev
-export notes=~/Documents/Notes
-export EDITOR=vim
-export BROWSER=google-chrome
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
 
 # ZSH options.
 setopt extendedglob
