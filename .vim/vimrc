@@ -7,7 +7,11 @@ set nocompatible
 " }}}
 
 " Plugins (managed by vim plug) {{{
-call plug#begin('~/.vim/plugged')
+if has('nvim')
+    call plug#begin('~/.local/share/nvim/plugged')
+else
+    call plug#begin('~/.vim/plugged')
+endif
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'ctrlpvim/ctrlp.vim'
