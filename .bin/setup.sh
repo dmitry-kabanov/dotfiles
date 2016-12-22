@@ -11,6 +11,11 @@ fi
 
 dotfiles_path=$(cd "$(dirname $0)"/.. && pwd)
 
+_old_git_dir=$GIT_DIR
+_old_git_work_tree=$GIT_WORK_TREE
+unset GIT_DIR
+unset GIT_WORK_TREE
+
 e_header "Setup script for my dotfiles: start"
 
 # --- Git setup ---
@@ -54,5 +59,9 @@ fi
 
 e_header "Setup script for my dotfiles: finish"
 
+export GIT_DIR=$_old_git_dir
+export GIT_WORK_TREE=$_old_git_work_tree
+
 unset e_header e_success e_error
 unset dotfiles_path
+unset _old_git_dir _old_git_work_tree
