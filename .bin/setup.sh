@@ -35,6 +35,8 @@ mkdir $HOME/.vim/tmp
 echo Installing vim plugin manager...
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+mkdir -p ~/.local/share/nvim/site/autoload
+cp ~/.vim/autoload/plug.vim ~/.local/share/nvim/site/autoload
 
 # --- Tmux setup ---
 e_header "Running tmux setup"
