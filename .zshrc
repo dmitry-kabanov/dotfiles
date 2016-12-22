@@ -43,12 +43,6 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:3
 zplug load
 # }}}
 
-
-# ###################
-# My custom settings.
-
-# eval `dircolors $HOME/.dir_colors/dircolors`
-
 # Environment variables {{{
 if type nvim > /dev/null 2>&1; then
     export EDITOR=nvim
@@ -104,7 +98,6 @@ alias .....='cd ../../../..'
 alias timepython='/usr/bin/time -p python'
 alias posixtime='/usr/bin/time -p'
 
-
 # ZSH options.
 setopt extendedglob
 
@@ -129,14 +122,6 @@ man() {
         MANWIDTH=80 \
         man "$@"
 }
-# }}}
-
-# EasyBuild options {{{
-export EASYBUILD_BUILDPATH=/tmp/$USER/easybuild/buildpath
-export EASYBUILD_INSTALLPATH=$HOME/apps/easybuild
-export EASYBUILD_MODULES_TOOL=Lmod
-export EASYBUILD_SUBDIR_MODULES=modulefiles
-export EASYBUILD_SUBDIR_SOFTWARE=software
 # }}}
 
 if [ -e ${HOME}/.zshrc-local ]; then
