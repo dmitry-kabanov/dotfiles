@@ -124,6 +124,12 @@ man() {
 }
 # }}}
 
-if [ -e ${HOME}/.zshrc-local ]; then
-    . ${HOME}/.zshrc-local
+if [ -x /usr/bin/dircolors -a -r $HOME/.dircolors ]; then
+    eval "$(dircolors $HOME/.dircolors)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+fi
+
+if [ -e $HOME/.zshrc-local ]; then
+    . $HOME/.zshrc-local
 fi
