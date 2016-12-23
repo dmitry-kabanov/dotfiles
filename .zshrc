@@ -30,7 +30,7 @@ if [ $(hostname) = 'dima-macbook-air.local' -o -n "$SSH_CONNECTION" ]; then
 else
     export SOLARIZED_THEME=light
 fi
-zplug "themes/blinks", from:oh-my-zsh, as:theme
+zplug "~/.zsh/", from:local, as:theme
 
 # Autoload of the environment settings.
 AUTOENV_FILE_ENTER=autoenv-enter.zsh
