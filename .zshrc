@@ -92,16 +92,6 @@ setopt extendedglob
 # }}}
 
 # man customization {{{
-alias zshconfig="vim ~/.zsh-customization"
-alias zshrestart="source ~/.zshrc"
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias timepython='/usr/bin/time -p python'
-alias posixtime='/usr/bin/time -p'
-
-# ZSH options.
-setopt extendedglob
-
 man() {
     # Attributes are set using escape sequences starting with `\e[`.
     # Attributes codes can be found here:
