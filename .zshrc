@@ -1,12 +1,25 @@
 # vim:fdm=marker
 
-# Load Lmod environment modules tool.
+# Lmod environment modules {{{
 if [ -f $HOME/apps/lmod/lmod/init/profile ]; then
    source $HOME/apps/lmod/lmod/init/profile
 fi
+# }}}
 
-# Load plugins with zplug {{{
+# Zplug {{{
 source $HOME/.zplug/init.zsh
+
+# Completion settings.
+zplug "lib/completion", from:oh-my-zsh
+
+# Directory traversal options.
+zplug "lib/directories", from:oh-my-zsh
+
+# History options.
+zplug "lib/history", from:oh-my-zsh
+
+# Keybindings options.
+zplug "lib/key-bindings", from:oh-my-zsh
 
 # Add useful aliases and functions to work with git.
 zplug "plugins/git", from:oh-my-zsh
@@ -23,18 +36,6 @@ zplug "themes/blinks", from:oh-my-zsh, as:theme
 AUTOENV_FILE_ENTER=autoenv-enter.zsh
 AUTOENV_FILE_LEAVE=autoenv-leave.zsh
 zplug "Tarrasch/zsh-autoenv"
-
-# Completion settings.
-zplug "lib/completion", from:oh-my-zsh
-
-# History options.
-zplug "lib/history", from:oh-my-zsh
-
-# Directory traversal options.
-zplug "lib/directories", from:oh-my-zsh
-
-# Keybindings options.
-zplug "lib/key-bindings", from:oh-my-zsh
 
 # Enable highlighing of commands whilst they are typed at a zsh prompt
 # into an interactive terminal.
@@ -124,11 +125,13 @@ man() {
 }
 # }}}
 
+# Dircolors for `ls` and `grep` {{{
 if [ -x /usr/bin/dircolors -a -r $HOME/.dircolors ]; then
     eval "$(dircolors $HOME/.dircolors)"
     alias ls='ls --color=auto'
     alias grep='grep --color=auto'
 fi
+# }}}
 
 if [ -e $HOME/.zshrc-local ]; then
     . $HOME/.zshrc-local
