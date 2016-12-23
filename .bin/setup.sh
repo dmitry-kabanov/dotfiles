@@ -57,6 +57,10 @@ else
     echo tmux version is outdated. Cannot install tmux plugin manager.
 fi
 
+e_header "Downloading dircolors-solarized colors for \`ls\`"
+dircolors_url=https://raw.githubusercontent.com/seebi/dircolors-solarized
+curl -L $dircolors_url/master/dircolors.ansi-universal -o ~/.dircolors
+
 e_header "Setup script for my dotfiles: finish"
 
 export GIT_DIR=$_old_git_dir
