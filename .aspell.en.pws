@@ -52,8 +52,11 @@ calorically
 diluent
 discretization
 doublings
+eigendecomposition
 eigenfunction
 eigenfunctions
+eigenvalue
+eigenvector
 eq
 fminsearch
 fsolve
