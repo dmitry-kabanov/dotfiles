@@ -1,4 +1,4 @@
-personal_ws-1.1 en 104 
+personal_ws-1.1 en 106 
 AMCS
 Abdullah
 Aslan
@@ -40,6 +40,7 @@ ODEs
 Raphson
 Runge
 SSP
+SVD
 Strogatz
 TVD
 Thuwal
@@ -88,6 +89,7 @@ postprocessed
 postprocessing
 preexponent
 preexponential
+pseudoinverse
 quasilinear
 rescale
 rescaled
