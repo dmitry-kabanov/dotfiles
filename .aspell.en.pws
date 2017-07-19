@@ -50,6 +50,7 @@ ZND
 advection
 boundedness
 calorically
+config
 diluent
 discretization
 doublings
@@ -60,6 +61,8 @@ eigenvalue
 eigenvector
 eigenvectors
 eq
+euler1d
+euler1d-eigval
 fminsearch
 fsolve
 inhomogeneous
@@ -91,6 +94,7 @@ postprocessed
 postprocessing
 preexponent
 preexponential
+prefactor
 pseudoinverse
 quasilinear
 rescale
