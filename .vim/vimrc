@@ -17,7 +17,8 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 " Plug 'scrooloose/syntastic'
-Plug 'https://github.com/neomake/neomake.git'
+" Plug 'https://github.com/neomake/neomake.git'
+Plug 'w0rp/ale'  " Asynchronous Lint Engine
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/vim-easy-align'
 Plug 'christoomey/vim-tmux-navigator'
@@ -255,8 +256,9 @@ let g:syntastic_tex_checkers = ['lacheck']
 " }}}
 
 " Options for neomake {{{
-autocmd BufWritePost,BufEnter * Neomake
-let g:neomake_python_enabled_makers = ['flake8']
+let g:ale_linters = {
+\   'python': ['flake8', 'isort', 'pycodestyle'],
+\}
 " }}}
 
 " Options for ultisnips {{{
@@ -278,6 +280,7 @@ let g:ycm_server_keep_logfiles = 1
 " }}}
 
 " Options for vim-airline {{{
+let g:airline#extensions#ale#enabled = 1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_powerline_fonts=0
