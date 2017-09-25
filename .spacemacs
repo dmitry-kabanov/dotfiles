@@ -272,7 +272,7 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers 'relative
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -323,11 +323,13 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq powerline-default-separator nil)
-  (spacemacs/toggle-line-numbers-on)  ; Show line numbers
-  (linum-relative-on)  ; Show relative line numbers
-  (global-hl-line-mode -1)  ; Disable highlighting of a current line
-  (spacemacs/toggle-fill-column-indicator-on)  ; Show vertical ruler.
-  (set-fill-column 80)  ; Set vertical ruler to be shown at the 80th character.
+  ;; Disable highlighting of a current line
+  (global-hl-line-mode -1)
+  ;; Show vertical ruler (`fci' - fill column indicator).
+  (add-hook 'text-mode-hook 'turn-on-fci-mode)
+  (add-hook 'prog-mode-hook 'turn-on-fci-mode)
+  ;; Set vertical ruler to be shown at the 80th character.
+  (set-fill-column 80)  
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
