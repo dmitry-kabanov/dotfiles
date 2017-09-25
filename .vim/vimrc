@@ -16,7 +16,6 @@ endif
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
-" Plug 'https://github.com/neomake/neomake.git'
 Plug 'w0rp/ale'  " Asynchronous Lint Engine
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/vim-easy-align'
@@ -245,13 +244,14 @@ else
 endif
 " }}}
 
-" Options for neomake {{{
+" Options for Asynchronous Lint Engine {{{
+" Remove pylint from the list of Python linters because it's very annoying.
 let g:ale_linters = {
 \   'python': ['flake8', 'isort', 'pycodestyle'],
 \}
 " }}}
 
-" Options for ultisnips {{{
+" Options for Ultisnips {{{
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger = "<C-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-S-j>"
