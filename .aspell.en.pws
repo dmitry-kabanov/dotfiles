@@ -1,4 +1,4 @@
-personal_ws-1.1 en 100 
+personal_ws-1.1 en 112 
 AMCS
 Abdullah
 Aslan
@@ -40,6 +40,7 @@ ODEs
 Raphson
 Runge
 SSP
+SVD
 Strogatz
 TVD
 Thuwal
@@ -49,6 +50,7 @@ ZND
 advection
 boundedness
 calorically
+config
 diluent
 discretization
 doublings
@@ -57,6 +59,8 @@ eigenfunction
 eigenfunctions
 eigenvalue
 eigenvector
+eigenvectors
+endothermicity
 eq
 fminsearch
 fsolve
@@ -74,6 +78,8 @@ nondimensional
 nondimensionalization
 nonlocal
 nonoscillatory
+outlier
+outliers
 overbar
 overdriven
 parallelization
@@ -87,6 +93,8 @@ postprocessed
 postprocessing
 preexponent
 preexponential
+prefactor
+pseudoinverse
 quasilinear
 rescale
 rescaled
@@ -98,6 +106,7 @@ thermicity
 thermochemical
 thermochemistry
 unboundedly
+underresolved
 unimolecular
 unreacted
 wavenumber

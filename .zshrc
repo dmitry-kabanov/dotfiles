@@ -25,10 +25,12 @@ zplug "lib/key-bindings", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 
 # Theme `blinks` works if $SOLARIZED_THEME is either `dark` or `light`.
-if [ $(hostname) = 'dima-macbook-air.local' -o -n "$SSH_CONNECTION" ]; then
-    export SOLARIZED_THEME=dark
-else
-    export SOLARIZED_THEME=light
+if [ -z $SOLARIZED_THEME ]; then
+    if [ $(hostname) = 'dima-macbook-air.local' -o -n "$SSH_CONNECTION" ]; then
+        export SOLARIZED_THEME=dark
+    else
+        export SOLARIZED_THEME=light
+    fi
 fi
 zplug "~/.zsh/", from:local, as:theme
 
