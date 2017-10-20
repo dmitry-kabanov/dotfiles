@@ -20,7 +20,10 @@ Plug 'Raimondi/delimitMate'
 Plug 'https://github.com/neomake/neomake.git'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/vim-easy-align'
+
+" Transparently switch between tmux panes and vim split windows.
 Plug 'christoomey/vim-tmux-navigator'
+
 Plug 'vim-utils/vim-husk'  " Mappings for command mode in Emacs style.
 
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
@@ -48,6 +51,10 @@ Plug 'tmux-plugins/vim-tmux' " syntax highlighting for `.tmux.conf`
 
 " Plugin for markdown. Depends on `tabular`.
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+
+" Interactive REPLs Over Neovim.
+Plug 'hkupty/iron.nvim'
+Plug 'kassio/neoterm'
 
 " Add plugins to &runtimepath.
 call plug#end()
@@ -305,3 +312,35 @@ let g:vimtex_view_method='mupdf'
 let g:vim_markdown_math=1
 let g:vim_markdown_folding_disabled=1
 " }}}
+
+" Options for neovim terminal {{{
+if exists(":tnoremap")
+    tnoremap <Esc> <C-\><C-n>
+
+    tnoremap <A-h> <C-\><C-n><C-w>h
+    tnoremap <A-j> <C-\><C-n><C-w>j
+    tnoremap <A-k> <C-\><C-n><C-w>k
+    tnoremap <A-l> <C-\><C-n><C-w>l
+endif
+autocmd BufEnter term://* :startinsert
+" }}}
+
+" Options for vim-tmux-navigator {{{
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <A-\> :TmuxNavigatePrevious<cr>
+
+" Write current buffer before navigating from vim to tmux pane.
+let g:tmux_navigator_save_on_switch = 1
+" }}}
+
+let g:neoterm_position = 'vertical'
+let g:neoterm_automap_keys = ',tt'
+
+nnoremap <silent> <f10> :TREPLSendFile<cr>
+nnoremap <silent> <f9> :TREPLSendLine<cr>
+vnoremap <silent> <f9> :TREPLSendSelection<cr>
