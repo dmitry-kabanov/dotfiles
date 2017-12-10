@@ -247,7 +247,7 @@ endif
 " Options for Asynchronous Lint Engine {{{
 " Remove pylint from the list of Python linters because it's very annoying.
 let g:ale_linters = {
-\   'python': ['flake8', 'isort', 'pycodestyle'],
+\   'python': ['pep8', 'pyflakes', 'flake8', 'isort', 'pycodestyle'],
 \}
 " }}}
 
