@@ -55,7 +55,7 @@ fi
 export BROWSER=google-chrome
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export dev=~/Dropbox/dev
+export dev=~/Sync/dev
 # }}}
 
 # Aliases {{{
