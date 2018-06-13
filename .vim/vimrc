@@ -120,6 +120,8 @@ set wildmode=full
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.tar.xz,*.rar
 " Python patterns.
 set wildignore+=*.pyc,*/__pycache__/*,*.so
+" C/C++ patterns.
+set wildignore+=*.o
 
 " Stop showing annoying preview window during autocompletion.
 set completeopt-=preview
