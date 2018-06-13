@@ -40,6 +40,7 @@ Plug 'tpope/vim-capslock'
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/base16-vim'
+Plug 'rakr/vim-one'  " Adaptation of the Atom colorscheme.
 
 " Git integration.
 Plug 'tpope/vim-fugitive'
@@ -50,6 +51,9 @@ Plug 'hynek/vim-python-pep8-indent'
 " Plugins that improve support of different file types.
 Plug 'lervag/vimtex'  " latex support
 Plug 'tmux-plugins/vim-tmux' " syntax highlighting for `.tmux.conf`
+
+" Improve syntax highlighting for Python code.
+Plug 'vim-python/python-syntax'
 
 " Plugin for markdown. Depends on `tabular`.
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
@@ -341,3 +345,7 @@ let g:neoterm_automap_keys = ',tt'
 nnoremap <silent> <f10> :TREPLSendFile<cr>
 nnoremap <silent> <f9> :TREPLSendLine<cr>
 vnoremap <silent> <f9> :TREPLSendSelection<cr>
+
+" Options for python-syntax {{{
+let g:python_highlight_class_vars = 1
+" }}}
