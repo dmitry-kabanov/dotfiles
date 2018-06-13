@@ -291,9 +291,17 @@ let g:ycm_server_keep_logfiles = 1
 " Options for vim-airline {{{
 let g:airline_theme = 'gruvbox'
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#keymap#enabled = 0
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_powerline_fonts=0
+let g:airline_powerline_fonts=1
+
+" Customization of the symbols used by vim-airline.
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.spell = 'Ꞩ'
+
 let g:airline_mode_map = {
   \ '__' : '-',
   \ 'n'  : 'N',
