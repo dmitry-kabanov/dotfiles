@@ -188,9 +188,9 @@ else
     if $SSH_CONNECTION
         set background=dark
     else
-        set background=light
+        set background=dark
     endif
-    colorscheme solarized
+    colorscheme gruvbox
 endif
 
 " Font
@@ -277,6 +277,7 @@ let g:ycm_server_keep_logfiles = 1
 " }}}
 
 " Options for vim-airline {{{
+let g:airline_theme = 'gruvbox'
 let g:airline#extensions#ale#enabled = 1
 let g:airline_left_sep=''
 let g:airline_right_sep=''

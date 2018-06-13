@@ -32,7 +32,9 @@ if [ -z $SOLARIZED_THEME ]; then
         export SOLARIZED_THEME=light
     fi
 fi
-zplug "~/.zsh/", from:local, as:theme
+# zplug "~/.zsh/", from:local, as:theme
+
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
 # Autoload of the environment settings.
 AUTOENV_FILE_ENTER=autoenv-enter.zsh
