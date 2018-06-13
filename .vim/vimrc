@@ -352,12 +352,14 @@ nnoremap <silent> <A-\> :TmuxNavigatePrevious<cr>
 let g:tmux_navigator_save_on_switch = 1
 " }}}
 
-let g:neoterm_position = 'vertical'
+" Options for neoterm {{{
+let g:neoterm_default_mod = ':rightbelow'
 let g:neoterm_automap_keys = ',tt'
 
 nnoremap <silent> <f10> :TREPLSendFile<cr>
 nnoremap <silent> <f9> :TREPLSendLine<cr>
 vnoremap <silent> <f9> :TREPLSendSelection<cr>
+" }}}
 
 " Options for python-syntax {{{
 let g:python_highlight_class_vars = 1
