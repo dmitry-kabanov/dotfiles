@@ -14,6 +14,7 @@ else
 endif
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'w0rp/ale'  " Asynchronous Lint Engine
@@ -25,10 +26,12 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'vim-utils/vim-husk'  " Mappings for command mode in Emacs style.
 
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Snippets.
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Turn on CAPS LOCK.
 Plug 'tpope/vim-capslock'
