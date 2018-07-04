@@ -1,11 +1,23 @@
-;; Set the color scheme.
+;; Initialize `use-package` for automatic package installation.
+(require 'package)
+(setq package-enable-at-startup nil)
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
+;; Package repositories.
+;; Melpa - biggest repository for Emacs.
+;; Org-mode has its own repository.
+(add-to-list 'package-archives
+	     '("org" . "https://orgmode.org/elpa/")
+             '("melpa" . "https://melpa.org/packages/"))
+
 (package-initialize)
 
+;; Bootstrap `use-package'
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+
+;; Set up the color scheme.
 (load-theme 'leuven)
 
 ;; Set font.
@@ -24,12 +36,28 @@
 ;; Display a vertical line.
 (require 'fill-column-indicator)
 
-;; *** Org mode configuration {
-;; set the key for org-mode agenda
-(global-set-key (kbd "C-c a") 'org-agenda)
+;; Org-mode configuration.
+(use-package org
+  ;; set the key for org-mode agenda
+  :bind
+  (("C-c a" . org-agenda))
+  :init
+  (add-hook 'org-mode-hook 'fci-mode)
+  :config
+  ;;file to save todo items
+  (setq org-agenda-files (quote ("~/Documents/Notes/todo.org")))
+  )
 
-;;file to save todo items
-(setq org-agenda-files (quote ("~/Documents/Notes/todo.org")))
 
-(add-hook 'org-mode-hook 'fci-mode)
-;; }
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (org use-package fill-column-indicator))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
