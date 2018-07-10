@@ -9,7 +9,7 @@
 (load-theme 'leuven)
 
 ;; Set font.
-(set-default-font "Cousine 12")
+(set-default-font "Cousine 18")
 
 ;; Set initial window settings.
 (setq initial-frame-alist '((width . 86)))
