@@ -9,6 +9,9 @@ fi
 # Zplug {{{
 source $HOME/.zplug/init.zsh
 
+# Let zplug manage itself.
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
 # Completion settings.
 zplug "lib/completion", from:oh-my-zsh
 
