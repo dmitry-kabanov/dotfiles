@@ -88,10 +88,10 @@ set complete-=i
 set smarttab
 
 " Default indentation settings.
-set expandtab
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+set expandtab     " Replace \t characters with spaces.
+set shiftwidth=4  " Number of space characters for indentation commands like >.
+set tabstop=4     " Number of space characters used to visualize \t character.
+set softtabstop=4 " Number of spaces that a <Tab> counts for while editing.
 
 " Set `UTF-8` encoding.
 set encoding=utf-8
