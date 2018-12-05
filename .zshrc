@@ -96,6 +96,8 @@ alias tmks='tmux kill-session -t'
 # AUTOCD option lets you type the name of a directory to change into into it.
 setopt autocd
 setopt extendedglob
+# Autocomplete filenames after = sign (e.g., in ./configure --prefix=PREFIX).
+setopt magic_equal_subst
 # }}}
 
 # man customization {{{
