@@ -238,9 +238,8 @@ endif
 " Highlight line under cursor.
 set cursorline
 
-if exists("+colorcolumn")
-    set colorcolumn=80
-endif
+" Make 80th column visible to help restrict line width.
+set colorcolumn=80
 
 " Show line numbers.
 set number
