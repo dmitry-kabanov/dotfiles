@@ -291,6 +291,8 @@ endif
 let g:ale_linters = {
 \   'python': ['pep8', 'pyflakes', 'flake8', 'isort', 'pycodestyle'],
 \}
+" Parse a compilation database (compile_commands.json file).
+let g:ale_c_parse_compile_commands = 1
 " }}}
 
 " Options for Ultisnips {{{
@@ -309,6 +311,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_python_binary_path = 'python'
 let g:ycm_server_use_vim_stdout = 0
 let g:ycm_server_keep_logfiles = 1
+let g:ycm_confirm_extra_conf = 0
 " }}}
 
 " Options for vim-airline {{{
