@@ -64,6 +64,18 @@ Plug 'vim-python/python-syntax'
 " Plugin for markdown. Depends on `tabular`.
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 
+" Instant markdown preview.
+function! _BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release
+    else
+      !cargo build --release --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+Plug 'euclio/vim-markdown-composer', { 'do': function('_BuildComposer') }
+
 " Interactive REPLs Over Neovim.
 Plug 'hkupty/iron.nvim'
 Plug 'kassio/neoterm'
