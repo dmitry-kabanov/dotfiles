@@ -126,6 +126,12 @@ set directory=~/.vim/tmp//
 " Allow to switch between buffers even if the current buffer is modified.
 set hidden
 
+" Set project-specific settings by reading an .exrc in the current directory.
+set exrc
+
+" Disallow dangerous commands in an .exrc in the current directory.
+set secure
+
 " Autocomplete commands using nice menu in place of window status line.
 " Enable `Ctrl-N` and `Ctrl-P` to scroll through matches.
 set wildmenu
