@@ -138,3 +138,6 @@ fi
 
 # Setup fuzzy search.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Setup Rust programming language environment.
+[ -f ~/.cargo/env ] && source ~/.cargo/env
