@@ -135,3 +135,6 @@ fi
 if [ -e $HOME/.zshrc-local ]; then
     . $HOME/.zshrc-local
 fi
+
+# Setup fuzzy search.
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
