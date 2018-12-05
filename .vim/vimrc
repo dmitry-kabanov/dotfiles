@@ -36,6 +36,12 @@ Plug 'honza/vim-snippets'
 " Turn on CAPS LOCK.
 Plug 'tpope/vim-capslock'
 
+" Repeat.vim remaps . in a way that plugins can tap into it.
+Plug 'tpope/vim-repeat'
+
+" Surround.vim is all about 'surroundings': parentheses, brackets, etc.
+Plug 'tpope/vim-surround'
+
 " Color schemes.
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
