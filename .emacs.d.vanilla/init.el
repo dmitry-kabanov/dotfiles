@@ -21,7 +21,7 @@
 (load-theme 'leuven)
 
 ;; Set font.
-(set-default-font "Cousine 18")
+(set-default-font "Cousine 14")
 
 ;; Set initial window settings.
 (setq initial-frame-alist '((width . 86)))
@@ -46,6 +46,7 @@
   :config
   ;;file to save todo items
   (setq org-agenda-files (quote ("~/Documents/Notes/todo.org")))
+  (setq org-cycle-separator-lines 1)
   )
 
 
