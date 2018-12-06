@@ -13,20 +13,28 @@ else
     call plug#begin('~/.vim/plugged')
 endif
 
+" A code-completion engine for Vim.
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+" Generate .ycm_extra_conf.py for YouCompleteMe.
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+" Automatically run ctags during file saving.
 Plug 'craigemery/vim-autotag'
+" Fuzzy search of files and open buffers.
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Raimondi/delimitMate'
-Plug 'w0rp/ale'  " Asynchronous Lint Engine
+" Asynchronous Lint Engine.
+Plug 'w0rp/ale'
+" Drawer with functions/classes in a current file.
 Plug 'majutsushi/tagbar'
-Plug 'junegunn/vim-easy-align'
+" Git integration.
+Plug 'tpope/vim-fugitive'
 
 " Transparently switch between tmux panes and vim split windows.
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'vim-utils/vim-husk'  " Mappings for command mode in Emacs style.
+" Mappings for command mode in Emacs style.
+Plug 'vim-utils/vim-husk'  
 
+" Statusline.
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -34,37 +42,38 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" --- Editing
+" Enter paired delimiters.
+Plug 'Raimondi/delimitMate'
+" Align text.
+Plug 'godlygeek/tabular'
 " Turn on CAPS LOCK.
 Plug 'tpope/vim-capslock'
-
 " Repeat.vim remaps . in a way that plugins can tap into it.
 Plug 'tpope/vim-repeat'
-
-" Surround.vim is all about 'surroundings': parentheses, brackets, etc.
+" Change delimiters quickly: for example change 'word' to "word".
 Plug 'tpope/vim-surround'
 
-" Color schemes.
+" -- Color schemes.
 Plug 'morhetz/gruvbox'                  " Retro groove color scheme.
 Plug 'altercation/vim-colors-solarized' " Famous solarized color scheme.
 Plug 'chriskempson/base16-vim'          " Popular base16 color schemes.
 Plug 'rakr/vim-one'                     " Adaptation of the Atom color scheme.
 
-" Git integration.
-Plug 'tpope/vim-fugitive'
+" Interactive REPLs Over Neovim.
+Plug 'hkupty/iron.nvim'
+Plug 'kassio/neoterm'
 
+" --- Plugins that improve support of different file types.
+" Python.
 " Fix python indentation.
 Plug 'hynek/vim-python-pep8-indent'
-
-" Plugins that improve support of different file types.
-Plug 'lervag/vimtex'  " latex support
-Plug 'tmux-plugins/vim-tmux' " syntax highlighting for `.tmux.conf`
-
 " Improve syntax highlighting for Python code.
 Plug 'vim-python/python-syntax'
 
-" Plugin for markdown. Depends on `tabular`.
-Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
-
+" Markdown.
+" Improved Markdown syntax.
+Plug 'plasticboy/vim-markdown'
 " Instant markdown preview.
 function! _BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
@@ -77,9 +86,11 @@ function! _BuildComposer(info)
 endfunction
 Plug 'euclio/vim-markdown-composer', { 'do': function('_BuildComposer') }
 
-" Interactive REPLs Over Neovim.
-Plug 'hkupty/iron.nvim'
-Plug 'kassio/neoterm'
+" Latex.
+Plug 'lervag/vimtex'
+
+" Tmux.
+Plug 'tmux-plugins/vim-tmux' 
 
 " Add plugins to &runtimepath.
 call plug#end()
