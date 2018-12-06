@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-export GIT_DIR=
-export GIT_WORK_TREE=
+unset GIT_DIR
+unset GIT_WORK_TREE
