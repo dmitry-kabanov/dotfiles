@@ -9,7 +9,21 @@
 # Example: Github issue #23
 
 # --- COMMIT END ---
-# Type can be 
+# Further details on commit messages {{{
+# Type can be
+#    API: an (incompatible) API change
+#    BENCH: changes to the benchmark suite
+#    BLD: change related to building numpy
+#    BUG: bug fix
+#    DEP: deprecate something, or remove a deprecated object
+#    DEV: development tool or utility
+#    DOC: documentation
+#    ENH: enhancement
+#    MAINT: maintenance commit (refactoring, typos, etc.)
+#    REV: revert an earlier commit
+#    STY: style fix (whitespace, PEP8)
+#    TST: addition or modification of tests
+#    REL: related to releasing numpy
 #    feat     (new feature)
 #    fix      (bug fix)
 #    refactor (refactoring production code)
@@ -28,3 +42,5 @@
 # --------------------
 # For more information about this template, check out
 # https://gist.github.com/adeekshith/cd4c95a064977cdc6c50
+#}}}
+# vim: foldmethod=marker
