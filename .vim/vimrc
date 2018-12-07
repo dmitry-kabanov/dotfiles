@@ -17,8 +17,6 @@ endif
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 " Generate .ycm_extra_conf.py for YouCompleteMe.
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
-" Automatically run ctags during file saving.
-Plug 'craigemery/vim-autotag'
 " Fuzzy search of files and open buffers.
 Plug 'ctrlpvim/ctrlp.vim'
 " Asynchronous Lint Engine.
