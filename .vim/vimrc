@@ -51,6 +51,8 @@ Plug 'tpope/vim-capslock'
 Plug 'tpope/vim-repeat'
 " Change delimiters quickly: for example change 'word' to "word".
 Plug 'tpope/vim-surround'
+" Comment and uncomment quickly.
+Plug 'tpope/vim-commentary'
 
 " -- Color schemes.
 Plug 'morhetz/gruvbox'                  " Retro groove color scheme.
