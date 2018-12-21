@@ -1,5 +1,5 @@
 "
-" vim:fdm=marker
+" vim:foldmethod=marker
 
 " Preamble - nocompatible {{{
 " Use Vim settings, rather than Vi settings.
@@ -144,11 +144,10 @@ set exrc
 " Disallow dangerous commands in an .exrc in the current directory.
 set secure
 
-" Autocomplete commands using nice menu in place of window status line.
-" Enable `Ctrl-N` and `Ctrl-P` to scroll through matches.
+" Show the possible matches just above the command line after pressing <TAB>.
 set wildmenu
 
-" Autocomplete by choosing next full match.
+" Complete the next full match.
 set wildmode=full
 
 " Ignore patterns for filename completion.
@@ -189,6 +188,10 @@ let mapleader = "\<Space>"
 " Map <LocalLeader> key to backslash key.
 let maplocalleader = "\\"
 
+" Always move up and down by visual lines.
+nnoremap k gk
+nnoremap j gj
+
 " Make `Y` to work from the cursor to the end of line, which is more logical
 " (compare: C, D) but not Vi-compatible.
 map Y y$
@@ -204,23 +207,24 @@ nnoremap <silent> ]B :blast<CR>
 " }}}
 
 " Search options {{{
+" Turn on incremental search.
+set incsearch
+
+" Highlight search matches.
 set hlsearch
 
 " Use mapping to clear the highlighting of `:set hlsearch`.
 nnoremap <silent> <Leader>z :nohlsearch<CR>
 
-" Turn on incremental search.
-set incsearch
-
 " Use smart detection of case-sensitive or case-insensitive search.
 set ignorecase
 set smartcase
-
-" Set minimal number of screen lines to keep above and below the cursor.
-set scrolloff=1
 " }}}
 
-" Visual appearance options {{{
+" UI options {{{
+" Set minimal number of screen lines to keep above and below the cursor.
+set scrolloff=1
+
 if has('mac')
     set background=dark
     colorscheme gruvbox
@@ -278,6 +282,18 @@ set showcmd
 
 " Lazy redrawing (helps with vim-tex performance issues).
 set lazyredraw
+" }}}
+
+" Neovim-specific options {{{
+if exists(":tnoremap")
+    tnoremap <Esc> <C-\><C-n>
+
+    tnoremap <A-h> <C-\><C-n><C-w>h
+    tnoremap <A-j> <C-\><C-n><C-w>j
+    tnoremap <A-k> <C-\><C-n><C-w>k
+    tnoremap <A-l> <C-\><C-n><C-w>l
+endif
+autocmd BufEnter term://* :startinsert
 " }}}
 
 " Options for CtrlP {{{
@@ -360,21 +376,9 @@ let g:vimtex_fold_enabled = 0
 let g:vimtex_view_method='mupdf'
 " }}}
 
-" Options for `plasticboy/vim-markdown` {{{
+" Options for vim-markdown {{{
 let g:vim_markdown_math=1
 let g:vim_markdown_folding_disabled=1
-" }}}
-
-" Options for neovim terminal {{{
-if exists(":tnoremap")
-    tnoremap <Esc> <C-\><C-n>
-
-    tnoremap <A-h> <C-\><C-n><C-w>h
-    tnoremap <A-j> <C-\><C-n><C-w>j
-    tnoremap <A-k> <C-\><C-n><C-w>k
-    tnoremap <A-l> <C-\><C-n><C-w>l
-endif
-autocmd BufEnter term://* :startinsert
 " }}}
 
 " Options for vim-tmux-navigator {{{
@@ -390,6 +394,10 @@ nnoremap <silent> <A-\> :TmuxNavigatePrevious<cr>
 let g:tmux_navigator_save_on_switch = 1
 " }}}
 
+" Options for python-syntax {{{
+let g:python_highlight_class_vars = 1
+" }}}
+
 " Options for neoterm {{{
 let g:neoterm_default_mod = ':rightbelow'
 let g:neoterm_automap_keys = ',tt'
@@ -399,6 +407,3 @@ nnoremap <silent> <f9> :TREPLSendLine<cr>
 vnoremap <silent> <f9> :TREPLSendSelection<cr>
 " }}}
 
-" Options for python-syntax {{{
-let g:python_highlight_class_vars = 1
-" }}}
