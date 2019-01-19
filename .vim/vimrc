@@ -316,10 +316,9 @@ endif
 " }}}
 
 " Options for Asynchronous Lint Engine {{{
-" Remove pylint from the list of Python linters because it's very annoying.
-let g:ale_linters = {
-\   'python': ['pep8', 'pyflakes', 'flake8', 'isort', 'pycodestyle'],
-\}
+" Make lists for linters and fixers empty, forcing to choose what to use.
+let g:ale_linters = {}
+let g:ale_fixers = {}
 " Parse a compilation database (compile_commands.json file).
 let g:ale_c_parse_compile_commands = 1
 " }}}
