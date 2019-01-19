@@ -149,7 +149,7 @@ set secure
 set wildmenu
 
 " Complete the next full match.
-set wildmode=full
+set wildmode=longest,full
 
 " Ignore patterns for filename completion.
 " Archive patterns.
