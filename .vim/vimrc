@@ -63,7 +63,6 @@ Plug 'chriskempson/base16-vim'          " Popular base16 color schemes.
 Plug 'rakr/vim-one'                     " Adaptation of the Atom color scheme.
 
 " Interactive REPLs Over Neovim.
-Plug 'hkupty/iron.nvim'
 Plug 'kassio/neoterm'
 
 " --- Plugins that improve support of different file types.
