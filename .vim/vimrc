@@ -407,3 +407,6 @@ nnoremap <silent> <f9> :TREPLSendLine<cr>
 vnoremap <silent> <f9> :TREPLSendSelection<cr>
 " }}}
 
+if filereadable(glob("./.vimrc.local"))
+    source ./.vimrc.local
+endif
