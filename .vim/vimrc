@@ -25,6 +25,8 @@ Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
 " Git integration.
 Plug 'tpope/vim-fugitive'
+" EditorConfig plugin.
+Plug 'editorconfig/editorconfig-vim'
 
 " Transparently switch between tmux panes and vim split windows.
 Plug 'christoomey/vim-tmux-navigator'
