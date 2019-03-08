@@ -36,6 +36,10 @@
 ;; Display a vertical line.
 (require 'fill-column-indicator)
 
+;; Turn on Global Auto Revert minor mode that reverts any buffer
+;; associated with a file when the file changes on disk.
+(global-auto-revert-mode t)
+
 ;; Org-mode configuration.
 (use-package org
   ;; set the key for org-mode agenda
