@@ -1,11 +1,5 @@
 # vim:fdm=marker
 
-# Lmod environment modules {{{
-if [ -f $HOME/apps/lmod/lmod/init/profile ]; then
-   source $HOME/apps/lmod/lmod/init/profile
-fi
-# }}}
-
 # Zplug {{{
 source $HOME/.zplug/init.zsh
 
@@ -29,7 +23,7 @@ zplug "plugins/git", from:oh-my-zsh
 
 # Theme `blinks` works if $SOLARIZED_THEME is either `dark` or `light`.
 if [ -z $SOLARIZED_THEME ]; then
-    if [ $(hostname) = 'dima-macbook-air.local' -o -n "$SSH_CONNECTION" ]; then
+    if [ "$(hostname)" = 'dima-macbook-air.local' -o -n "$SSH_CONNECTION" ]; then
         export SOLARIZED_THEME=dark
     else
         export SOLARIZED_THEME=light
@@ -61,6 +55,8 @@ export BROWSER=google-chrome
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export dev=~/Sync/dev
+
+export APPS_DIR=/sw
 # }}}
 
 # Aliases {{{
@@ -129,6 +125,15 @@ if [ -x /usr/bin/dircolors -a -r $HOME/.dircolors ]; then
     eval "$(dircolors $HOME/.dircolors)"
     alias ls='ls --color=auto'
     alias grep='grep --color=auto'
+fi
+# }}}
+
+# Spack and Lmod {{{
+if [ -f /sw/spack/share/spack/setup-env.sh ]; then
+    export MODULEPATH="/sw/modulefiles/Core:$MODULEPATH"
+    source /sw/spack/share/spack/setup-env.sh
+    source $(spack location -i lmod)/lmod/lmod/init/zsh
+    source /sw/spack/share/spack/setup-env.sh
 fi
 # }}}
 
