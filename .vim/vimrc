@@ -378,11 +378,21 @@ let g:vim_markdown_folding_disabled=1
 " Options for vim-tmux-navigator {{{
 let g:tmux_navigator_no_mappings = 1
 
-nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <A-\> :TmuxNavigatePrevious<cr>
+" On macOS, the mappings with Alt do not work (at least, in Iterm).
+" However, literally entering them via `Ctrl-V` works.
+if has('mac')
+    nnoremap <silent> h :TmuxNavigateLeft<cr>
+    nnoremap <silent> j :TmuxNavigateDown<cr>
+    nnoremap <silent> k :TmuxNavigateUp<cr>
+    nnoremap <silent>  :TmuxNavigateRight<cr>
+    nnoremap <silent> \ :TmuxNavigatePrevious<cr>
+else
+    nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
+    nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
+    nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
+    nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
+    nnoremap <silent> <A-\> :TmuxNavigatePrevious<cr>
+endif
 
 " Write current buffer before navigating from vim to tmux pane.
 let g:tmux_navigator_save_on_switch = 1
