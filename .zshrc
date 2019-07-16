@@ -1,5 +1,14 @@
 # vim:fdm=marker
 
+# Spack and Lmod {{{
+if [ -f /sw/spack/share/spack/setup-env.sh ]; then
+    export MODULEPATH="/sw/modulefiles/Core:$MODULEPATH"
+    source /sw/spack/share/spack/setup-env.sh
+    source $(spack location -i lmod)/lmod/lmod/init/zsh
+    source /sw/spack/share/spack/setup-env.sh
+fi
+# }}}
+
 # Zplug {{{
 source $HOME/.zplug/init.zsh
 
@@ -126,15 +135,6 @@ if [ -x /usr/bin/dircolors -a -r $HOME/.dircolors ]; then
     eval "$(dircolors $HOME/.dircolors)"
     alias ls='ls --color=auto'
     alias grep='grep --color=auto'
-fi
-# }}}
-
-# Spack and Lmod {{{
-if [ -f /sw/spack/share/spack/setup-env.sh ]; then
-    export MODULEPATH="/sw/modulefiles/Core:$MODULEPATH"
-    source /sw/spack/share/spack/setup-env.sh
-    source $(spack location -i lmod)/lmod/lmod/init/zsh
-    source /sw/spack/share/spack/setup-env.sh
 fi
 # }}}
 
