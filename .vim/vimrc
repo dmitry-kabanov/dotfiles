@@ -199,6 +199,15 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
+
+function! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+" Mapping for removing trailing whitespace from the current buffer.
+nnoremap <Leader>fw :call TrimWhitespace()<CR>
 " }}}
 
 " Search options {{{
