@@ -393,7 +393,7 @@ if has('mac')
     nnoremap <silent> h :TmuxNavigateLeft<cr>
     nnoremap <silent> j :TmuxNavigateDown<cr>
     nnoremap <silent> k :TmuxNavigateUp<cr>
-    nnoremap <silent>  :TmuxNavigateRight<cr>
+    nnoremap <silent> l :TmuxNavigateRight<cr>
     nnoremap <silent> \ :TmuxNavigatePrevious<cr>
 else
     nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
