@@ -79,6 +79,7 @@ if type nvim > /dev/null 2>&1; then
     alias vim='nvim'
     alias v='nvim'
 fi
+alias dateiso8601='date "+%Y-%m-%d"'
 
 # Tmux aliases.
 alias tmat='tmux attach -t'
