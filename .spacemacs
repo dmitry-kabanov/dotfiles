@@ -490,10 +490,27 @@ before packages are loaded."
   (add-hook 'prog-mode-hook 'turn-on-fci-mode)
   ;; Set vertical ruler to be shown at the 80th character.
   (set-fill-column 80)
+
+  ;; Org-mode config.
   (with-eval-after-load 'org
-    ;; here goes your Org config :)
     ;; Set files that are included in the Org-mode agenda.
-    (setq org-agenda-files (quote ("~/Documents/Notes/todo.org"))) 
+    (setq org-agenda-files (quote ("~/Documents/Notes/todo.org"
+                                   "~/wrk/rwth01-traffic")))
+    (setq org-default-notes-file (quote "~/Documents/Notes/inbox.org"))
+    (define-key global-map "\C-c c" 'org-capture)
+    (setq org-cycle-separator-lines -1)
+    (defun my/org-mode-hook ()
+      "Set font attributes of the org-mode headers."
+      (dolist (face '(org-level-1
+                      org-level-2
+                      org-level-3
+                      org-level-4
+                      org-level-5))
+        (set-face-attribute face nil :weight 'normal :height 1.0)))
+    (add-hook 'org-mode-hook 'my/org-mode-hook)
+    (setq org-tags-column -76)
+    (setq org-catch-invisible-edits 'show-and-error)
+    )
     )
   )
 
