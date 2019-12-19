@@ -2,9 +2,11 @@
 
 # Spack and Lmod {{{
 if [ -f /sw/spack/share/spack/setup-env.sh ]; then
+    # Get lmod path with `$(spack location -i lmod)`.
+    lmod_path="/sw/spack/opt/spack/darwin-mojave-x86_64/clang-10.0.1-apple/lmod-7.8.15-oq3ljl2vcih7w5y4piibmgi2zsxs3n3h"
     export MODULEPATH="/sw/modulefiles/Core:$MODULEPATH"
     source /sw/spack/share/spack/setup-env.sh
-    source $(spack location -i lmod)/lmod/lmod/init/zsh
+    source ${lmod_path}/lmod/lmod/init/zsh
     source /sw/spack/share/spack/setup-env.sh
 fi
 # }}}
