@@ -217,13 +217,13 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
-   ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
-   ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Fantasque Sans Mono"
-                               :size 20
+
+   ;; Default font or prioritized list of fonts.
+   dotspacemacs-default-font '("Input Mono"
+                               :size 18.0
                                :weight normal
-                               :width normal
-                               :powerline-scale 1.1)
+                               :width normal)
+
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
 
