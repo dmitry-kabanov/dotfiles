@@ -375,8 +375,17 @@ let g:airline_mode_map = {
 " }}}
 
 " Options for vimtex {{{
+let g:tex_flavor = 'latex'
 let g:vimtex_fold_enabled = 0
-let g:vimtex_view_method='mupdf'
+let g:vimtex_view_method='skim'
+set conceallevel=1
+let g:tex_conceal = 'abdmg'
+
+" Configure YouCompleteMe to use vimtex autocompletion.
+if !exists('g:ycm_semantic_triggers')
+let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 " }}}
 
 " Options for vim-markdown {{{
