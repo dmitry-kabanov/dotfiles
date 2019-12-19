@@ -42,8 +42,6 @@ if [ -z $SOLARIZED_THEME ]; then
 fi
 # zplug "~/.zsh/", from:local, as:theme
 
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
-
 # Autoload of the environment settings.
 AUTOENV_FILE_ENTER=autoenv-enter.zsh
 AUTOENV_FILE_LEAVE=autoenv-leave.zsh
@@ -52,6 +50,8 @@ zplug "Tarrasch/zsh-autoenv"
 # Enable highlighing of commands whilst they are typed at a zsh prompt
 # into an interactive terminal.
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
+
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
 zplug load
 # }}}
