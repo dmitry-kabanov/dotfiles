@@ -34,6 +34,7 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     bibtex
      latex
      python
      ;; ----------------------------------------------------------------
@@ -41,7 +42,6 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     helm
      (auto-completion :variables
                       auto-completion-tab-key-behavior 'complete
                       auto-completion-enable-snippets-in-popup t
@@ -49,14 +49,21 @@ This function should only modify configuration layer settings."
      ;; better-defaults
      c-c++
      emacs-lisp
+     deft ;; Mode inspired by Notational Velocity
      ;; git
+     helm
      markdown
+     multiple-cursors
      org
+     osx
+     pandoc
+     pdf
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      spell-checking
      syntax-checking
+     treemacs
      ;; version-control
      themes-megapack
      )
