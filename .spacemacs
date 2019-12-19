@@ -200,16 +200,11 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(leuven
-                         solarized-dark
+   dotspacemacs-themes '(
                          spacemacs-dark
-                         spacemacs-light
-                         solarized-dark
-                         solarized-light
-                         gruvbox
-                         leunen
-                         wombat)
-   ;; If non nil the cursor color matches the state color in GUI Emacs.
+                         leuven
+                         spacemacs-light)
+
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
    ;; first three are spaceline themes. `doom' is the doom-emacs mode-line.
