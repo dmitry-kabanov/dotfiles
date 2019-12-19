@@ -146,6 +146,7 @@ fi
 
 # Setup fuzzy search.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND="fd --type f --exclude pCloud\ Drive"
 
 # Setup Rust programming language environment.
 [ -f ~/.cargo/env ] && source ~/.cargo/env
