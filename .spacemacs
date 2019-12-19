@@ -511,7 +511,24 @@ before packages are loaded."
     (setq org-tags-column -76)
     (setq org-catch-invisible-edits 'show-and-error)
     )
+
+
+  ;; AucTeX config.
+  ;; Use pdf-tools to open PDF files.
+  ;; (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+  ;;       TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
+  ;;       TeX-source-correlate-start-server t)
+  (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
+  (setq TeX-view-program-list
+        '(("PDF Viewer"
+           "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))
+
+  (custom-set-variables
+    '(TeX-source-correlate-method 'synctex)
+    '(TeX-source-correlate-mode t)
+    '(TeX-source-correlate-start-server t)
     )
+  (setq font-latex-fontify-script nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
