@@ -1,8 +1,8 @@
 " Indentation
-set tabstop=4
-set noexpandtab
-set softtabstop=4
-set shiftwidth=4
+setlocal tabstop=4
+setlocal noexpandtab
+setlocal softtabstop=4
+setlocal shiftwidth=4
 
 setlocal list
 setlocal listchars=tab:>>
