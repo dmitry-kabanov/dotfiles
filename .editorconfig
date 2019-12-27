@@ -1,0 +1,37 @@
+; This file is for unifying the coding style for different editors and IDEs.
+; More information at http://EditorConfig.org
+
+# Do not look up beyond this file.
+root = true
+
+# Settings for all files.
+# Unix-style newlines with a newline ending every file.
+# UTF-8 charset.
+[*]
+end_of_line = LF
+insert_final_newline = true
+charset = utf-8
+
+# Javascript settings.
+[*.{js,json}]
+indent_style = space
+indent_size = 2
+
+# Makefiles use TABs intensively, so set them as default.
+[Makefile]
+indent_style = tab
+
+# Python files should obey PEP8 standard.
+[*.py]
+indent_style = space
+indent_size = 4
+
+# VimL settings
+[{*.vim,vimrc}]
+indent_style = space
+indent_size = 2
+
+# YAML-files settings.
+[*.yml]
+indent_style = space
+indent_size = 2
