@@ -20,6 +20,7 @@ indent_size = 2
 # Makefiles use TABs intensively, so set them as default.
 [Makefile]
 indent_style = tab
+indent_size = 4
 
 # Python files should obey PEP8 standard.
 [*.py]
