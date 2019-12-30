@@ -17,8 +17,8 @@ endif
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 " Generate .ycm_extra_conf.py for YouCompleteMe.
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
-" Fuzzy search of files and open buffers.
-Plug 'ctrlpvim/ctrlp.vim'
+" Add FZF Vim plugin installed via Homebrew.
+Plug '/usr/local/opt/fzf'
 " Asynchronous Lint Engine.
 Plug 'w0rp/ale'
 " Drawer with functions/classes in a current file.
@@ -300,22 +300,8 @@ endif
 autocmd BufEnter term://* :startinsert
 " }}}
 
-" Options for CtrlP {{{
-let g:ctrlp_cmd = 'CtrlPCurWD'
-
-" Configure `CtrlP` to use `ag` or `git` for listing files instead of using
-" Vim's `globalpath()`.
-let g:ctrlp_use_caching = 0
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
-
-    let g:ctrlp_user_command = 'ag %s -l --nocolor --ignore _output -g ""'
-else
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-  let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-    \ }
-endif
+" Options for FZF {{{
+nnoremap <C-p> :<C-u>FZF<CR>
 " }}}
 
 " Options for Asynchronous Lint Engine {{{
