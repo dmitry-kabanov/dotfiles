@@ -491,6 +491,10 @@ before packages are loaded."
   ;; Set vertical ruler to be shown at the 80th character.
   (set-fill-column 80)
 
+  ;; Use Option key as Super and Cmd key as Meta for compatibility with PC.
+  (setq mac-option-modifier 'super)
+  (setq mac-command-modifier 'meta)
+
   ;; Org-mode config.
   (with-eval-after-load 'org
     ;; Set files that are included in the Org-mode agenda.
