@@ -27,6 +27,8 @@ Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-fugitive'
 " EditorConfig plugin.
 Plug 'editorconfig/editorconfig-vim'
+" Run external commands asynchronously.
+Plug 'tpope/vim-dispatch'
 
 " Transparently switch between tmux panes and vim split windows.
 Plug 'christoomey/vim-tmux-navigator'
