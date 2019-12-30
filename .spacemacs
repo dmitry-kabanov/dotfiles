@@ -34,9 +34,6 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     bibtex
-     latex
-     python
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -47,17 +44,20 @@ This function should only modify configuration layer settings."
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-enable-help-tooltip t)
      ;; better-defaults
+     bibtex
      c-c++
      emacs-lisp
      deft ;; Mode inspired by Notational Velocity
      ;; git
      helm
+     latex
      markdown
      multiple-cursors
      org
      osx
      pandoc
      pdf
+     python
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
