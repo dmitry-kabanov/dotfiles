@@ -27,6 +27,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 # }}}
+
 # Zplug {{{
 source $HOME/.zplug/init.zsh
 
@@ -163,6 +164,7 @@ fi
 # Setup fuzzy search.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND="fd --type f --exclude pCloud\ Drive"
+export FZF_CTRL_T_COMMAND="fd --type f --exclude pCloud\ Drive"
 
 # Setup Rust programming language environment.
 [ -f ~/.cargo/env ] && source ~/.cargo/env
