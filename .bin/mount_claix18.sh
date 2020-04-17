@@ -7,7 +7,7 @@ username="de217860"
 frontend="copy18-$(($RANDOM % 2 + 1))"
 domain="hpc.itc.rwth-aachen.de"
 hostname="${frontend}.${domain}"
-mount_src="${username}@${hostname}:"
+mount_src="${username}@${hostname}:/work/de217860"
 mount_dst="/mnt/claix18"
 
 echo -n "Mounting hostname ${hostname}..."
