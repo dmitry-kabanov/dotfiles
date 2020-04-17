@@ -450,6 +450,13 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 " Use %cpaste feature of ipython.
 let g:slime_python_ipython = 1
 " }}}
+
 if filereadable(glob("./.vimrc.local"))
+    echo "Executing ./.vimrc.local"
     source ./.vimrc.local
+endif
+
+if !empty($PROJECT_VIMRC) && filereadable(glob($PROJECT_VIMRC . "/vimrc.local"))
+    echo "Executing " . $PROJECT_VIMRC . "/vimrc.local"
+    source $PROJECT_VIMRC/vimrc.local
 endif
