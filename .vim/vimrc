@@ -318,6 +318,14 @@ let g:ale_linters = {}
 let g:ale_fixers = {}
 " Parse a compilation database (compile_commands.json file).
 let g:ale_c_parse_compile_commands = 1
+
+" Mappings in the style of unimpaired-next
+nmap <silent> [W <Plug>(ale_first)
+nmap <silent> [w <Plug>(ale_previous)
+nmap <silent> ]w <Plug>(ale_next)
+nmap <silent> ]W <Plug>(ale_last)
+" }}}
+
 " Options for Grepper {{{
 let g:grepper = {}
 let g:grepper.tools = ['rg', 'grep', 'git']
