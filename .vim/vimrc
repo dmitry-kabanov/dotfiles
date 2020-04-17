@@ -356,6 +356,8 @@ let g:ycm_python_binary_path = 'python'
 let g:ycm_server_use_vim_stdout = 0
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_confirm_extra_conf = 0
+" Show signature in popup.
+let g:ycm_auto_trigger = 1
 " }}}
 
 " Options for vim-airline {{{
