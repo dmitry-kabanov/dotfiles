@@ -29,6 +29,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'editorconfig/editorconfig-vim'
 " Run external commands asynchronously.
 Plug 'tpope/vim-dispatch'
+" Asynchronous search in Vim with different search tools (ag, rg, etc.).
+Plug 'mhinz/vim-grepper'
+" Run your tests at the speed of thought.
+Plug 'janko/vim-test'
+" Send text to REPL.
+Plug 'jpalardy/vim-slime'
 
 " Transparently switch between tmux panes and vim split windows.
 Plug 'christoomey/vim-tmux-navigator'
@@ -312,6 +318,17 @@ let g:ale_linters = {}
 let g:ale_fixers = {}
 " Parse a compilation database (compile_commands.json file).
 let g:ale_c_parse_compile_commands = 1
+" Options for Grepper {{{
+let g:grepper = {}
+let g:grepper.tools = ['rg', 'grep', 'git']
+
+" Search for the current word.
+nnoremap <Leader>* :Grepper -cword -noprompt<CR>
+nnoremap <Leader>/ :Grepper<CR>
+
+" Search for the current selection.
+nmap gs <Plug>(GrepperOperator)
+xmap gs <Plug>(GrepperOperator)
 " }}}
 
 " Options for Ultisnips {{{
@@ -417,6 +434,12 @@ nnoremap <silent> <f9> :TREPLSendLine<cr>
 vnoremap <silent> <f9> :TREPLSendSelection<cr>
 " }}}
 
+" Options for vim-slime {{{
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+" Use %cpaste feature of ipython.
+let g:slime_python_ipython = 1
+" }}}
 if filereadable(glob("./.vimrc.local"))
     source ./.vimrc.local
 endif
