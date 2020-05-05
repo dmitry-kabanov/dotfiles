@@ -36,6 +36,8 @@ Plug 'janko/vim-test'
 " Send text to REPL.
 Plug 'jpalardy/vim-slime'
 
+" --- Tmux.
+Plug 'tmux-plugins/vim-tmux' 
 " Transparently switch between tmux panes and vim split windows.
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -97,9 +99,6 @@ Plug 'euclio/vim-markdown-composer', { 'do': function('_BuildComposer') }
 
 " Latex.
 Plug 'lervag/vimtex'
-
-" Tmux.
-Plug 'tmux-plugins/vim-tmux' 
 
 " Add plugins to &runtimepath.
 call plug#end()
