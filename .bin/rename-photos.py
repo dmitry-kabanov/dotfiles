@@ -66,13 +66,12 @@ for f in renamed_files:
     d = f.rfind('.')
     d += 1
 
-    if f[d:] in ['jpg', 'jpeg']:
-        if f[:d] + 'dng' in renamed_files:
-            print('Found duplicate file %s' % f)
-            os.rename(
-                os.path.join(renamed_dir, f),
-                os.path.join(jpegs_dir, f)
-            )
+    if (f[d:] in ['jpg', 'jpeg']) and (f[:d] + 'dng' in renamed_files):
+        print('Found duplicate file %s' % f)
+        os.rename(
+            os.path.join(renamed_dir, f),
+            os.path.join(jpegs_dir, f)
+        )
     else:
         os.rename(
             os.path.join(renamed_dir, f),
