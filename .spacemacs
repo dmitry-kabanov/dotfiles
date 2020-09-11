@@ -53,7 +53,8 @@ This function should only modify configuration layer settings."
      latex
      markdown
      multiple-cursors
-     org
+     (org :variables
+          org-enable-hugo-support t)
      osx
      pandoc
      pdf
@@ -515,8 +516,7 @@ before packages are loaded."
     (setq org-tags-column -76)
     (setq org-catch-invisible-edits 'show-and-error)
     )
-
-
+  
   ;; AucTeX config.
   ;; Use pdf-tools to open PDF files.
   ;; (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
