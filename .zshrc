@@ -1,27 +1,29 @@
 # vim:fdm=marker
 
+zmodload zsh/zprof
+
 # Spack and Lmod {{{
-if [ -f /sw/spack/share/spack/setup-env.sh ]; then
-    # Get lmod path with `$(spack location -i lmod)`.
-    lmod_path="/sw/spack/opt/spack/darwin-mojave-x86_64/clang-10.0.1-apple/lmod-7.8.15-oq3ljl2vcih7w5y4piibmgi2zsxs3n3h"
-    export MODULEPATH="/sw/modulefiles/Core:$MODULEPATH"
-    source /sw/spack/share/spack/setup-env.sh
-    source ${lmod_path}/lmod/lmod/init/zsh
-    source /sw/spack/share/spack/setup-env.sh
-fi
+# if [ -f $HOME/sw/spack/share/spack/setup-env.sh ]; then
+#     # Get lmod path with `$(spack location -i lmod)`.
+#     lmod_path="$HOME/sw/spack/opt/spack/darwin-mojave-x86_64/clang-10.0.1-apple/lmod-7.8.15-oq3ljl2vcih7w5y4piibmgi2zsxs3n3h"
+#     export MODULEPATH="$HOME/sw/modulefiles/Core:$MODULEPATH"
+#     source $HOME/sw/spack/share/spack/setup-env.sh
+#     source ${lmod_path}/lmod/lmod/init/zsh
+#     source $HOME/sw/spack/share/spack/setup-env.sh
+# fi
 # }}}
 
 # Conda {{{
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/sw/python/3.7-Anaconda3-2019.07/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/dima/sw/conda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/sw/python/3.7-Anaconda3-2019.07/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/sw/python/3.7-Anaconda3-2019.07/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/Users/dima/sw/conda/etc/profile.d/conda.sh" ]; then
+        . "/Users/dima/sw/conda/etc/profile.d/conda.sh"
     else
-        export PATH="/sw/python/3.7-Anaconda3-2019.07/anaconda3/bin:$PATH"
+        export PATH="/Users/dima/sw/conda/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -29,48 +31,48 @@ unset __conda_setup
 # }}}
 
 # Zplug {{{
-source $HOME/.zplug/init.zsh
-
-# Let zplug manage itself.
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-
-# Completion settings.
-zplug "lib/completion", from:oh-my-zsh
-
-# Directory traversal options.
-zplug "lib/directories", from:oh-my-zsh
-
-# History options.
-zplug "lib/history", from:oh-my-zsh
-
-# Keybindings options.
-zplug "lib/key-bindings", from:oh-my-zsh
-
-# Add useful aliases and functions to work with git.
-zplug "plugins/git", from:oh-my-zsh
-
-# Theme `blinks` works if $SOLARIZED_THEME is either `dark` or `light`.
-if [ -z $SOLARIZED_THEME ]; then
-    if [ "$(hostname)" = 'dima-macbook-air.local' -o -n "$SSH_CONNECTION" ]; then
-        export SOLARIZED_THEME=dark
-    else
-        export SOLARIZED_THEME=light
-    fi
-fi
-# zplug "~/.zsh/", from:local, as:theme
-
-# Autoload of the environment settings.
-AUTOENV_FILE_ENTER=autoenv-enter.zsh
-AUTOENV_FILE_LEAVE=autoenv-leave.zsh
-zplug "Tarrasch/zsh-autoenv"
-
-# Enable highlighing of commands whilst they are typed at a zsh prompt
-# into an interactive terminal.
-zplug "zsh-users/zsh-syntax-highlighting", defer:3
-
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
-
-zplug load
+# source $HOME/.zplug/init.zsh
+# 
+# # Let zplug manage itself.
+# zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+# 
+# # Completion settings.
+# zplug "lib/completion", from:oh-my-zsh
+# 
+# # Directory traversal options.
+# zplug "lib/directories", from:oh-my-zsh
+# 
+# # History options.
+# zplug "lib/history", from:oh-my-zsh
+# 
+# # Keybindings options.
+# zplug "lib/key-bindings", from:oh-my-zsh
+# 
+# # Add useful aliases and functions to work with git.
+# zplug "plugins/git", from:oh-my-zsh
+# 
+# # Theme `blinks` works if $SOLARIZED_THEME is either `dark` or `light`.
+# if [ -z $SOLARIZED_THEME ]; then
+#     if [ "$(hostname)" = 'dima-macbook-air.local' -o -n "$SSH_CONNECTION" ]; then
+#         export SOLARIZED_THEME=dark
+#     else
+#         export SOLARIZED_THEME=light
+#     fi
+# fi
+# # zplug "~/.zsh/", from:local, as:theme
+# 
+# # Autoload of the environment settings.
+# AUTOENV_FILE_ENTER=autoenv-enter.zsh
+# AUTOENV_FILE_LEAVE=autoenv-leave.zsh
+# zplug "Tarrasch/zsh-autoenv"
+# 
+# # Enable highlighing of commands whilst they are typed at a zsh prompt
+# # into an interactive terminal.
+# zplug "zsh-users/zsh-syntax-highlighting", defer:3
+# 
+# zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+# 
+# zplug load
 # }}}
 
 # Environment variables {{{
@@ -170,3 +172,56 @@ export FZF_CTRL_T_COMMAND="fd --type f --exclude pCloud\ Drive"
 [ -f ~/.cargo/env ] && source ~/.cargo/env
 
 #. ~/.zplug/repos/Tarrasch/zsh-autoenv/init.zsh
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source "$HOME/.zinit/bin/zinit.zsh"
+
+zinit wait lucid light-mode for \
+  atinit"zicompinit; zicdreplay" \
+      zdharma/fast-syntax-highlighting \
+  atload"_zsh_autosuggest_start" \
+      zsh-users/zsh-autosuggestions \
+  blockf atpull'zinit creinstall -q .' \
+      zsh-users/zsh-completions
+
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-bin-gem-node
+
+# Completion.
+zinit snippet "OMZ::lib/completion.zsh"
+# Directory traversal options.
+zinit snippet "OMZ::lib/directories.zsh"
+# History options.
+zinit snippet "OMZ::lib/history.zsh"
+# Keybindings options.
+zinit snippet "OMZ::lib/key-bindings.zsh"
+# Add useful aliases and functions to work with git.
+zinit snippet OMZ::plugins/git
+
+AUTOENV_FILE_ENTER=autoenv-enter.zsh
+AUTOENV_FILE_LEAVE=autoenv-leave.zsh
+zinit load Tarrasch/zsh-autoenv
+
+# Enable highlighing of commands whilst they are typed at a zsh prompt
+# into an interactive terminal.
+# zinit load zsh-users/zsh-syntax-highlighting
+
+### End of Zinit's installer chunk
+
+# Starship prompt.
+eval "$(starship init zsh)"
