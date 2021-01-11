@@ -33,7 +33,9 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(html
+     octave
+     graphviz
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -46,6 +48,7 @@ This function should only modify configuration layer settings."
      ;; better-defaults
      bibtex
      c-c++
+     conda
      emacs-lisp
      deft ;; Mode inspired by Notational Velocity
      ;; git
@@ -481,17 +484,16 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  ;; Set current working directory.
+  (setq default-directory (getenv "HOME"))
   ;; Set initial frame size.
-  (setq initial-frame-alist '((left . 0) (width . 100)))
+  (setq initial-frame-alist '((left . 0) (width . 160)))
   (setq powerline-default-separator nil)
   ;; Disable highlighting of a current line
   (global-hl-line-mode -1)
-  ;; Show vertical ruler (`fci' - fill column indicator).
-  (add-hook 'text-mode-hook 'turn-on-fci-mode)
-  (add-hook 'prog-mode-hook 'turn-on-fci-mode)
   ;; Set vertical ruler to be shown at the 80th character.
   (set-fill-column 80)
-
+  
   ;; Use Option key as Super and Cmd key as Meta for compatibility with PC.
   (setq mac-option-modifier 'super)
   (setq mac-command-modifier 'meta)
@@ -503,7 +505,7 @@ before packages are loaded."
                                    "~/wrk/rwth01-traffic")))
     (setq org-default-notes-file (quote "~/Documents/Notes/inbox.org"))
     (define-key global-map "\C-c c" 'org-capture)
-    (setq org-cycle-separator-lines -1)
+    (setq org-cycle-separator-lines 0)
     (defun my/org-mode-hook ()
       "Set font attributes of the org-mode headers."
       (dolist (face '(org-level-1
@@ -535,6 +537,10 @@ before packages are loaded."
   (setq font-latex-fontify-script nil)
   )
 
+  ;; Load emacs-grammarly plugin.
+  ;; https://github.com/mmagnus/emacs-grammarly
+  (load-file "~/.emacs.d/private/emacs-grammarly/emacs-grammarly.el")
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 ()
@@ -552,3 +558,26 @@ before packages are loaded."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(TeX-source-correlate-method (quote synctex))
+ '(TeX-source-correlate-mode t)
+ '(TeX-source-correlate-start-server t t)
+ '(package-selected-packages
+   (quote
+    (ox-hugo org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mmm-mode markdown-toc markdown-mode htmlize gnuplot gh-md powerline hydra dash-functional projectile flyspell-correct flycheck epl iedit highlight bind-key packed auctex anaconda-mode pythonic avy company smartparens f s dash evil goto-chg yasnippet helm helm-core async leunen-theme white-sand-theme rebecca-theme exotica-theme zonokai-theme zenburn-theme zen-and-art-theme yapfify ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme toc-org tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spaceline spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme restart-emacs request rainbow-delimiters railscasts-theme pyvenv pytest pyenv-mode py-isort purple-haze-theme professional-theme popwin planet-theme pip-requirements phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pcre2el pastels-on-dark-theme paradox organic-green-theme org-plus-contrib org-bullets open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme niflheim-theme neotree naquadah-theme mustang-theme move-text monokai-theme monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme madhat2r-theme macrostep lush-theme lorem-ipsum live-py-mode linum-relative link-hint light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme info+ indent-guide hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt heroku-theme hemisu-theme help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate golden-ratio gandalf-theme fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido flatui-theme flatland-theme firebelly-theme fill-column-indicator farmhouse-theme fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu espresso-theme elisp-slime-nav dumb-jump dracula-theme django-theme disaster define-word darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cython-mode cyberpunk-theme company-statistics company-quickhelp company-c-headers company-auctex company-anaconda column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cmake-mode clues-theme clean-aindent-mode clang-format cherry-blossom-theme busybee-theme bubbleberry-theme bracketed-paste birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile auctex-latexmk apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+)
