@@ -241,8 +241,14 @@ set smartcase
 set scrolloff=1
 
 if has('mac')
-    set background=dark
-    colorscheme gruvbox
+    " This is only necessary if you use "set termguicolors".
+    " See https://github.com/vim/vim/issues/3608
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+    set termguicolors
+    set background=light
+    colorscheme solarized8_high
 else
     if $COLORTERM == 'gnome-terminal'
         let g:solarized_termcolors=16
