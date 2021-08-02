@@ -168,7 +168,7 @@ fi
 
 #. ~/.zplug/repos/Tarrasch/zsh-autoenv/init.zsh
 
-### Added by Zinit's installer
+### Added by Zinit's installer {{{
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
     command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
@@ -216,7 +216,7 @@ zinit load Tarrasch/zsh-autoenv
 # into an interactive terminal.
 # zinit load zsh-users/zsh-syntax-highlighting
 
-### End of Zinit's installer chunk
+### End of Zinit's installer chunk }}}
 
 # Starship prompt.
 eval "$(starship init zsh)"
