@@ -40,7 +40,6 @@ for f in files:
     if f.lower().startswith('vid_'):
         f = f[4:]
 
-
     new_filename = f[:4] + '-' + f[4:6] + '-' + f[6:8] + ' ' + f[9:11] + '.'
     new_filename += f[11:13] + '.' + f[13:]
 
