@@ -20,7 +20,7 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 " Add FZF Vim plugin installed via Homebrew.
 Plug '/usr/local/opt/fzf'
 " Asynchronous Lint Engine.
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 " Drawer with functions/classes in a current file.
 Plug 'majutsushi/tagbar'
 " Git integration.
@@ -32,7 +32,7 @@ Plug 'tpope/vim-dispatch'
 " Asynchronous search in Vim with different search tools (ag, rg, etc.).
 Plug 'mhinz/vim-grepper'
 " Run your tests at the speed of thought.
-Plug 'janko/vim-test'
+Plug 'vim-test/vim-test'
 " Send text to REPL.
 Plug 'jpalardy/vim-slime'
 
