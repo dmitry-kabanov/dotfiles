@@ -69,8 +69,12 @@ Plug 'tpope/vim-commentary'
 " -- Color schemes.
 Plug 'morhetz/gruvbox'                  " Retro groove color scheme.
 Plug 'altercation/vim-colors-solarized' " Famous solarized color scheme.
+Plug 'lifepillar/vim-solarized8'        " Modern version of the Solarized theme
 Plug 'chriskempson/base16-vim'          " Popular base16 color schemes.
 Plug 'rakr/vim-one'                     " Adaptation of the Atom color scheme.
+Plug 'jeffkreeftmeijer/vim-dim'         " Clone of Vim’s default colorscheme, with some improvements. 
+Plug 'rakr/vim-two-firewatch'           " A blend between duotone light and firewatch for atom.
+Plug 'ayu-theme/ayu-vim'                " Modern theme for modern VIMs.
 
 " Interactive REPLs Over Neovim.
 Plug 'kassio/neoterm'
