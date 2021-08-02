@@ -460,6 +460,10 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 let g:slime_python_ipython = 1
 " }}}
 
+" Options for vim-test {{{
+let test#strategy = "vimterminal"
+" }}}
+
 if filereadable(glob("./.vimrc.local"))
     echo "Executing ./.vimrc.local"
     source ./.vimrc.local
