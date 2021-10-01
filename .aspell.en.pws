@@ -1,4 +1,4 @@
-personal_ws-1.1 en 118 
+personal_ws-1.1 en 121 
 AMCS
 Abdullah
 Aslan
@@ -19,8 +19,6 @@ Fickett's
 Friedrichs
 Hopf
 Hugoniot
-hyperparameter
-hyperparameters
 Jacobian
 Jeddah
 Jouguet
@@ -42,7 +40,6 @@ Navier
 Neumann
 ODEs
 Raphson
-regularizer
 Runge
 SSP
 SVD
@@ -71,6 +68,10 @@ eq
 fminsearch
 fsolve
 github
+hyperparameter
+hyperparameters
+incompressibility
+incompressible
 inhomogeneous
 integrand
 inviscid
@@ -103,6 +104,7 @@ preexponential
 prefactor
 pseudoinverse
 quasilinear
+regularizer
 rescale
 rescaled
 rh
