@@ -35,6 +35,8 @@ Plug 'mhinz/vim-grepper'
 Plug 'vim-test/vim-test'
 " Send text to REPL.
 Plug 'jpalardy/vim-slime'
+" Collection of language packs.
+Plug 'sheerun/vim-polyglot'
 
 " --- Tmux.
 Plug 'tmux-plugins/vim-tmux' 
@@ -192,7 +194,7 @@ set autoread
 let mapleader = "\<Space>"
 
 " Map <LocalLeader> key to backslash key.
-let maplocalleader = "\\"
+let maplocalleader = "\<CR>"
 
 " Always move up and down by visual lines.
 nnoremap k gk
@@ -239,6 +241,12 @@ set smartcase
 " UI options {{{
 " Set minimal number of screen lines to keep above and below the cursor.
 set scrolloff=1
+
+set termguicolors
+let &t_8f = "\e[38;2;%lu;%lu;%lum"
+let &t_8b = "\e[48;2;%lu;%lu;%lum"
+
+let &t_ut = ''
 
 if has('mac')
     " This is only necessary if you use "set termguicolors".
@@ -305,9 +313,12 @@ set showcmd
 set lazyredraw
 " }}}
 
-" Neovim-specific options {{{
+" Terminal options {{{
 if exists(":tnoremap")
     tnoremap <Esc> <C-\><C-n>
+    " Send <Esc> to terminal by using ability to insert nondigit literally.
+    " From "Modern Vim", p. 73.
+    tnoremap <C-v><Esc> <Esc>
 
     tnoremap <A-h> <C-\><C-n><C-w>h
     tnoremap <A-j> <C-\><C-n><C-w>j
@@ -367,6 +378,11 @@ let g:ycm_server_keep_logfiles = 1
 let g:ycm_confirm_extra_conf = 0
 " Show signature in popup.
 let g:ycm_auto_trigger = 1
+
+" This options controls whether or not YCM shows documentation in a popup
+" at the cursor location after a short delay.
+let g:ycm_auto_hover = ''
+nmap K <plug>(YCMHover)
 " }}}
 
 " Options for vim-airline {{{
@@ -462,6 +478,7 @@ let g:slime_python_ipython = 1
 
 " Options for vim-test {{{
 let test#strategy = "vimterminal"
+nnoremap <LocalLeader>tt :TestNearest<CR>
 " }}}
 
 if filereadable(glob("./.vimrc.local"))
@@ -473,3 +490,5 @@ if !empty($PROJECT_VIMRC) && filereadable(glob($PROJECT_VIMRC . "/vimrc.local"))
     echo "Executing " . $PROJECT_VIMRC . "/vimrc.local"
     source $PROJECT_VIMRC/vimrc.local
 endif
+
+set titlestring="test-title-string"
