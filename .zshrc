@@ -107,7 +107,6 @@ alias posixtime='/usr/bin/time -p'
 alias zshconfig="$EDITOR ~/.zshrc"
 alias zshrestart="source ~/.zshrc"
 if type nvim > /dev/null 2>&1; then
-    alias vim='nvim'
     alias v='nvim'
 fi
 alias dateiso8601='date "+%Y-%m-%d"'
