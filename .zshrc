@@ -221,7 +221,6 @@ zinit load Tarrasch/zsh-autoenv
 # Starship prompt.
 eval "$(starship init zsh)"
 
-
 # Setup fuzzy search with FZF {{{
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND="fd --type f --exclude pCloud\ Drive"
