@@ -1,9 +1,7 @@
 # vim:fdm=marker
 
+# echo $PATH | tr ":" "\n"
 # zmodload zsh/zprof
-
-echo "Executing ~/.zshrc"
-print -rl $path
 
 # Spack and Lmod {{{
 if [ -f $HOME/sw/spack/share/spack/setup-env.sh ]; then
@@ -84,7 +82,7 @@ if type nvim > /dev/null 2>&1; then
 else
     export EDITOR=vim
 fi
-export BROWSER=google-chrome
+#export BROWSER=google-chrome
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export dev=~/Sync/dev
@@ -109,7 +107,6 @@ alias posixtime='/usr/bin/time -p'
 alias zshconfig="$EDITOR ~/.zshrc"
 alias zshrestart="source ~/.zshrc"
 if type nvim > /dev/null 2>&1; then
-    alias vim='nvim'
     alias v='nvim'
 fi
 alias dateiso8601='date "+%Y-%m-%d"'

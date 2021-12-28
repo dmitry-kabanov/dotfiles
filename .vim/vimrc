@@ -7,11 +7,11 @@ set nocompatible
 " }}}
 
 " Plugins (managed by vim plug) {{{
-if has('nvim')
-    call plug#begin('~/.local/share/nvim/plugged')
-else
-    call plug#begin('~/.vim/plugged')
-endif
+" if has('nvim')
+"     call plug#begin('~/.local/share/nvim/plugged')
+" else
+     call plug#begin('~/.vim/plugged')
+" endif
 
 " A code-completion engine for Vim.
 Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clangd-completer' }
@@ -260,7 +260,7 @@ if has('mac')
 else
     if $COLORTERM == 'gnome-terminal'
         let g:solarized_termcolors=16
-        set t_Co=16
+        set t_Co=256
     endif
 
     if $SSH_CONNECTION
@@ -273,7 +273,7 @@ endif
 
 " Font
 if has("gui_macvim")
-    set guifont=Menlo:h18
+    set guifont=Consolas\ for\ Powerline:h18
 endif
 
 if has("gui_gtk2")
@@ -386,7 +386,7 @@ nmap K <plug>(YCMHover)
 " }}}
 
 " Options for vim-airline {{{
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'twofirewatch'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#keymap#enabled = 0
 let g:airline_left_sep=''
