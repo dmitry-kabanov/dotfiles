@@ -1,6 +1,7 @@
 # vim:fdm=marker
 
-zmodload zsh/zprof
+#echo $PATH | tr ":" "\n"
+#zmodload zsh/zprof
 
 # Spack and Lmod {{{
 # if [ -f $HOME/sw/spack/share/spack/setup-env.sh ]; then
