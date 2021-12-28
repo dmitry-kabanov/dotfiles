@@ -82,7 +82,7 @@ if type nvim > /dev/null 2>&1; then
 else
     export EDITOR=vim
 fi
-export BROWSER=google-chrome
+#export BROWSER=google-chrome
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export dev=~/Sync/dev
