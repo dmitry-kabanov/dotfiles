@@ -252,7 +252,7 @@ if has('mac')
 else
     if $COLORTERM == 'gnome-terminal'
         let g:solarized_termcolors=16
-        set t_Co=16
+        set t_Co=256
     endif
 
     if $SSH_CONNECTION
@@ -265,7 +265,7 @@ endif
 
 " Font
 if has("gui_macvim")
-    set guifont=Menlo:h18
+    set guifont=Consolas\ for\ Powerline:h18
 endif
 
 if has("gui_gtk2")
@@ -370,7 +370,7 @@ let g:ycm_auto_trigger = 1
 " }}}
 
 " Options for vim-airline {{{
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'twofirewatch'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#keymap#enabled = 0
 let g:airline_left_sep=''
