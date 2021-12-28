@@ -17,8 +17,10 @@ set nocompatible
 Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clangd-completer' }
 " Generate .ycm_extra_conf.py for YouCompleteMe.
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
-" Add FZF Vim plugin installed via Homebrew.
-Plug '/usr/local/opt/fzf'
+" FZF provides list filtration.
+Plug 'junegunn/fzf'
+" More advanced FZF plugin to select files, buffers, etc.
+Plug 'junegunn/fzf.vim'
 " Asynchronous Lint Engine.
 Plug 'dense-analysis/ale'
 " Drawer with functions/classes in a current file.
@@ -330,6 +332,11 @@ autocmd BufEnter term://* :startinsert
 
 " Options for FZF {{{
 nnoremap <C-p> :<C-u>FZF<CR>
+" }}}
+
+" Options for fzf.vim {{{
+nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>bb :Buffers<CR>
 " }}}
 
 " Options for Asynchronous Lint Engine {{{
