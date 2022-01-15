@@ -49,7 +49,7 @@ cp ~/.vim/autoload/plug.vim ~/.local/share/nvim/site/autoload
 e_header "Running tmux setup"
 
 # Install tmux plugin manager.
-if [[ `tmux -V` == *1.9* || `tmux -V` == *2.* ]]; then
+if [[ `tmux -V` == *1.9* || `tmux -V` == *2.* || `tmux -V` == *3.* ]]; then
     echo tmux version is fresh enough. Installing tmux plugin manager...
     if [ -d ~/.tmux/plugins/tpm ]; then
         rm -rf ~/.tmux/plugins/tpm
