@@ -105,6 +105,7 @@ alias ..='cd ..'
 alias echoldlibrarypath='echo $LD_LIBRARY_PATH | tr : "\n"'
 alias echomanpath='echo $MANPATH | tr : "\n"'
 alias echopath='echo $PATH | tr : "\n"'
+alias ls='ls -G'  # Colorize ls output
 alias l='ls -lAhF'
 alias notes='cd $HOME/Documents/Notes && vim'
 alias posixtime='/usr/bin/time -p'
