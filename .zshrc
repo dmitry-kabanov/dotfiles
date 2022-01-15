@@ -71,6 +71,10 @@ zplug "Tarrasch/zsh-autoenv"
 # into an interactive terminal.
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
 
+# Fish-like fast/unobtrusive autosuggestions for zsh.
+# It suggests commands as you type based on history and completions.
+zplug "zsh-users/zsh-autosuggestions"
+
 zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
 zplug load
