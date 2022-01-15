@@ -17,12 +17,12 @@ fi
 # Conda {{{
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/dima/sw/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$CONDA_ROOT_DIR/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/dima/sw/mambaforge/etc/profile.d/conda.sh" ]; then
-        . "/Users/dima/sw/mambaforge/etc/profile.d/conda.sh"
+    if [ -f "$CONDA_ROOT_DIR/etc/profile.d/conda.sh" ]; then
+        . "$CONDA_ROOT_DIR/etc/profile.d/conda.sh"
     else
         export PATH="/Users/dima/sw/mambaforge/bin:$PATH"
     fi
