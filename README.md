@@ -10,15 +10,28 @@ To manage these files, I use a technique described
 
 ## Installation
 
+It is assumed here that the current working directory is `$HOME`.
+
 To install dotfiles, first clone the code on a local machine:
 
-    cd  # cd to the home directory
     # Clone the repository to $HOME/.dotfiles
-    GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME git clone --bare git@github.com:dmitry-kabanov/dotfiles
+    git clone --bare git@github.com:dmitry-kabanov/dotfiles .dotfiles
+    
+then checkout to the `$HOME` directory:
+
+    GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME git checkout
 
 then run the installation script:
 
-    bash bin/setup.sh
+    bash .bin/setup.sh
+    
+Every time when you need to work with the `dotfiles` repo, set environment
+variables `$GIT_DIR` and `$GIT_WORK_TREE` by the following command:
+
+    source .bin/activate_dotfiles_repo.sh
+    
+After finishing working with the repo, the best is to close the terminal tab
+to "undo" the environment variables.
 
 
 ## Usage
