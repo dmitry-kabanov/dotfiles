@@ -33,10 +33,10 @@ e_success "git config is successfull"
 # --- Vim setup ---
 e_header "Running vim setup"
 
-mkdir $HOME/.vim/autoload
-mkdir $HOME/.vim/plugged
-mkdir $HOME/.vim/spell
-mkdir $HOME/.vim/tmp
+mkdir -p $HOME/.vim/autoload
+mkdir -p $HOME/.vim/plugged
+mkdir -p $HOME/.vim/spell
+mkdir -p $HOME/.vim/tmp
 
 # Install vim plugin manager.
 echo Installing vim plugin manager...
