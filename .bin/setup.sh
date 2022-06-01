@@ -22,7 +22,7 @@ e_header "Setup script for my dotfiles: start"
 e_header "Setting up git config"
 
 git config --global user.name "Dmitry Kabanov"
-git config --global user.email kabanovdmitry@gmail.com
+git config --global user.email kabanov.dmitry@gmail.com
 git config --global color.ui auto
 git config --global commit.template $HOME/.git-commit-template.txt
 git config --global init.defaultBranch main
