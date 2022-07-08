@@ -178,8 +178,9 @@ eval "$(starship init zsh)"
 
 # Setup fuzzy search with FZF {{{
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND="fd --type f --exclude pCloud\ Drive"
-export FZF_CTRL_T_COMMAND="fd --type f --exclude pCloud\ Drive"
+export FZF_DEFAULT_COMMAND="fd --type f --exclude pCloud\ Drive --exclude sw"
+export FZF_CTRL_T_COMMAND="fd --type f --exclude pCloud\ Drive --exclude sw"
+export FZF_ALT_C_COMMAND="fd --type d --exclude pCloud\ Drive --exclude sw"
 # }}}
 
 fpath=(~/.zsh $fpath)
