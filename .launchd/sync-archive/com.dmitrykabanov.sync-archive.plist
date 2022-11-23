@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+
+        <key>Label</key>
+        <string>com.dmitrykabanov.sync-archive.plist</string>
+
+        <key>RunAtLoad</key>
+        <true/>
+
+        <key>StartCalendarInterval</key>
+        <dict>
+            <key>Minute</key>
+            <integer>20</integer>
+            <key>Hour</key>
+            <integer>21</integer>
+            <key>Weekday</key>
+            <integer>7</integer>
+        </dict>
+
+        <key>StandardErrorPath</key>
+        <string>workdir/stderr.log</string>
+
+        <key>StandardOutPath</key>
+        <string>workdir/stdout.log</string>
+
+        <key>EnvironmentVariables</key>
+        <dict>
+            <key>PATH</key>
+            <string><![CDATA[/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin]]></string>
+            <key>PWD></key>
+            <string>workdir</string>
+        </dict>
+
+        <key>WorkingDirectory</key>
+        <string>workdir</string>
+
+        <key>ProgramArguments</key>
+        <array>
+            <string>open</string>
+            <string>com.dmitrykabanov.sync-archive.app</string>
+        </array>
+
+    </dict>
+</plist>
