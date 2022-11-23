@@ -75,7 +75,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:3
 # It suggests commands as you type based on history and completions.
 zplug "zsh-users/zsh-autosuggestions"
 
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
 zplug load
 # }}}
