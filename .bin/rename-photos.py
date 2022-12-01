@@ -27,6 +27,9 @@ def main(dirname: str):
         if not os.path.isfile(old_file):
             continue
 
+        if f == ".DS_Store":
+            continue
+
         new_f = _get_new_filename(f)
         print(f"{f} => {new_f}")
 
@@ -66,7 +69,7 @@ def main(dirname: str):
 
 def _get_new_filename(f: str) -> str:
     pxl_re = re.compile(
-        r"^PXL_(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})(\d{3})(\.\w+)?(\.dng|\.jpg)$"
+        r"^PXL_(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})(\d{3})(\.\w+)?(\.dng|\.jpg|\.mp4)$"
     )
 
     new_f = ""
@@ -81,15 +84,15 @@ def _get_new_filename(f: str) -> str:
             suff = chunks[7] if chunks[7] else ""
             ext = chunks[8]
             new_f = date + " " + time + suff + ext
-    else:
-        if f.lower().startswith('img_'):
-            f = f[4:]
-
-        if f.lower().startswith('vid_'):
-            f = f[4:]
+        else:
+            raise ValueError(f"File {f} starts with 'pxl' but cannot rename")
+    elif f.lower().startswith('img_') or f.lower().startswith('vid_'):
+        f = f[4:]
 
         date = f[:4] + '-' + f[4:6] + '-' + f[6:8]
         new_f = date + ' ' + f[9:11] + '.' + f[11:13] + '.' + f[13:]
+    else:
+        raise ValueError(f"Cannot understand how to rename file {f}")
 
     return new_f
 
