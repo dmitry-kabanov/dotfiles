@@ -18,7 +18,8 @@ def main(dirname: str):
     jpegs_dir = os.path.join(dirname, "jpegs")
     os.makedirs(jpegs_dir, exist_ok=True)
 
-    originals_tmpdir = tempfile.mkdtemp()
+    originals_tmpdir = os.path.join(dirname, '_originals')
+    os.makedirs(originals_tmpdir, exist_ok=True)
 
     files = os.listdir(dirname)
     for f in files:
@@ -36,7 +37,7 @@ def main(dirname: str):
         new_filename = os.path.join(renamed_tmpdir, new_f)
 
         if os.path.isfile(new_filename):
-            raise ValueError(f"File with name {new_filename} already exists")
+            raise ValueError(f"File with name '{new_filename}' already exists")
 
         # # Copy to the "originals" folder.
         shutil.copy2(old_file, os.path.join(originals_tmpdir, f))
@@ -92,7 +93,7 @@ def _get_new_filename(f: str) -> str:
         date = f[:4] + '-' + f[4:6] + '-' + f[6:8]
         new_f = date + ' ' + f[9:11] + '.' + f[11:13] + '.' + f[13:]
     else:
-        raise ValueError(f"Cannot understand how to rename file {f}")
+        raise ValueError(f"Cannot understand how to rename file '{f}'")
 
     return new_f
 
