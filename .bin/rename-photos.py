@@ -3,23 +3,15 @@ import argparse
 import os
 import re
 import shutil
-import tempfile
+
+from typing import Tuple
 
 
 def main(dirname: str):
     if not os.path.isdir(dirname):
         raise ValueError('Dirname is incorrect')
 
-    renamed_tmpdir = os.path.join(dirname, '_renamed')
-    if os.path.isdir(renamed_tmpdir):
-        shutil.rmtree(renamed_tmpdir)
-    os.mkdir(renamed_tmpdir)
-
-    jpegs_dir = os.path.join(dirname, "jpegs")
-    os.makedirs(jpegs_dir, exist_ok=True)
-
-    originals_tmpdir = os.path.join(dirname, '_originals')
-    os.makedirs(originals_tmpdir, exist_ok=True)
+    renamed_tmpdir, jpegs_dir, originals_tmpdir = _create_dirs(dirname)
 
     files = os.listdir(dirname)
     for f in files:
@@ -41,36 +33,35 @@ def main(dirname: str):
 
         # # Copy to the "originals" folder.
         shutil.copy2(old_file, os.path.join(originals_tmpdir, f))
-
         os.rename(old_file, new_filename)
 
     os.rename(originals_tmpdir, os.path.join(dirname, "originals"))
 
-    renamed_files = os.listdir(renamed_tmpdir)
+    _move_dngs_and_jpegs_to_final_dirs(
+        dirname, renamed_tmpdir, jpegs_dir, originals_tmpdir
+    )
 
-    for f in renamed_files:
-        # Find the index of file extension in the file name.
-        d = f.rfind('.')
-        d += 1
 
-        if (f[d:] in ['jpg', 'jpeg']) and (f[:d] + 'dng' in renamed_files):
-            print('Found duplicate file %s' % f)
-            os.rename(
-                os.path.join(renamed_tmpdir, f),
-                os.path.join(jpegs_dir, f)
-            )
-        else:
-            os.rename(
-                os.path.join(renamed_tmpdir, f),
-                os.path.join(dirname, f)
-            )
+def _create_dirs(dirname) -> Tuple[str, str, str]:
+    renamed_tmpdir = os.path.join(dirname, '_renamed')
+    if os.path.isdir(renamed_tmpdir):
+        shutil.rmtree(renamed_tmpdir)
+    os.mkdir(renamed_tmpdir)
 
-    os.rmdir(renamed_tmpdir)
+    jpegs_dir = os.path.join(dirname, "jpegs")
+    os.makedirs(jpegs_dir, exist_ok=True)
+
+    originals_tmpdir = os.path.join(dirname, '_originals')
+    os.makedirs(originals_tmpdir, exist_ok=True)
+
+    return renamed_tmpdir, jpegs_dir, originals_tmpdir
 
 
 def _get_new_filename(f: str) -> str:
+    date = r"(\d{4})(\d{2})(\d{2})"
+    time = r"(\d{2})(\d{2})(\d{2})(\d{3})"
     pxl_re = re.compile(
-        r"^PXL_(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})(\d{3})(\.\w+)?(\.dng|\.jpg|\.mp4)$"
+        r"^PXL_" + date + "_" + time + r"(\.\w+)?(\.dng|\.jpg|\.mp4)$"
     )
 
     new_f = ""
@@ -96,6 +87,29 @@ def _get_new_filename(f: str) -> str:
         raise ValueError(f"Cannot understand how to rename file '{f}'")
 
     return new_f
+
+
+def _move_dngs_and_jpegs_to_final_dirs(
+    dirname, renamed_tmpdir, jpegs_dir, originals_tmpdir
+):
+    renamed_files = os.listdir(renamed_tmpdir)
+    for f in renamed_files:
+        # Find the index of file extension in the file name.
+        d = f.rfind('.')
+        d += 1
+
+        if (f[d:] in ['jpg', 'jpeg']) and (f[:d] + 'dng' in renamed_files):
+            print('Found duplicate file %s' % f)
+            os.rename(
+                os.path.join(renamed_tmpdir, f),
+                os.path.join(jpegs_dir, f)
+            )
+        else:
+            os.rename(
+                os.path.join(renamed_tmpdir, f),
+                os.path.join(dirname, f)
+            )
+    os.rmdir(renamed_tmpdir)
 
 
 if __name__ == "__main__":
