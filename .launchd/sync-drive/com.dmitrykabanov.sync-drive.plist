@@ -4,19 +4,17 @@
     <dict>
 
         <key>Label</key>
-        <string>com.dmitrykabanov.sync-archive.plist</string>
+        <string>com.dmitrykabanov.sync-drive.plist</string>
 
         <key>RunAtLoad</key>
         <true/>
 
         <key>StartCalendarInterval</key>
         <dict>
-            <key>Minute</key>
-            <integer>20</integer>
             <key>Hour</key>
             <integer>21</integer>
-            <key>Weekday</key>
-            <integer>7</integer>
+            <key>Minute</key>
+            <integer>20</integer>
         </dict>
 
         <key>StandardErrorPath</key>
@@ -39,7 +37,7 @@
         <key>ProgramArguments</key>
         <array>
             <string>open</string>
-            <string>com.dmitrykabanov.sync-archive.app</string>
+            <string>com.dmitrykabanov.sync-drive.app</string>
         </array>
 
     </dict>
