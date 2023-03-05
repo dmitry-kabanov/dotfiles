@@ -1,5 +1,3 @@
-nnoremap <buffer> CTRL-] :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
 " Text width
 setlocal textwidth=79
 
@@ -11,3 +9,7 @@ set shiftwidth=4
 
 " Autoindentation
 setlocal autoindent
+
+" ALE Settings
+let b:ale_python_mypy_options = "--ignore-missing-imports"
+let b:ale_fixers = ["isort"]

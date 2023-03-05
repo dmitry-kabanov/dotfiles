@@ -1,5 +1,10 @@
 "
 " vim:foldmethod=marker
+" vim:foldlevel=0
+
+if has('nvim')
+  let g:python3_host_prog = '/opt/homebrew/bin/python3'
+endif
 
 " Preamble - nocompatible {{{
 " Use Vim settings, rather than Vi settings.
@@ -69,6 +74,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 " Comment and uncomment quickly.
 Plug 'tpope/vim-commentary'
+" Show Unicode, emoji and HTML names of a character when pressing `ga`.
+Plug 'tpope/vim-characterize'
 
 " -- Color schemes.
 Plug 'morhetz/gruvbox'                  " Retro groove color scheme.
@@ -258,7 +265,8 @@ if has('mac')
 
     set termguicolors
     set background=light
-    colorscheme solarized8_high
+    let g:gruvbox_contrast_light="hard"
+    colorscheme gruvbox
 else
     if $COLORTERM == 'gnome-terminal'
         let g:solarized_termcolors=16
@@ -343,6 +351,7 @@ nnoremap <Leader>bb :Buffers<CR>
 " Make lists for linters and fixers empty, forcing to choose what to use.
 let g:ale_linters = {}
 let g:ale_fixers = {}
+let g:ale_fix_on_save = 1
 " Parse a compilation database (compile_commands.json file).
 let g:ale_c_parse_compile_commands = 1
 
@@ -390,6 +399,7 @@ let g:ycm_auto_trigger = 1
 " at the cursor location after a short delay.
 let g:ycm_auto_hover = ''
 nmap K <plug>(YCMHover)
+nmap gd <plug>(YCM GoTo)
 " }}}
 
 " Options for vim-airline {{{
