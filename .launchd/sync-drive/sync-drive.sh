@@ -15,7 +15,7 @@ rsync -avz --hard-links --delete \
     --exclude='._*' \
     /Volumes/T7-APFS/ \
     /Volumes/T7S-T7Backup/ \
-    | tee ${logfile}
+    2>&1 | tee ${logfile}
 
 
 if [[ $? -eq 0 ]]; then
