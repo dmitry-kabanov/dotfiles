@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -o pipefail
+
 dir=$(realpath $(dirname $0))
 logfile=${dir}/rsync.log
 
@@ -18,7 +20,9 @@ rsync -avz --hard-links --delete \
     2>&1 | tee ${logfile}
 
 
-if [[ $? -eq 0 ]]; then
+code=$?
+echo "Exit code $code"
+if [[ $code -eq 0 ]]; then
     echo "success"
 else
     echo "fail"
