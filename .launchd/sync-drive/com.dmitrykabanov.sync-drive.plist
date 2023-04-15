@@ -6,9 +6,6 @@
         <key>Label</key>
         <string>com.dmitrykabanov.sync-drive.plist</string>
 
-        <key>RunAtLoad</key>
-        <true/>
-
         <key>StartCalendarInterval</key>
         <dict>
             <key>Hour</key>
