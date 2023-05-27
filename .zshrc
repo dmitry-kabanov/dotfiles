@@ -52,16 +52,6 @@ zplug "lib/key-bindings", from:oh-my-zsh
 # Add useful aliases and functions to work with git.
 zplug "plugins/git", from:oh-my-zsh
 
-# Theme `blinks` works if $SOLARIZED_THEME is either `dark` or `light`.
-if [ -z $SOLARIZED_THEME ]; then
-    if [ "$(hostname)" = 'dima-macbook-air.local' -o -n "$SSH_CONNECTION" ]; then
-        export SOLARIZED_THEME=dark
-    else
-        export SOLARIZED_THEME=light
-    fi
-fi
-# zplug "~/.zsh/", from:local, as:theme
-
 # Autoload of the environment settings.
 AUTOENV_FILE_ENTER=autoenv-enter.zsh
 AUTOENV_FILE_LEAVE=autoenv-leave.zsh
