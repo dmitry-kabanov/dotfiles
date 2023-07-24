@@ -101,6 +101,7 @@ Plug 'kassio/neoterm'
 Plug 'hynek/vim-python-pep8-indent'
 " Improve syntax highlighting for Python code.
 Plug 'vim-python/python-syntax'
+Plug 'snakemake/snakemake', {'rtp': 'misc/vim'}
 
 " Markdown.
 " Improved Markdown syntax.
