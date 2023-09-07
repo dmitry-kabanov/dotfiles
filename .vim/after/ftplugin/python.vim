@@ -12,6 +12,6 @@ setlocal autoindent
 
 " ALE Settings
 let b:ale_python_mypy_options = "--ignore-missing-imports"
-let b:ale_fixers = ["isort"]
+let b:ale_fixers = ["isort", "black"]
 
 nnoremap gd :YcmCompleter GoToType<CR>
