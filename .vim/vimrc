@@ -546,6 +546,15 @@ set foldlevel=4  " Avoid folds initially
 endif
 " }}}
 
+" Options for debugging with termdebug {{{
+" Load termdebug to use gdb directly in vim
+" and define traditional shortcuts to improve UX.
+packadd termdebug
+noremap <F5> :Termdebug %:t:r<CR>
+map <F10> :call TermDebugSendCommand('next')<CR>
+noremap <F11> :call TermDebugSendCommand('step')<CR><ESC>
+" }}}
+
 if filereadable(glob("./.vimrc.local"))
     echo "Executing ./.vimrc.local"
     source ./.vimrc.local
