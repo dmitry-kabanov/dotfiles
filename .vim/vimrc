@@ -11,6 +11,7 @@ endif
 set nocompatible
 " }}}
 
+if !exists("g:vscode")
 " Plugins (managed by vim plug) {{{
 " if has('nvim')
 "     call plug#begin('~/.local/share/nvim/plugged')
@@ -127,6 +128,7 @@ Plug 'lervag/vimtex'
 call plug#end()
 runtime macros/matchit.vim
 " }}}
+endif
 
 " Options for the editor itself {{{
 " Enable file type detection and do language-dependent indenting.
