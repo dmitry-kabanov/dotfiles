@@ -271,7 +271,7 @@ if has('mac')
 
     set termguicolors
     set background=light
-    let g:gruvbox_contrast_light="hard"
+    let g:gruvbox_contrast_light="soft"
     colorscheme gruvbox
 else
     if $COLORTERM == 'gnome-terminal'
