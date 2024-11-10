@@ -102,6 +102,8 @@ Plug 'hynek/vim-python-pep8-indent'
 " Improve syntax highlighting for Python code.
 Plug 'vim-python/python-syntax'
 Plug 'snakemake/snakemake', {'rtp': 'misc/vim'}
+Plug 'phelipetls/vim-hugo'
+Plug 'rust-lang/rust.vim'
 
 " Markdown.
 " Improved Markdown syntax.
