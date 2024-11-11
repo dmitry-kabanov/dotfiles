@@ -508,14 +508,14 @@ if has('mac')
     nnoremap <silent> h :TmuxNavigateLeft<cr>
     nnoremap <silent> j :TmuxNavigateDown<cr>
     nnoremap <silent> k :TmuxNavigateUp<cr>
-    nnoremap <silent> l :TmuxNavigateRight<cr>
+    nnoremap <silent> l :<C-U>TmuxNavigateRight<cr>
     nnoremap <silent> \ :TmuxNavigatePrevious<cr>
 else
-    nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
-    nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
-    nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
-    nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
-    nnoremap <silent> <A-\> :TmuxNavigatePrevious<cr>
+    nnoremap <silent> <A-h> :<C-U>TmuxNavigateLeft<cr>
+    nnoremap <silent> <A-j> :<C-U>TmuxNavigateDown<cr>
+    nnoremap <silent> <A-k> :<C-U>TmuxNavigateUp<cr>
+    nnoremap <silent> <A-l> :<C-U>TmuxNavigateRight<cr>
+    nnoremap <silent> <A-\> :<C-U>TmuxNavigatePrevious<cr>
 endif
 
 " Write current buffer before navigating from vim to tmux pane.
