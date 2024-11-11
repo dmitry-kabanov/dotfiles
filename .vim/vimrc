@@ -598,9 +598,24 @@ map <F10> :call TermDebugSendCommand('next')<CR>
 noremap <F11> :call TermDebugSendCommand('step')<CR><ESC>
 " }}}
 
-
 " Options for fugitive {{{
 noremap <Leader>gg :Git<CR>
+" }}}
+
+" Abbreviations for entering emojis {{{
+iabbrev :rocket: 🚀
+iabbrev :bomb: 💣
+iabbrev :link: 🔗
+iabbrev :info: 🛈
+iabbrev :grin: 😀
+iabbrev :^^: 😊 " Smiling Face with Smiling Eyes
+iabbrev :blush: 😊  " Blushing face
+iabbrev :lol: 😂
+iabbrev :+1: 👍
+iabbrev :zzz: 😴  " Sleeping face
+iabbrev :tada: 🎉
+iabbrev :cool: 😎
+iabbrev :heart_eyes: 😍
 " }}}
 
 if filereadable(glob("./vimrc.local"))
