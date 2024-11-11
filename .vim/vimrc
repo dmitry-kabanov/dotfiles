@@ -411,6 +411,7 @@ let g:ultisnips_python_style="numpy"
 " }}}
 
 " Options for YouCompleteMe {{{
+let g:ycm_enable_semantic_highlighting = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_python_binary_path = 'python'
 let g:ycm_server_use_vim_stdout = 0
@@ -418,6 +419,30 @@ let g:ycm_server_keep_logfiles = 1
 let g:ycm_confirm_extra_conf = 0
 " Show signature in popup.
 let g:ycm_auto_trigger = 1
+let g:ycm_semantic_triggers =  {
+\   'c,cpp,objc': [ 're!\w{3}', '_' ],
+\ }
+let g:ycm_clangd_args = ["--header-insertion=never"]
+
+let g:ycm_language_server =
+  \ [
+  \   {
+  \     'name': 'yaml',
+  \     'cmdline': [ '/path/to/yaml/server/yaml-language-server', '--stdio' ],
+  \     'filetypes': [ 'yaml' ]
+  \   },
+  \   {
+  \     'name': 'godot',
+  \     'filetypes': [ 'gdscript' ],
+  \     'port': 6008,
+  \     'project_root_files': [ 'project.godot' ]
+  \    },
+  \   {
+  \     'name': 'cmake',
+  \     'cmdline': [ 'cmake-language-server' ],
+  \     'filetypes': [ 'cmake' ],
+  \   }
+  \ ]
 
 " This options controls whether or not YCM shows documentation in a popup
 " at the cursor location after a short delay.
