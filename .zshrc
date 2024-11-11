@@ -69,8 +69,8 @@ export APPS_DIR=/sw
 
 # Aliases {{{
 
-alias -g L="| less"
-alias -g LL="2>&1 | less"
+alias -g L="| less -R"
+alias -g LL="2>&1 | less -R"
 alias .....='cd ../../../..'
 alias ....='cd ../../..'
 alias ...='cd ../..'
@@ -88,6 +88,7 @@ if type nvim > /dev/null 2>&1; then
     alias v='nvim'
 fi
 alias dateiso8601='date "+%Y-%m-%d"'
+alias dtiso8601='date "+%Y-%m-%d_%H.%M.%S"'  # e.g. 2024-01-02_14.16.27
 
 # Tmux aliases.
 alias tmat='tmux attach -t'
