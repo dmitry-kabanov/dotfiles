@@ -598,9 +598,10 @@ map <F10> :call TermDebugSendCommand('next')<CR>
 noremap <F11> :call TermDebugSendCommand('step')<CR><ESC>
 " }}}
 
-if filereadable(glob("./.vimrc.local"))
-    echo "Executing ./.vimrc.local"
-    source ./.vimrc.local
+
+if filereadable(glob("./vimrc.local"))
+    echo "Executing ./vimrc.local"
+    source ./vimrc.local
 endif
 
 if !empty($PROJECT_VIMRC) && filereadable(glob($PROJECT_VIMRC . "/vimrc.local"))
