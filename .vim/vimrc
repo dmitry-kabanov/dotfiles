@@ -11,6 +11,7 @@ endif
 set nocompatible
 " }}}
 
+if !exists("g:vscode")
 " Plugins (managed by vim plug) {{{
 " if has('nvim')
 "     call plug#begin('~/.local/share/nvim/plugged')
@@ -102,6 +103,8 @@ Plug 'hynek/vim-python-pep8-indent'
 " Improve syntax highlighting for Python code.
 Plug 'vim-python/python-syntax'
 Plug 'snakemake/snakemake', {'rtp': 'misc/vim'}
+Plug 'phelipetls/vim-hugo'
+Plug 'rust-lang/rust.vim'
 
 " Markdown.
 " Improved Markdown syntax.
@@ -125,6 +128,7 @@ Plug 'lervag/vimtex'
 call plug#end()
 runtime macros/matchit.vim
 " }}}
+endif
 
 " Options for the editor itself {{{
 " Enable file type detection and do language-dependent indenting.
@@ -271,7 +275,7 @@ if has('mac')
 
     set termguicolors
     set background=light
-    let g:gruvbox_contrast_light="hard"
+    let g:gruvbox_contrast_light="soft"
     colorscheme gruvbox
 else
     if $COLORTERM == 'gnome-terminal'
