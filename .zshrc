@@ -138,15 +138,6 @@ if [ -x /usr/bin/dircolors -a -r $HOME/.dircolors ]; then
 fi
 # }}}
 
-if [ -e $HOME/.zshrc-local ]; then
-    . $HOME/.zshrc-local
-fi
-
-# Setup Rust programming language environment.
-[ -f ~/.cargo/env ] && source ~/.cargo/env
-
-#. ~/.zplug/repos/Tarrasch/zsh-autoenv/init.zsh
-
 # Starship prompt.
 eval "$(starship init zsh)"
 
@@ -158,3 +149,7 @@ export FZF_ALT_C_COMMAND="fd --type d --exclude pCloud\ Drive --exclude sw --hid
 # }}}
 
 fpath=(~/.zsh $fpath)
+
+if [ -e "$HOME/.zshrc.local" ]; then
+    . "$HOME/.zshrc.local"
+fi
