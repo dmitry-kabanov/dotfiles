@@ -2,6 +2,15 @@
 " vim:foldmethod=marker
 " vim:foldlevel=0
 
+if exists("g:vscode")
+  " Visual Studio Code extension
+  nnoremap j gj
+  nnoremap k gk
+  finish
+else
+  " Ordinary Vim (or Neovim)
+endif
+
 if has('nvim')
   let g:python3_host_prog = '/opt/homebrew/bin/python3'
 endif
@@ -11,7 +20,6 @@ endif
 set nocompatible
 " }}}
 
-if !exists("g:vscode")
 " Plugins (managed by vim plug) {{{
 " if has('nvim')
 "     call plug#begin('~/.local/share/nvim/plugged')
@@ -128,7 +136,6 @@ Plug 'lervag/vimtex'
 call plug#end()
 runtime macros/matchit.vim
 " }}}
-endif
 
 " Options for the editor itself {{{
 " Enable file type detection and do language-dependent indenting.
