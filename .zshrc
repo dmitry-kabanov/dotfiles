@@ -150,6 +150,16 @@ export FZF_ALT_C_COMMAND="fd --type d --exclude pCloud\ Drive --exclude sw --hid
 
 fpath=(~/.zsh $fpath)
 
+# stt - set tab title
+# Sets terminal tab title, particularly for Gnome Terminal that does not
+# have GUI functionality for this.
+function stt() {
+    # Options for echo:
+    # `-n` do not add a new line character in the end
+    # `-e` interpret escape sequences (character sequences starting with \)
+    echo -ne "\033]0;$*\007"
+}
+
 if [ -e "$HOME/.zshrc.local" ]; then
     . "$HOME/.zshrc.local"
 fi
