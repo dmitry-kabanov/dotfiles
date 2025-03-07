@@ -2,28 +2,36 @@
 
 rsync \
     -avz --info=progress2 \
-    --exclude="lost+found" \
-    --exclude=".cache" \
-    --exclude="pCloudDrive/" \
-    --exclude="sw/" \
-    --exclude="sciebo/" \
-    --exclude="vscode-cpptools/" \
     --exclude="*.org~" \
-    --exclude=".conda/" \
+    --exclude=".cache" \
     --exclude=".cargo/" \
-    --exclude=".julia/" \
-    --exclude=".pcloud/" \
-    --exclude="snap/" \
-    --exclude=".vscode/" \
-    --exclude=".vscode-server/" \
-    --exclude=".emacs.d.doom/" \
+    --exclude=".conda/" \
+    --exclude=".config/Code/"\
+    --exclude=".config/Cursor/" \
     --exclude=".cursor/" \
-    --exclude=".rustup/" \
+    --exclude=".emacs.d.doom.bak/" \
+    --exclude=".emacs.d.doom/" \
+    --exclude=".emacs.d.vanilla/" \
+    --exclude=".julia/" \
+    --exclude=".local/share/Trash" \
+    --exclude=".local/share/Zeal" \
     --exclude=".npm/" \
+    --exclude=".pcloud" \
+    --exclude=".rustup/" \
     --exclude=".texlive2021/" \
-    --exclude=".zoom/" \
     --exclude=".vim/plugged/" \
+    --exclude=".vscode-server/" \
+    --exclude=".vscode/" \
+    --exclude=".zoom/" \
+    --exclude="MaRDICloud" \
+    --exclude="Sciebo/" \
+    --exclude="dev" \
+    --exclude="lost+found" \
+    --exclude="pCloudDrive/" \
+    --exclude="snap/" \
+    --exclude="sw" \
+    --exclude="vscode-cpptools/" \
     --delete \
     --delete-excluded \
     $HOME/ \
-    $HOME/sciebo/backup/keldysh/home
+    $HOME/Sciebo/backup/keldysh/home
