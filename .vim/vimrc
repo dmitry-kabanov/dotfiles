@@ -139,6 +139,8 @@ Plug 'lervag/vimtex'
 " Julia
 Plug 'JuliaEditorSupport/julia-vim'
 
+Plug 'github/copilot.vim'
+
 " Add plugins to &runtimepath.
 call plug#end()
 runtime macros/matchit.vim
