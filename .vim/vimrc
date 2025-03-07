@@ -447,8 +447,10 @@ let g:ycm_language_server =
 " This options controls whether or not YCM shows documentation in a popup
 " at the cursor location after a short delay.
 let g:ycm_auto_hover = ''
-nmap K <plug>(YCMHover)
-nmap gd <plug>(YCM GoTo)
+nnoremap gK <plug>(YCMHover)
+nnoremap gd :YcmCompleter GoTo<CR>
+nnoremap gD :YcmCompleter GoToDeclaration<CR>
+nnoremap gh :YcmCompleter GoToAlternateFile<CR>
 " }}}
 
 " Options for vim-airline {{{
