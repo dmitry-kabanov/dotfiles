@@ -1,12 +1,14 @@
-personal_ws-1.1 en 131 
+personal_ws-1.1 en 139
 AMCS
 Abdullah
+Ashwin
 Aslan
 Burgers
 CEMSE
 CFL
 CJ
 Chebyshev
+Cython
 DNS
 Dmitry
 Dold
@@ -33,6 +35,7 @@ Liapunov
 Lipschitz
 MATLAB
 MATLAB's
+MaRDI
 Majda
 Majda's
 Mathematica
@@ -44,6 +47,7 @@ Raphson
 Runge
 SSP
 SVD
+SciPy
 Sobolev
 Strogatz
 TVD
@@ -94,6 +98,7 @@ nondimensional
 nondimensionalization
 nonlocal
 nonoscillatory
+numerics
 outlier
 outliers
 overbar
@@ -115,7 +120,8 @@ quasilinear
 regularizer
 rescale
 rescaled
-rh
+reusability
+reusable
 scalability
 schlieren
 solenoidal
@@ -126,6 +132,7 @@ thermochemical
 thermochemistry
 unboundedly
 underresolved
+unformatted
 unimolecular
 unreacted
 wavenumber
