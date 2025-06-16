@@ -7,6 +7,7 @@ rsync \
     --exclude=".cargo/" \
     --exclude=".conda/" \
     --exclude=".config/Code/"\
+    --exclude=".config/Code - Insiders/"\
     --exclude=".config/Cursor/" \
     --exclude=".cursor/" \
     --exclude=".emacs.d.doom.bak/" \
@@ -15,6 +16,7 @@ rsync \
     --exclude=".julia/" \
     --exclude=".local/share/Trash" \
     --exclude=".local/share/Zeal" \
+    --exclude=".local/share/gnome-boxes/images/" \
     --exclude=".npm/" \
     --exclude=".pcloud" \
     --exclude=".rustup/" \
@@ -22,6 +24,7 @@ rsync \
     --exclude=".vim/plugged/" \
     --exclude=".vscode-server/" \
     --exclude=".vscode/" \
+    --exclude=".vscode-insiders/" \
     --exclude=".zoom/" \
     --exclude="MaRDICloud" \
     --exclude="Sciebo/" \
