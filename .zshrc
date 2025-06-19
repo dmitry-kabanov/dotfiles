@@ -79,6 +79,10 @@ fi
 alias dateiso8601='date "+%Y-%m-%d"'
 alias dtiso8601='date "+%Y-%m-%d_%H.%M.%S"'  # e.g. 2024-01-02_14.16.27
 
+if [[ "$(uname)" == "Darwin" ]]; then
+    alias cp="cp -c"
+fi
+
 # Tmux aliases.
 alias tmat='tmux attach -t'
 alias tmad='tmux attach -d -t'
