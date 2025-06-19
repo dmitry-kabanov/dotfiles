@@ -3,17 +3,6 @@
 # echo $PATH | tr ":" "\n"
 # zmodload zsh/zprof
 
-# Spack and Lmod {{{
-if [ -f $HOME/sw/spack/share/spack/setup-env.sh ]; then
-    # Get lmod path with `$(spack location -i lmod)`.
-    lmod_path="$HOME/sw/spack/opt/spack/darwin-mojave-x86_64/clang-10.0.1-apple/lmod-7.8.15-oq3ljl2vcih7w5y4piibmgi2zsxs3n3h"
-    export MODULEPATH="$HOME/sw/modulefiles/Core:$MODULEPATH"
-    source $HOME/sw/spack/share/spack/setup-env.sh
-    #source ${lmod_path}/lmod/lmod/init/zsh
-    #source $HOME/sw/spack/share/spack/setup-env.sh
-fi
-# }}}
-
 # Zplug {{{
 source $HOME/.zplug/init.zsh
 
@@ -69,8 +58,8 @@ export APPS_DIR=/sw
 
 # Aliases {{{
 
-alias -g L="| less"
-alias -g LL="2>&1 | less"
+alias -g L="| less -R"
+alias -g LL="2>&1 | less -R"
 alias .....='cd ../../../..'
 alias ....='cd ../../..'
 alias ...='cd ../..'
@@ -88,6 +77,7 @@ if type nvim > /dev/null 2>&1; then
     alias v='nvim'
 fi
 alias dateiso8601='date "+%Y-%m-%d"'
+alias dtiso8601='date "+%Y-%m-%d_%H.%M.%S"'  # e.g. 2024-01-02_14.16.27
 
 # Tmux aliases.
 alias tmat='tmux attach -t'
@@ -137,15 +127,6 @@ if [ -x /usr/bin/dircolors -a -r $HOME/.dircolors ]; then
 fi
 # }}}
 
-if [ -e $HOME/.zshrc-local ]; then
-    . $HOME/.zshrc-local
-fi
-
-# Setup Rust programming language environment.
-[ -f ~/.cargo/env ] && source ~/.cargo/env
-
-#. ~/.zplug/repos/Tarrasch/zsh-autoenv/init.zsh
-
 # Starship prompt.
 eval "$(starship init zsh)"
 
@@ -157,3 +138,17 @@ export FZF_ALT_C_COMMAND="fd --type d --exclude pCloud\ Drive --exclude sw --hid
 # }}}
 
 fpath=(~/.zsh $fpath)
+
+# stt - set tab title
+# Sets terminal tab title, particularly for Gnome Terminal that does not
+# have GUI functionality for this.
+function stt() {
+    # Options for echo:
+    # `-n` do not add a new line character in the end
+    # `-e` interpret escape sequences (character sequences starting with \)
+    echo -ne "\033]0;$*\007"
+}
+
+if [ -e "$HOME/.zshrc.local" ]; then
+    . "$HOME/.zshrc.local"
+fi

@@ -1,13 +1,14 @@
-personal_ws-1.1 en 121 
+personal_ws-1.1 en 139
 AMCS
 Abdullah
+Ashwin
 Aslan
-backend
 Burgers
 CEMSE
 CFL
 CJ
 Chebyshev
+Cython
 DNS
 Dmitry
 Dold
@@ -32,9 +33,9 @@ Lax
 Lebesgue
 Liapunov
 Lipschitz
-marshalling
 MATLAB
 MATLAB's
+MaRDI
 Majda
 Majda's
 Mathematica
@@ -46,8 +47,8 @@ Raphson
 Runge
 SSP
 SVD
+SciPy
 Sobolev
-solenoidal
 Strogatz
 TVD
 Thuwal
@@ -55,9 +56,12 @@ WENO
 WENOHJ
 ZND
 advection
+backend
 boundedness
 calorically
 config
+dataset
+deallocation
 diluent
 discretization
 doublings
@@ -69,6 +73,8 @@ eigenvector
 eigenvectors
 endothermicity
 eq
+finetune
+finetuning
 fminsearch
 fsolve
 github
@@ -78,10 +84,12 @@ incompressibility
 incompressible
 inhomogeneous
 integrand
+interoperability
 inviscid
 linearization
 linearize
 linearized
+marshalling
 matplotlib
 maxima
 multidomain
@@ -90,6 +98,7 @@ nondimensional
 nondimensionalization
 nonlocal
 nonoscillatory
+numerics
 outlier
 outliers
 overbar
@@ -111,8 +120,11 @@ quasilinear
 regularizer
 rescale
 rescaled
-rh
+reusability
+reusable
+scalability
 schlieren
+solenoidal
 submatrix
 subsubsection
 thermicity
@@ -120,6 +132,7 @@ thermochemical
 thermochemistry
 unboundedly
 underresolved
+unformatted
 unimolecular
 unreacted
 wavenumber

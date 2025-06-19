@@ -2,8 +2,21 @@
 " vim:foldmethod=marker
 " vim:foldlevel=0
 
+if exists("g:vscode")
+  " Visual Studio Code extension
+  nnoremap j gj
+  nnoremap k gk
+  finish
+else
+  " Ordinary Vim (or Neovim)
+endif
+
 if has('nvim')
-  let g:python3_host_prog = '/opt/homebrew/bin/python3'
+  if has('mac')
+    let g:python3_host_prog = '/opt/homebrew/bin/python3'
+  else
+    let g:python3_host_prog = '/usr/bin/python3'
+  endif
 endif
 
 " Preamble - nocompatible {{{
@@ -11,7 +24,6 @@ endif
 set nocompatible
 " }}}
 
-if !exists("g:vscode")
 " Plugins (managed by vim plug) {{{
 " if has('nvim')
 "     call plug#begin('~/.local/share/nvim/plugged')
@@ -29,15 +41,19 @@ Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clangd-completer' }
 " Generate .ycm_extra_conf.py for YouCompleteMe.
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 " FZF provides list filtration.
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " More advanced FZF plugin to select files, buffers, etc.
 Plug 'junegunn/fzf.vim'
 " Asynchronous Lint Engine.
 Plug 'dense-analysis/ale'
 " Drawer with functions/classes in a current file.
 Plug 'majutsushi/tagbar'
+
 " Git integration.
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'jreybert/vimagit'
+
 " EditorConfig plugin.
 Plug 'editorconfig/editorconfig-vim'
 " Run external commands asynchronously.
@@ -124,11 +140,15 @@ Plug 'euclio/vim-markdown-composer', { 'do': function('_BuildComposer') }
 " Latex.
 Plug 'lervag/vimtex'
 
+" Julia
+Plug 'JuliaEditorSupport/julia-vim'
+
+Plug 'github/copilot.vim'
+
 " Add plugins to &runtimepath.
 call plug#end()
 runtime macros/matchit.vim
 " }}}
-endif
 
 " Options for the editor itself {{{
 " Enable file type detection and do language-dependent indenting.
@@ -275,7 +295,7 @@ if has('mac')
 
     set termguicolors
     set background=light
-    let g:gruvbox_contrast_light="soft"
+    let g:gruvbox_contrast_light="hard"
     colorscheme gruvbox
 else
     if $COLORTERM == 'gnome-terminal'
@@ -397,6 +417,7 @@ let g:ultisnips_python_style="numpy"
 " }}}
 
 " Options for YouCompleteMe {{{
+let g:ycm_enable_semantic_highlighting = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_python_binary_path = 'python'
 let g:ycm_server_use_vim_stdout = 0
@@ -404,12 +425,38 @@ let g:ycm_server_keep_logfiles = 1
 let g:ycm_confirm_extra_conf = 0
 " Show signature in popup.
 let g:ycm_auto_trigger = 1
+let g:ycm_semantic_triggers =  {
+\   'c,cpp,objc': [ 're!\w{3}', '_' ],
+\ }
+let g:ycm_clangd_args = ["--header-insertion=never"]
+
+let g:ycm_language_server =
+  \ [
+  \   {
+  \     'name': 'yaml',
+  \     'cmdline': [ '/path/to/yaml/server/yaml-language-server', '--stdio' ],
+  \     'filetypes': [ 'yaml' ]
+  \   },
+  \   {
+  \     'name': 'godot',
+  \     'filetypes': [ 'gdscript' ],
+  \     'port': 6008,
+  \     'project_root_files': [ 'project.godot' ]
+  \    },
+  \   {
+  \     'name': 'cmake',
+  \     'cmdline': [ 'cmake-language-server' ],
+  \     'filetypes': [ 'cmake' ],
+  \   }
+  \ ]
 
 " This options controls whether or not YCM shows documentation in a popup
 " at the cursor location after a short delay.
 let g:ycm_auto_hover = ''
-nmap K <plug>(YCMHover)
-nmap gd <plug>(YCM GoTo)
+nnoremap gK <plug>(YCMHover)
+nnoremap gd :YcmCompleter GoTo<CR>
+nnoremap gD :YcmCompleter GoToDeclaration<CR>
+nnoremap gh :YcmCompleter GoToAlternateFile<CR>
 " }}}
 
 " Options for vim-airline {{{
@@ -469,14 +516,14 @@ if has('mac')
     nnoremap <silent> h :TmuxNavigateLeft<cr>
     nnoremap <silent> j :TmuxNavigateDown<cr>
     nnoremap <silent> k :TmuxNavigateUp<cr>
-    nnoremap <silent> l :TmuxNavigateRight<cr>
+    nnoremap <silent> l :<C-U>TmuxNavigateRight<cr>
     nnoremap <silent> \ :TmuxNavigatePrevious<cr>
 else
-    nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
-    nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
-    nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
-    nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
-    nnoremap <silent> <A-\> :TmuxNavigatePrevious<cr>
+    nnoremap <silent> <A-h> :<C-U>TmuxNavigateLeft<cr>
+    nnoremap <silent> <A-j> :<C-U>TmuxNavigateDown<cr>
+    nnoremap <silent> <A-k> :<C-U>TmuxNavigateUp<cr>
+    nnoremap <silent> <A-l> :<C-U>TmuxNavigateRight<cr>
+    nnoremap <silent> <A-\> :<C-U>TmuxNavigatePrevious<cr>
 endif
 
 " Write current buffer before navigating from vim to tmux pane.
@@ -553,15 +600,48 @@ endif
 " Options for debugging with termdebug {{{
 " Load termdebug to use gdb directly in vim
 " and define traditional shortcuts to improve UX.
-packadd termdebug
-noremap <F5> :Termdebug %:t:r<CR>
+packadd! termdebug
+let g:termdebug_wide=1
 map <F10> :call TermDebugSendCommand('next')<CR>
 noremap <F11> :call TermDebugSendCommand('step')<CR><ESC>
 " }}}
 
-if filereadable(glob("./.vimrc.local"))
-    echo "Executing ./.vimrc.local"
-    source ./.vimrc.local
+" Options for Git: fugitive and vim-gitgutter {{{
+" I use the same mapping as Doom Emacs provides for Magit,
+" to avoid schizophrenia.
+noremap <Leader>gg :Git<CR>
+" Stage current file for commit: `git add %`
+noremap <Leader>gS :Gwrite<CR>
+" Revert modified file: `git checkout -- %`
+" noremap <Leader>gR :Gread<CR>
+"
+nmap <Leader>gs :GitGutterStageHunk<CR>
+nmap <Leader>gr :GitGutterUndoHunk<CR>
+" }}}
+
+" Options for project compilation {{{
+noremap <Leader>cc :Dispatch<CR>
+" }}}
+
+" Abbreviations for entering emojis {{{
+iabbrev :rocket: 🚀
+iabbrev :bomb: 💣
+iabbrev :link: 🔗
+iabbrev :info: 🛈
+iabbrev :grin: 😀
+iabbrev :^^: 😊 " Smiling Face with Smiling Eyes
+iabbrev :blush: 😊  " Blushing face
+iabbrev :lol: 😂
+iabbrev :+1: 👍
+iabbrev :zzz: 😴  " Sleeping face
+iabbrev :tada: 🎉
+iabbrev :cool: 😎
+iabbrev :heart_eyes: 😍
+" }}}
+
+if filereadable(glob("./vimrc.local"))
+    echo "Executing ./vimrc.local"
+    source ./vimrc.local
 endif
 
 if !empty($PROJECT_VIMRC) && filereadable(glob($PROJECT_VIMRC . "/vimrc.local"))
