@@ -14,9 +14,9 @@ num = args.start_number
 for file in files:
     if file.endswith(".jpg") or file.endswith(".jpeg"):
         if re.match(r"^P\d{5}", file):
-            dest = f"P{num:05d} {file[6:]}"
+            dest = f"P{num:05d}{file[6:]}"
         else:
-            dest = f"P{num:05d} {file}"
+            dest = f"P{num:05d}{file}"
 
         print(f"{file} => {dest}")
         os.rename(file, dest)
