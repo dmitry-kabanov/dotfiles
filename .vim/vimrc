@@ -561,7 +561,7 @@ nnoremap <LocalLeader>tt :TestNearest<CR>
 " Options for neovim-treesitter {{{
 if has("nvim")
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
+require'nvim-treesitter'.setup {
   ensure_installed = {
     "python",
     "fortran",
@@ -569,7 +569,9 @@ require'nvim-treesitter.configs'.setup {
     "c",
     "cpp",
     "bibtex",
+    "julia",
     "latex",
+    "rust",
   },
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -591,6 +593,9 @@ require'nvim-treesitter.configs'.setup {
     enable = false,
     disable = {},
   },
+}
+require'nvim-treesitter'.install {
+  "bash", "bibtex", "c", "cpp", "fortran", "julia", "latex", "python", "rust"
 }
 EOF
 " Folding
