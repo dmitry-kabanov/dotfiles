@@ -54,8 +54,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
 
-" EditorConfig plugin.
-Plug 'editorconfig/editorconfig-vim'
+" EditorConfig plugin is included in Vim 9.0.1799+ as well as Neovim 0.9+.
+if !has("patch-9.0.1799") || (has("nvim") && !has("nvim-0.9"))
+  echo "Time to upgrade your Vim or Neovim!!!"
+  Plug 'editorconfig/editorconfig-vim'
+endif
 " Run external commands asynchronously.
 Plug 'tpope/vim-dispatch'
 " Asynchronous search in Vim with different search tools (ag, rg, etc.).
