@@ -304,15 +304,30 @@ else
     if $COLORTERM == 'gnome-terminal'
         let g:solarized_termcolors=16
         set t_Co=256
+        colorscheme solarized8_flat
+        set background=light
+    endif
+
+    if $ALACRITTY_WINDOW_ID
+        let g:gruvbox_contrast_light="hard"
+        set background=light
+        colorscheme gruvbox
     endif
 
     if $SSH_CONNECTION
-        set background=dark
+        set background=light
     else
-        set background=dark
+        set background=light
     endif
-    colorscheme gruvbox
 endif
+
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+set t_Co=256
+set background=light
+let g:gruvbox_contrast_light="hard"
+colorscheme gruvbox
 
 " Font
 if has("gui_macvim")
