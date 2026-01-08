@@ -36,10 +36,11 @@ if has("nvim")
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 endif
 
+" --- Language Server Protocol (LSP) and autocompletion.
 " A code-completion engine for Vim.
-Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clangd-completer' }
-" Generate .ycm_extra_conf.py for YouCompleteMe.
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clangd-completer --rust-completer --ts-completer --ninja' }
+Plug 'ycm-core/lsp-examples', { 'do': 'python3 install.py --enable-bash --enable-cmake --enable-css --enable-docker --enable-fortran --enable-julia --enable-viml --enable-yaml' }
+
 " FZF provides list filtration.
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " More advanced FZF plugin to select files, buffers, etc.
@@ -448,25 +449,7 @@ let g:ycm_semantic_triggers =  {
 \ }
 let g:ycm_clangd_args = ["--header-insertion=never"]
 
-let g:ycm_language_server =
-  \ [
-  \   {
-  \     'name': 'yaml',
-  \     'cmdline': [ '/path/to/yaml/server/yaml-language-server', '--stdio' ],
-  \     'filetypes': [ 'yaml' ]
-  \   },
-  \   {
-  \     'name': 'godot',
-  \     'filetypes': [ 'gdscript' ],
-  \     'port': 6008,
-  \     'project_root_files': [ 'project.godot' ]
-  \    },
-  \   {
-  \     'name': 'cmake',
-  \     'cmdline': [ 'cmake-language-server' ],
-  \     'filetypes': [ 'cmake' ],
-  \   }
-  \ ]
+source /home/dima/.vim/plugged/lsp-examples/vimrc.generated
 
 " This options controls whether or not YCM shows documentation in a popup
 " at the cursor location after a short delay.
