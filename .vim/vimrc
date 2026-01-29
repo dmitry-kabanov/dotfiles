@@ -54,6 +54,7 @@ Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
+Plug 'hotwatermorning/auto-git-diff'
 
 " EditorConfig plugin is included in Vim 9.0.1799+ as well as Neovim 0.9+.
 if !has("patch-9.0.1799") || (has("nvim") && !has("nvim-0.9"))
