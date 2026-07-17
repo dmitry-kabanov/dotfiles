@@ -49,11 +49,9 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! spookfox
- :recipe (:host github :repo "bitspook/spookfox" :files ("lisp/*.el" "lisp/apps/*.el")))
-
-(package-install 'js-comint)
-
+(package! org-preview-html)
 
 ; Major mode for screenplay writing.
 (package! fountain-mode)
+
+(package! flycheck-vale)
