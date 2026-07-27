@@ -521,10 +521,14 @@ if has('mac')
     nnoremap <silent> l :<C-U>TmuxNavigateRight<cr>
     nnoremap <silent> \ :TmuxNavigatePrevious<cr>
 else
-    execute "set <A-h>=h"
-    execute "set <A-j>=j"
-    execute "set <A-k>=k"
-    execute "set <A-l>=l"
+    " If Alt is not recognized as Esc (decimal code 27),
+    " we enforce <A-D> to send D (D = direction).
+    if char2nr("\<A-l") != 27
+      execute "set <A-h>=h"
+      execute "set <A-j>=j"
+      execute "set <A-k>=k"
+      execute "set <A-l>=l"
+    endif
     nnoremap <silent> <A-h> :<C-U>TmuxNavigateLeft<cr>
     nnoremap <silent> <A-j> :<C-U>TmuxNavigateDown<cr>
     nnoremap <silent> <A-k> :<C-U>TmuxNavigateUp<cr>
