@@ -7,10 +7,10 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 (if (string-match-p "^keldysh" (system-name))
-	(setq user-full-name "Dmitry Kabanov"
-		  user-mail-address "dmitry.kabanov@uni-muenster.de")
-	(setq user-full-name "Dmitry Kabanov"
-		  user-mail-address "kabanov.dmitry@gmail.com"))
+    (setq user-full-name "Dmitry Kabanov"
+	  user-mail-address "dmitry.kabanov@uni-muenster.de")
+  (setq user-full-name "Dmitry Kabanov"
+	user-mail-address "kabanov.dmitry@gmail.com"))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -26,12 +26,12 @@
 ;;
 
 (if (string-match-p "^keldysh" (system-name))
-	;; (setq doom-font (font-spec :family "Source Code Pro for Powerline" :size 20 :weight 'medium)
-	;;       doom-variable-pitch-font (font-spec :family "Source Code Pro for Powerline" :size 20 :weight 'medium))
-	(setq doom-font (font-spec :family "Geist Mono" :size 20 :weight 'medium)
-		  doom-variable-pitch-font (font-spec :family "Alegreya" :size 20 :weight 'medium))
-	(setq doom-font (font-spec :family "Menlo" :size 16 :weight 'semi-light)
-		  doom-variable-pitch-font (font-spec :family "ETBembo" :size 16)))
+    ;; (setq doom-font (font-spec :family "Source Code Pro for Powerline" :size 20 :weight 'medium)
+    ;;       doom-variable-pitch-font (font-spec :family "Source Code Pro for Powerline" :size 20 :weight 'medium))
+    (setq doom-font (font-spec :family "Geist Mono" :size 20 :weight 'medium)
+	  doom-variable-pitch-font (font-spec :family "Alegreya" :size 20 :weight 'medium))
+  (setq doom-font (font-spec :family "Menlo" :size 16 :weight 'semi-light)
+	doom-variable-pitch-font (font-spec :family "ETBembo" :size 16)))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -51,7 +51,7 @@
 ;; change `org-directory'. It must be set before org loads!
 (if (string-match-p "^keldysh" (system-name))
     (setq org-directory "~/pCloud Drive/Documents/Notes/")
-    (setq org-directory "~/Documents/Notes/"))
+  (setq org-directory "~/Documents/Notes/"))
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -116,7 +116,8 @@
 
 
 ;; Move by visual lines not logical ones (ending with '\n').
-(global-visual-line-mode t)
+;; (global-visual-line-mode t)
+(add-hook! '(org-mode-hook markdown-mode-hook) #'visual-line-mode)
 
 
 ;; Zen mode settings (centered buffer without any distrations for writing).
@@ -129,9 +130,9 @@
 ;; This variables accepts `nil' or `shell-escape-mode' values.
 (after! latex
   (add-hook 'latex-preview-pane-mode-hook
-    (lambda()
-      (setq-local shell-escape-mode "-shell-escape")
-      (setq-local pdf-latex-command "latexmk"))))
+            (lambda()
+              (setq-local shell-escape-mode "-shell-escape")
+              (setq-local pdf-latex-command "latexmk"))))
 
 (setq org-roam-directory (file-truename "~/pCloud Drive/Documents/Notes/zettelkasten"))
 
@@ -223,14 +224,16 @@ removing semantic line breaks while preserving paragraph breaks and Markdown str
     (setq-local visual-fill-column-extra-text-width nil)))
 
 ;; Run this hook immediately before visual-fill-column adjusts the window margins
-(advice-add 'visual-fill-column--adjust-window :before #'my/auto-adjust-visual-fill-column-extra-width)
-
-
-(add-to-list 'exec-path "/home/dima/sw/miniforge3/envs/jupyter/bin/")
+(advice-add 'visual-fill-column--adjust-window
+            :before #'my/auto-adjust-visual-fill-column-extra-width)
 
 (use-package visual-fill-column
   :ensure t
   :config
   (add-hook 'visual-line-mode-hook #'visual-fill-column-for-vline)
-  (setq visual-fill-column-toggle-center-text t)
-)
+  (setq visual-fill-column-toggle-center-text t))
+
+;; emacs-jupyter
+(if (string-match-p "^keldysh" (system-name))
+  (add-to-list 'exec-path "/home/dima/sw/miniforge3/envs/jupyter/bin/")
+  (add-to-list 'exec-path "~/Software/miniforge3/envs/jupyter/bin/"))
