@@ -521,6 +521,10 @@ if has('mac')
     nnoremap <silent> l :<C-U>TmuxNavigateRight<cr>
     nnoremap <silent> \ :TmuxNavigatePrevious<cr>
 else
+    execute "set <A-h>=h"
+    execute "set <A-j>=j"
+    execute "set <A-k>=k"
+    execute "set <A-l>=l"
     nnoremap <silent> <A-h> :<C-U>TmuxNavigateLeft<cr>
     nnoremap <silent> <A-j> :<C-U>TmuxNavigateDown<cr>
     nnoremap <silent> <A-k> :<C-U>TmuxNavigateUp<cr>
