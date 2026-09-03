@@ -237,3 +237,12 @@ removing semantic line breaks while preserving paragraph breaks and Markdown str
 (if (string-match-p "^keldysh" (system-name))
   (add-to-list 'exec-path "/home/dima/sw/miniforge3/envs/jupyter/bin/")
   (add-to-list 'exec-path "~/Software/miniforge3/envs/jupyter/bin/"))
+
+(use-package typst-ts-mode
+  :ensure t
+  :custom
+  (typst-ts-watch-options "--open")
+  (typst-ts-mode-grammar-location (expand-file-name "tree-sitter/libtree-sitter-typst.so" user-emacs-directory))
+  (typst-ts-mode-enable-raw-blocks-highlight t)
+  :config
+  (keymap-set typst-ts-mode-map "C-c C-c" #'typst-ts-tmenu))

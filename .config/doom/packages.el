@@ -55,3 +55,6 @@
 (package! fountain-mode)
 
 (package! flycheck-vale)
+
+; Typst TreeSitter mode
+(package! typst-ts-mode :recipe (:host codeberg :repo "meow_king/typst-ts-mode"))
