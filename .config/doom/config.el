@@ -90,6 +90,7 @@
 
 (add-to-list 'default-frame-alist '(width . 96))
 (add-to-list 'default-frame-alist '(height . 53))
+(add-to-list 'default-frame-alist '(top . 0.0))
 (set-input-method "cyrillic-jcuken")
 
 (after! org
