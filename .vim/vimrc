@@ -450,7 +450,7 @@ let g:ycm_semantic_triggers =  {
 \ }
 let g:ycm_clangd_args = ["--header-insertion=never"]
 
-source /home/dima/.vim/plugged/lsp-examples/vimrc.generated
+source ~/.vim/plugged/lsp-examples/vimrc.generated
 
 " This options controls whether or not YCM shows documentation in a popup
 " at the cursor location after a short delay.
