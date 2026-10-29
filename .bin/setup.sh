@@ -27,6 +27,8 @@ git config --global color.ui auto
 git config --global commit.template $HOME/.git-commit-template.txt
 git config --global init.defaultBranch main
 git config --global push.default simple
+git config --global fetch.prune true  # Remove local branches if they are deleted remotely
+git config --global push.recurseSubmodules check  # Refuse pushing if submodule is not pushed
 
 e_success "git config is successfull"
 
